@@ -1,0 +1,85 @@
+#!/bin/bash
+
+# 0. Load Environment
+source "$COPOR_HELPERS_PATH/copor_env.sh"
+
+# --- Environment Check ---
+# Assuming COPOR_PATH is the parent directory containing /client and /frontend
+if [ -z "$COPOR_PATH" ]; then
+    echo -e "${RED_COLOR}Error: COPOR_PATH not defined. Source your .zshrc first.${NO_COLOR}"
+    exit 1
+fi
+
+# --- Parameters ---
+# $1: Relative path from copor root (e.g., "packages/core/flutter/lib/src" or "packages/todo/server/src")
+# $2: Output filename (default: skeleton.md)
+REL_SEARCH_PATH="${1:-packages/core/flutter/lib/src}"
+OUTPUT_NAME="${2:-skeleton.md}"
+
+TARGET_SEARCH_PATH="$COPOR_PATH/$REL_SEARCH_PATH"
+OUTPUT_FILE="$COPOR_PATH/$OUTPUT_NAME"
+
+# --- Regex Definitions ---
+DART_STRUCT="^(abstract class|class|mixin|enum) "
+DART_MEMBER="^  final |^  @override"
+DART_METHOD="^  (getIt|[a-zA-Z])[a-zA-Z0-9_ <>\.]*\(.*\)($| {)"
+DART_COMBINED="$DART_STRUCT|$DART_MEMBER|$DART_METHOD"
+
+TS_STRUCT="^(export )?(interface|class|enum|type|abstract class) "
+TS_MEMBER="^  (public|private|protected|readonly|static) "
+TS_METHOD="^  (async )?[a-zA-Z0-9_]+\(.*\)"
+TS_COMBINED="$TS_STRUCT|$TS_MEMBER|$TS_METHOD"
+
+# --- Execution ---
+echo -e "${BLUE_COLOR}Generating Skeleton for: $REL_SEARCH_PATH${NO_COLOR}"
+echo -e "${BLUE_COLOR}Target Root: $COPOR_PATH${NO_COLOR}"
+
+{
+    echo "# Repository Skeleton: $REL_SEARCH_PATH"
+    echo "Generated on: $(date)"
+    echo -e "\n> Structural overview with hierarchical path nesting.\n"
+    echo "---"
+} > "$OUTPUT_FILE"
+
+last_dir=""
+
+# Find .dart and .ts files, excluding generated ones
+find "$TARGET_SEARCH_PATH" \( -name "*.dart" -o -name "*.ts" \) \
+    ! -name "*.g.dart" ! -name "*.d.ts" | sort | while read -r file; do
+
+    current_file_dir=$(dirname "$file")
+    filename=$(basename "$file")
+    extension="${filename##*.}"
+
+    # Folder Breadcrumb Logic
+    if [ "$current_file_dir" != "$last_dir" ]; then
+        # Create a clean path relative to the copor root for display
+        rel_to_root="${current_file_dir#$COPOR_PATH/}"
+        display_path=$(echo "$rel_to_root" | sed 's/\// > /g' | tr '[:lower:]' '[:upper:]')
+
+        echo -e "\n## 📂 $display_path\n" >> "$OUTPUT_FILE"
+        last_dir="$current_file_dir"
+    fi
+
+    echo "<details>" >> "$OUTPUT_FILE"
+    echo "<summary>$filename</summary>" >> "$OUTPUT_FILE"
+
+    if [ "$extension" == "ts" ]; then
+        echo -e "\n\`\`\`typescript" >> "$OUTPUT_FILE"
+        CURRENT_REGEX="$TS_COMBINED"
+    else
+        echo -e "\n\`\`\`dart" >> "$OUTPUT_FILE"
+        CURRENT_REGEX="$DART_COMBINED"
+    fi
+
+    # Extraction Logic
+    grep -E "$CURRENT_REGEX" "$file" | \
+    grep -vE "if \(|for \(|while \(|switch \(|return " | \
+    sed "s/ {.*//" >> "$OUTPUT_FILE"
+
+    echo "\`\`\`" >> "$OUTPUT_FILE"
+    echo "</details>" >> "$OUTPUT_FILE"
+
+done
+
+echo -e "\n${BLUE_COLOR}Done! File saved to: $OUTPUT_FILE${NO_COLOR}"

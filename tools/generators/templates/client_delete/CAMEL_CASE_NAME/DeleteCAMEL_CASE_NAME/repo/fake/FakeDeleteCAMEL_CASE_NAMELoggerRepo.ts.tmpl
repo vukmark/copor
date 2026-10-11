@@ -1,0 +1,9 @@
+import {LogRepository} from '@copor/core/domain/Core/Logger/LogRepository';
+import {LogDataForDeleteCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/logger/LogDeleteCAMEL_CASE_NAME';
+import {LogForSave} from '@copor/core/domain/Core/Logger/LogForSave';
+
+export class FakeDeleteCAMEL_CASE_NAMELoggerRepo implements LogRepository<LogDataForDeleteCAMEL_CASE_NAME> {
+	save(logDTO: LogForSave<LogDataForDeleteCAMEL_CASE_NAME>): Promise<void> {
+		return Promise.resolve();
+	}
+}

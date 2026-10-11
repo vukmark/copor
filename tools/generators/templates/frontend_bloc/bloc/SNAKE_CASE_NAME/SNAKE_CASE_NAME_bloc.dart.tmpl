@@ -1,0 +1,29 @@
+import 'dart:async';
+import 'package:bloc/bloc.dart';
+import 'package:MODULE_IMPORT_PREFIX/data/repository_impl/SNAKE_CASE_NAME/SNAKE_CASE_NAME_repository.dart';
+import 'SNAKE_CASE_NAME_event.dart';
+import 'SNAKE_CASE_NAME_state.dart';
+
+class CAMEL_CASE_NAMEBloc extends Bloc<CAMEL_CASE_NAMEEvent, CAMEL_CASE_NAMEState> {
+  final CAMEL_CASE_NAMERepository _LOWER_FIRST_CAMEL_CASE_NAMERepository;
+
+  CAMEL_CASE_NAMEBloc({required CAMEL_CASE_NAMERepository LOWER_FIRST_CAMEL_CASE_NAMERepository})
+      : _LOWER_FIRST_CAMEL_CASE_NAMERepository = LOWER_FIRST_CAMEL_CASE_NAMERepository,
+        super(CAMEL_CASE_NAMEState.initial()) {
+    on<GetCAMEL_CASE_NAME>(_onGetCAMEL_CASE_NAME);
+  }
+
+  Future<void> _onGetCAMEL_CASE_NAME(GetCAMEL_CASE_NAME event, Emitter<CAMEL_CASE_NAMEState> emit) async {
+    emit(CAMEL_CASE_NAMEState.loading(result: state.result));
+
+    final result = await _LOWER_FIRST_CAMEL_CASE_NAMERepository.getCAMEL_CASE_NAME();
+    result.fold(
+          (failure) {
+        emit(CAMEL_CASE_NAMEState.failure(failure: failure, result: state.result));
+      },
+          (success) {
+        emit(CAMEL_CASE_NAMEState.fetched(result: success));
+      },
+    );
+  }
+}

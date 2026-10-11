@@ -1,0 +1,35 @@
+#!/bin/bash
+
+source $VUKMARK_PATH/tools/helpers/printer.sh
+source $VUKMARK_PATH/tools/helpers/input_validators.sh
+
+if [ "$#" -ne 1 ]; then
+    print_error "Usage: vuk build web <VERSION_NUMBER>"
+    exit 1
+fi
+
+VERSION_NUMBER=$1
+exit_if_invalid_version $VERSION_NUMBER
+
+print_info "Building version: $VERSION_NUMBER"
+RELEASE_BRANCH=${VUKMARK_RELEASE_BRANCH:-master}
+cd $VUKMARK_PATH || { print_error "VukMark not found at $VUKMARK_PATH. Exiting."; exit 1; }
+
+print_info "Checking out to $RELEASE_BRANCH..."
+git checkout $RELEASE_BRANCH || { print_error "Failed to checkout master. Exiting."; exit 1; }
+
+print_info "Pulling latest changes from origin $RELEASE_BRANCH..."
+git pull origin $RELEASE_BRANCH || { print_error "Failed to pull changes. Exiting."; exit 1; }
+
+print_info "Checking out Git tag $VERSION_NUMBER..."
+git checkout tags/$VERSION_NUMBER || { print_error "Failed to checkout tag '$VERSION_NUMBER'."; exit 1; }
+
+print_info "Running flutter pub get..."
+bash $VUKMARK_PATH/scripts/git-hooks/pub-get-if-packages-changed.sh FORCE || { print_error "Failed to run flutter pub get. Exiting."; exit 1; }
+cd $VUKMARK_PATH/frontend || exit 1
+
+print_info "Building Flutter web release app..."
+rm -rf build/web  # a clean output: stale files from older builds would be deployed too
+flutter build web || { print_error "Failed to build web app. Exiting."; exit 1; }
+
+print_info "Build completed successfully. Versioned build is located at: $BUILD_DIR"

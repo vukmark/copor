@@ -1,0 +1,26 @@
+## [TEMPLATE] - 2025-09-03
+
+### ✨ New Features
+
+-   **Initial Release:** Launched the first version of the application.
+-   **User Authentication:** Users can now sign up and log in using their email and password.
+-   **Dashboard View:** A central dashboard has been added to display key user information.
+
+### 🚀 Improvements
+
+-   Optimized initial app load time by 30%.
+-   Enhanced UI responsiveness on tablet devices.
+
+### 🐛 Bug Fixes
+
+-   Fixed a crash that occurred when submitting a form with invalid data.
+-   Corrected a typo on the main settings screen.
+-   Resolved an issue where the user's profile picture would not update correctly.
+
+<!--
+RELEASES
+
+iOS: https://testflight.apple.com/join/Ay9VDU3C
+Android: https://example.com/download/copor.VERSION.apk
+
+-->

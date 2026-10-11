@@ -1,0 +1,31 @@
+{
+  "translationStringList": {
+    "SYSTEM_SETTINGS": "Systemkonfiguration",
+    "SYSTEM_SETTINGS_NAME": "Name",
+    "EMAIL_SERVER_SETTINGS": "E-Mail-Server-Einstellungen",
+    "SMTP_HOST": "SMTP-Host",
+    "HOST_REQUIRED": "Host ist erforderlich",
+    "SMTP_PORT": "SMTP-Port",
+    "PORT_REQUIRED": "Port ist erforderlich",
+    "SMTP_SECURE": "SMTP-Sicherheit (true/false)",
+    "SMTP_USER": "SMTP-Benutzer",
+    "USER_REQUIRED": "Benutzer ist erforderlich",
+    "SMTP_PASSWORD": "SMTP-Passwort",
+    "PASSWORD_REQUIRED": "Passwort ist erforderlich",
+    "RESET_DEFAULTS": "Standardwerte zurücksetzen",
+    "SAVE_CHANGES": "Änderungen speichern",
+    "UPDATE_SYSTEM_SETTINGS_SUCCESS_MESSAGE": "Systemeinstellungen erfolgreich aktualisiert.",
+    "CONFIGURE": "Konfigurieren",
+    "ACTIONS": "Aktionen",
+    "smtp": "E-Mail-Server-Einstellungen",
+    "SMTP": "SMTP",
+    "SMTP_TEST": "SMTP-Verbindung testen",
+    "GLOBAL": "GLOBAL",
+    "DISPLAY": "DISPLAY",
+    "WORKFLOW": "WORKFLOW",
+    "NOTIFIER": "NOTIFIER",
+    "PASSWORD": "PASSWORD",
+    "NOTIFIER": "NOTIFIER",
+    "TIME_ZONE": "TIME ZONE"
+  }
+}

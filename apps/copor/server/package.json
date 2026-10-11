@@ -1,0 +1,39 @@
+{
+  "name": "@copor/app-copor-server",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "description": "The Copor app (server): composition root, config and runtime data",
+  "scripts": {
+    "dev": "CHOKIDAR_USEPOLLING=true npx tsx watch --exclude 'settings/*.json' src/index.ts",
+    "debug": "CHOKIDAR_USEPOLLING=true npx tsx watch --inspect --exclude 'settings/*.json' src/index.ts",
+    "build": "tsc -p tsconfig.json && tsc-alias -p tsconfig.json && node bin/copyBuildAssets.js && node bin/writeDistPackage.js",
+    "start": "node dist/apps/copor/server/src/index.js",
+    "test": "jest",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "db:migrate": "ts-node -r tsconfig-paths/register src/runMigrations.ts",
+    "clear_cache": "npx tsx src/RunClearCache.ts"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.21",
+    "@copor/ai_context_item": "*",
+    "@copor/calendar_entry": "*",
+    "@copor/checklist": "*",
+    "@copor/cloud": "*",
+    "@copor/contacts": "*",
+    "@copor/core": "*",
+    "@copor/help": "*",
+    "@copor/news": "*",
+    "@copor/todo": "*",
+    "@copor/vu_meet": "*",
+    "dotenv": "^16.4.7",
+    "dotenv-expand": "^12.0.3",
+    "express": "^4.19.2",
+    "kysely": "^0.28.16",
+    "mysql2": "^3.14.0",
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "i18next": "^23.11.5"
+  }
+}

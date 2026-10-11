@@ -1,0 +1,34 @@
+import 'package:copor_core/src/data/data_source/base_local_data_source.dart';
+import 'package:MODULE_IMPORT_PREFIX/data/model/SNAKE_CASE_NAME/SNAKE_CASE_NAME_model.dart';
+import 'package:MODULE_IMPORT_PREFIX/data/repository_impl/SNAKE_CASE_NAME/SNAKE_CASE_NAME_repository_impl.dart';
+import 'package:copor_core/src/utils/typedef.dart';
+
+class CAMEL_CASE_NAMELocalDataSourceImpl
+    extends BaseLocalDataSource<CAMEL_CASE_NAMEItemModel>
+    implements CAMEL_CASE_NAMELocalDataSource {
+  CAMEL_CASE_NAMELocalDataSourceImpl({
+    required super.sharedPreferences,
+    required super.keyGenerator,
+  });
+
+  @override
+  CAMEL_CASE_NAMEItemModel fromJson(Map<String, dynamic> json) {
+    return CAMEL_CASE_NAMEItemModel.fromJson(json);
+  }
+
+  @override
+  JSON toJson(CAMEL_CASE_NAMEItemModel model) {
+    return model.toJson();
+  }
+
+  @override
+  Future<CAMEL_CASE_NAMEItemModel> getCAMEL_CASE_NAME() async {
+    return await getData(CAMEL_CASE_NAMEItemModel.namespaceStatic, null);
+  }
+
+  @override
+  Future<void> setCAMEL_CASE_NAME(
+      CAMEL_CASE_NAMEItemModel LOWER_FIRST_CAMEL_CASE_NAMEModel) async {
+    return await saveData(LOWER_FIRST_CAMEL_CASE_NAMEModel, null);
+  }
+}

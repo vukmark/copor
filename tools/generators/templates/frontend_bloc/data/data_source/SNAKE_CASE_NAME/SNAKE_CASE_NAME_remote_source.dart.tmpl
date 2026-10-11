@@ -1,0 +1,26 @@
+import 'package:MODULE_IMPORT_PREFIX/data/repository_impl/SNAKE_CASE_NAME/SNAKE_CASE_NAME_repository_impl.dart';
+import 'package:retrofit/retrofit.dart';
+import 'package:dio/dio.dart';
+
+part 'SNAKE_CASE_NAME_remote_source.g.dart';
+
+@RestApi()
+abstract class CAMEL_CASE_NAMERemoteDataSourceImpl
+    implements CAMEL_CASE_NAMERemoteDataSource {
+  factory CAMEL_CASE_NAMERemoteDataSourceImpl(Dio dio, {String baseUrl}) =
+      _CAMEL_CASE_NAMERemoteDataSourceImpl;
+
+/**
+    EXAMPLE:
+    @override
+    @GET("/locale/{namespace}")
+    Future<CAMEL_CASE_NAMEModel> getCAMEL_CASE_NAME(@Path("namespace") String namespace,
+    @Header('Accept-Language') String languageCode);
+
+    @override
+    @PATCH("/locale/{namespace}")
+    Future<void> updateCAMEL_CASE_NAME(
+    @Path("namespace") CAMEL_CASE_NAMEModel translationModel,
+    @Header('Accept-Language') String languageCode);
+ **/
+}

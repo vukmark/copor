@@ -1,0 +1,9 @@
+{
+  "translationStringList": {
+    "PROGRESS": "Fortschritt",
+    "DUE_DATE": "Fälligkeitsdatum",
+    "ADD_TODO": "To-do erstellen",
+    "EDIT_TODO": "To-do bearbeiten",
+    "TODO": "To-do"
+  }
+}

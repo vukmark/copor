@@ -1,0 +1,18 @@
+{
+  "translationStringList": {
+    "contacts": {
+      "canViewContactsFeature": "Zugriff auf Kontaktfunktion",
+      "canGetContactList": "Kontaktliste anzeigen",
+      "canGetContactById": "Kontakt anhand der ID anzeigen",
+      "canGetUserContactInformation": "Kontaktinformationen des Benutzers anzeigen"
+    }
+  },
+  "descriptions": {
+    "contacts": {
+      "canViewContactsFeature": "",
+      "canGetContactList": "",
+      "canGetContactById": "",
+      "canGetUserContactInformation": ""
+    }
+  }
+}

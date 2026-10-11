@@ -1,0 +1,44 @@
+#!/bin/bash
+
+source $VUKMARK_PATH/tools/helpers/printer.sh
+source $VUKMARK_PATH/tools/helpers/input_validators.sh
+source $VUKMARK_PATH/tools/helpers/deploy_server.sh
+# Check if a configuration file path is provided
+if [ "$#" -ne 2 ]; then
+    print_error_how_to_set_remote_config
+    exit 1
+fi
+
+source $1
+
+if [ -z "$API_BASE_URL" ]; then
+  print_error "API_BASE_URL is not set in $1"
+  exit 1
+fi
+
+VERSION=$2
+
+build_server
+
+print_info "Running flutter pub get..."
+bash $VUKMARK_PATH/scripts/git-hooks/pub-get-if-packages-changed.sh FORCE || { print_error "Failed to run flutter pub get. Exiting."; exit 1; }
+
+cd $VUKMARK_FRONTEND_PATH
+print_info "Building Flutter web release app..."
+rm -rf build/web  # a clean output: stale files from older builds would be deployed too
+flutter build web --dart-define=API_BASE_URL=${API_BASE_URL} || { print_error "Failed to build web app. Exiting."; exit 1; }
+
+
+print_info "Building Flutter android release app..."
+flutter build apk --dart-define=API_BASE_URL=${API_BASE_URL} || { print_error "Failed to build android release app. Exiting."; exit 1; }
+print_info "Build completed successfully. Versioned build is located at: $BUILD_DIR"
+
+deploy_server
+
+APK_NAME="vukmark.$VERSION.apk"
+APK_BUILD_PATH="$VUKMARK_FRONTEND_PATH/build/app/outputs/flutter-apk"
+mv "$APK_BUILD_PATH/app-release.apk"  "$APK_BUILD_PATH/$APK_NAME"
+
+rsync -aqP --delete "$VUKMARK_FRONTEND_PATH/build/web" "$SSH_USER@$SSH_HOST:$WEB_REMOTE_PATH" || { print_error "Failed to copy backend to remote"; exit 1; }
+rsync -aqP "$APK_BUILD_PATH/$APK_NAME" "$SSH_USER@$SSH_HOST:$WEB_REMOTE_PATH/download/" || { print_error "Failed to copy backend to remote"; exit 1; }
+

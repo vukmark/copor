@@ -1,0 +1,27 @@
+#!/bin/bash
+# Creates apps/copor/server/.env from its .dist.env template (gitignored).
+
+source $COPOR_PATH/tools/helpers/printer.sh
+
+ENV_FILE=$COPOR_PATH/apps/copor/server/.env
+TEMPLATE=$COPOR_PATH/apps/copor/server/.dist.env
+
+# Older setups linked client/.env to a tracked config file; replace the link
+# with a regular (gitignored) copy of whatever it pointed at.
+if [ -L "$ENV_FILE" ]; then
+	TARGET=$(readlink -f "$ENV_FILE")
+	if [ -f "$TARGET" ]; then
+		cp --remove-destination "$TARGET" "$ENV_FILE"
+		print_info "Replaced the .env symlink with a copy of $TARGET"
+	else
+		rm "$ENV_FILE"
+	fi
+fi
+
+if [ -e "$ENV_FILE" ]; then
+	print_info "Already in place"
+	exit
+fi
+
+cp "$TEMPLATE" "$ENV_FILE"
+print_info "Created apps/copor/server/.env from its .dist.env — fill in real values (it is gitignored)"

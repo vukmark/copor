@@ -1,0 +1,130 @@
+import login.http
+run login.http
+
+### GET Country By ID
+GET {{host}}/country/bc71d666-46d8-4897-9510-bb9b63ab53d0
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### Get Country Table
+POST {{host}}/country/table
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [""]
+    },
+    {
+      "name": "SORT_BY_NAME",
+      "values": [""]
+    },
+    {
+      "name": "PUBLISH_STATUS",
+      "values": ["PUBLISHED", "UNPUBLISHED"]
+    }
+  ],
+  "limit": "3",
+  "offset": "3"
+}
+
+### Get Country List
+POST {{host}}/country/list
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [
+        ""
+      ]
+    },
+    {
+      "name": "SORT_BY_NAME",
+      "values": [
+        ""
+      ]
+    },
+    {
+      "name": "PUBLISH_STATUS",
+      "values": [
+        "PUBLISHED",
+        "UNPUBLISHED"
+      ]
+    }
+  ],
+  "limit": "2",
+  "offset": "2"
+}
+
+### Get Country Simple List
+POST {{host}}/country/simple-list
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [
+        ""
+      ]
+    }
+  ],
+  "limit": "2",
+  "offset": "0"
+}
+
+### Create Country
+POST {{host}}/country
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "name": "PS Utopia",
+  "code": "UTP",
+  "publishStatus": "PUBLISHED"
+}
+
+### Update Country By Id
+PATCH {{host}}/country
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "id": "08814278-d581-4e48-9cea-60c70d68ba13",
+  "name": "Utopoa upd",
+  "code": "uuu U",
+  "publishStatus": "UNPUBLISHED"
+}
+
+### DELETE Country By Id
+DELETE {{host}}/country/4e9932d6-5f6c-42d3-8f44-2b7683ba413d
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+
+### GET Country Form
+GET {{host}}/country/form
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### GET Country Form by ID
+GET {{host}}/country/form/25e3a1c5-2248-4bd1-9034-78b6cd6d92a7
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+

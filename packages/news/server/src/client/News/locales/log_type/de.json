@@ -1,0 +1,10 @@
+{
+  "translationStringList": {
+    "createNews": "Neuigkeit erstellt",
+    "deleteNews": "Neuigkeit gelöscht",
+    "getNews": "Neuigkeit abgerufen",
+    "getNewsList": "Neuigkeitenliste abgerufen",
+    "updateNews": "Neuigkeit aktualisiert",
+    "newsId": "Neuigkeits-ID"
+  }
+}

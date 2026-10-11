@@ -1,0 +1,66 @@
+import {PermissionRepository} from '@copor/core/domain/Core/Validations/PermissionRepository';
+import {
+	ValidateUpdateCAMEL_CASE_NAMERepo
+} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/repository/ValidateUpdateCAMEL_CASE_NAMERepo';
+import {ValidateUpdateCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/ValidateUpdateCAMEL_CASE_NAME';
+import {ErrorList} from '@copor/core/domain/Core/Exceptions/ErrorList';
+import {ForbiddenAccessException} from '@copor/core/domain/Core/Exceptions/ForbiddenAccessException';
+import {SaveCAMEL_CASE_NAMEDTO} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/dto/SaveCAMEL_CASE_NAMEDTO';
+import {InvalidCAMEL_CASE_NAMEException} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/exception/InvalidCAMEL_CASE_NAMEException';
+import {EmptyNameException} from '@copor/core/domain/Core/Exceptions/empty/EmptyNameException';
+
+describe('validate update Contract Type', () => {
+	let mockPermissionRepo: jest.Mocked<PermissionRepository>;
+	let mockStorageRepo: jest.Mocked<ValidateUpdateCAMEL_CASE_NAMERepo>;
+	let validator: ValidateUpdateCAMEL_CASE_NAME;
+	let input: SaveCAMEL_CASE_NAMEDTO;
+
+	beforeEach(() => {
+		mockPermissionRepo = {
+			isAllowed: jest.fn()
+		};
+
+		mockStorageRepo = {
+			isInvalidCAMEL_CASE_NAME: jest.fn()
+		};
+		input = {
+			id: 'id',
+			name: 'name',
+			actorId: 'actorId'
+		};
+		mockPermissionRepo.isAllowed.mockResolvedValue(true);
+		mockStorageRepo.isInvalidCAMEL_CASE_NAME.mockResolvedValue(false);
+	});
+
+	it('Should throw error if user is not allowed to update Contract Type', async () => {
+		const errorList = new ErrorList([new ForbiddenAccessException()]);
+
+		mockPermissionRepo.isAllowed.mockResolvedValue(false);
+
+		validator = new ValidateUpdateCAMEL_CASE_NAME(input, mockPermissionRepo, mockStorageRepo);
+		const result = await validator.validate();
+
+		expect(result).toStrictEqual(errorList);
+	});
+
+	it('Should throw error if Contract Type is invalid', async () => {
+		const errorList = new ErrorList([new InvalidCAMEL_CASE_NAMEException()]);
+
+		mockStorageRepo.isInvalidCAMEL_CASE_NAME.mockResolvedValue(true);
+		validator = new ValidateUpdateCAMEL_CASE_NAME(input, mockPermissionRepo, mockStorageRepo);
+		const result = await validator.validate();
+
+		expect(result).toStrictEqual(errorList);
+	});
+
+	it('Should throw error if name is empty', async () => {
+		const errorList = new ErrorList([new EmptyNameException()]);
+
+		input.name = '';
+		validator = new ValidateUpdateCAMEL_CASE_NAME(input, mockPermissionRepo, mockStorageRepo);
+		const result = await validator.validate();
+
+		expect(result).toStrictEqual(errorList);
+	});
+
+});

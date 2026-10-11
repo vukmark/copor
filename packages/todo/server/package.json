@@ -1,0 +1,16 @@
+{
+  "name": "@copor/todo",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "description": "Copor todo module (server)",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@copor/cloud": "*",
+    "@copor/core": "*",
+    "@copor/vu_meet": "*",
+    "kysely": "^0.28.16"
+  }
+}

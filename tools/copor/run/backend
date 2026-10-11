@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd $COPOR_PATH/apps/copor/server
+npm run dev

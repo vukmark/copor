@@ -1,0 +1,28 @@
+{
+  "translationStringList": {
+    "checklist": {
+      "canGetChecklistItemList": "Checklistenpunkte anzeigen",
+      "canCreateChecklist": "Checkliste erstellen",
+      "canEditChecklist": "Checkliste bearbeiten",
+      "canCreateChecklistItem": "Checklistenpunkt erstellen",
+      "canDeleteChecklist": "Checkliste löschen",
+      "canDeleteChecklistItem": "Checklistenpunkt löschen",
+      "canEditChecklistItem": "Checklistenpunkt bearbeiten",
+      "canSetCheckedChecklistItem": "Checklistenpunkt als erledigt markieren",
+      "canGetChecklist": "Checkliste anzeigen"
+    }
+  },
+  "descriptions": {
+    "checklist": {
+      "canGetChecklistItemList": "",
+      "canCreateChecklist": "",
+      "canEditChecklist": "",
+      "canCreateChecklistItem": "",
+      "canDeleteChecklist": "",
+      "canDeleteChecklistItem": "",
+      "canEditChecklistItem": "",
+      "canSetCheckedChecklistItem": "",
+      "canGetChecklist": ""
+    }
+  }
+}

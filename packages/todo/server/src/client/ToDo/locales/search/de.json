@@ -1,0 +1,13 @@
+{
+  "translationStringList": {
+    "URGENT": "Dringend",
+    "HIGH": "Hoch",
+    "NORMAL": "Normal",
+    "HALF_WAY": "Hälfte",
+    "LOW": "Niedrig",
+    "STARTED": "Gestartet",
+    "ALMOST_DONE": "Fast fertig",
+    "FINISHED": "Fertig",
+    "TO_DO": "To-do"
+  }
+}

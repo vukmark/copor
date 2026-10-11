@@ -1,0 +1,8 @@
+{
+  "translationStringList": {
+    "PRIVATE_MESSAGE_CREATED_NOTIFICATION_TITLE": "{{author}}",
+    "PRIVATE_MESSAGE_CREATED_NOTIFICATION_DESCRIPTION": "{{previewText}}",
+    "GROUP_MESSAGE_CREATED_NOTIFICATION_TITLE": "{{chat}}",
+    "GROUP_MESSAGE_CREATED_NOTIFICATION_DESCRIPTION": "{{author}}: {{previewText}}"
+  }
+}

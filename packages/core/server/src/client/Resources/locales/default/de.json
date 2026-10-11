@@ -1,0 +1,12 @@
+{
+  "translationStringList": {
+    "PASSWORD_RESET_CODE_EMAIL_TITLE": "Passwort-Zurücksetzungscode",
+    "PASSWORD_RESET_CODE_EMAIL": "Hallo {{userName}},<br><br>Ihr Code zum Zurücksetzen Ihres Passworts lautet:<br><strong>{{resetCode}}</strong><br><br>Dieser Code ist 30 Minuten lang gültig.<br><br>",
+    "REGISTRATION_LINK": "<a href='https://example.com/registration' rel='noopener noreferrer' target='_blank'>example.com/registration</a>",
+    "EMAIL_SIGNATURE": "<p>Mit freundlichen Grüßen,<br><br>Ihr Copor-Team</p><hr style=\"border:none; border-top:1px dashed #ddd; margin:16px 0;\"><p style=\"margin:0;\"><a href=\"https://example.com/info/terms_and_conditions\">Allgemeine Geschäftsbedingungen</a><br><a href=\"https://example.com/info/impressum\">Impressum</a><br><a href=\"https://example.com/privacy\">Datenschutz</a></p>",
+    "TEST_EMAIL": "<p>Dies ist die Testnachricht.<p><br>{{body}}",
+    "TEST_EMAIL_SUBJECT": "Test email sent at {{dateTime}}",
+    "REGISTRATION_CODE_EMAIL_TITLE": "Bestätigen Sie Ihre E-Mail-Adresse",
+    "REGISTRATION_CODE_EMAIL": "Hallo {{firstName}},<br><br>Ihr Bestätigungscode lautet:<br><strong>{{verificationCode}}</strong><br><br>Geben Sie ihn auf der Registrierungsseite ein, um Ihren Account zu aktivieren. Der Code ist 30 Minuten gültig.<br><br>Falls Sie keinen Account erstellt haben, können Sie diese E-Mail ignorieren.<br><br>"
+  }
+}

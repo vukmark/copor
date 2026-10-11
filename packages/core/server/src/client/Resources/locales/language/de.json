@@ -1,0 +1,14 @@
+{
+  "translationStringList": {
+    "LANGUAGE": "Sprache",
+    "SEARCH_LANGUAGE": "Sprachen suchen",
+    "SORT_BY": "Sortieren",
+    "FILTER_BY": "Filtern",
+    "NAME": "Name",
+    "CODE": "Code",
+    "ACTIONS": "Aktionen",
+    "ADD_LANGUAGE": "Hinzufügen",
+    "NATIVE_NAME": "Nativer Name",
+    "DELETE_LANGUAGE_MESSAGE": "Sind Sie sicher, dass Sie diese Sprache löschen möchten?"
+  }
+}

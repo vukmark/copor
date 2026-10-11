@@ -1,0 +1,21 @@
+import {GetItem} from '@copor/core/domain/Core/Repository/GetItem';
+import {GetCAMEL_CASE_NAMEDTO} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/dto/GetCAMEL_CASE_NAMEDTO';
+import {db} from '@copor/core/client/AppDataSource';
+
+export class KyselyGetCAMEL_CASE_NAMEInteractorRepo implements GetItem<GetCAMEL_CASE_NAMEDTO> {
+	async load(id: string): Promise<GetCAMEL_CASE_NAMEDTO> {
+		const result = await db
+			.selectFrom('LOWER_FIRST_CAMEL_CASE_NAME')
+			.select(['id', 'name'])
+			.where('id', '=', id)
+			.executeTakeFirst();
+
+		if (!result) {
+			throw new Error(`Contract Type with id ${id} not found`);
+		}
+
+		return {
+			... result
+		};
+	}
+}

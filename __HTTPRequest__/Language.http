@@ -1,0 +1,72 @@
+import login.http
+run login.http
+
+### GET Language Table
+POST {{host}}/language/table
+Accept-Language: en
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [
+        ""
+      ]
+    },
+    {
+      "name": "SORT_BY_NAME",
+      "values": [
+        "desc"
+      ]
+    }
+  ],
+  "limit":"2",
+  "offset": "42"
+}
+
+### GET Language List
+GET {{host}}/language/list
+Content-Type: application/json
+x-Version: {{x-version}}
+
+### CREATE language
+POST {{host}}/language
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "name": "PS-4 French",
+  "code": "fr_FR",
+  "nativeName": "Francis",
+  "publishStatus": "UNPUBLISHED"
+}
+
+### GET Language By ID
+GET {{host}}/language/55caf61c-2465-411e-8ec3-3f1707f6e6d4
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### UPDATE Language
+PATCH {{host}}/language
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "id": "6d912103-2c2a-11f0-9013-db3060506f3f",
+  "name": "Updated French",
+  "code": "fr_FR_updated",
+  "nativeName": "Français Updated",
+  "publishStatus": "PUBLISHED"
+}
+
+### DELETE Language
+DELETE {{host}}/language/6d912103-2c2a-11f0-9013-db3060506f3f
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}

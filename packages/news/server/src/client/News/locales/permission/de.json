@@ -1,0 +1,22 @@
+{
+  "translationStringList": {
+    "news": {
+      "canCreateNews": "Nachricht erstellen",
+      "canDeleteNews": "Nachricht löschen",
+      "canGetNews": "Nachricht anzeigen",
+      "canGetNewsList": "Nachrichtenliste anzeigen",
+      "canUpdateNews": "Nachricht aktualisieren",
+      "canViewNewsFeature": "Zugriff auf Nachrichtenfunktion"
+    }
+  },
+  "descriptions": {
+    "news": {
+      "canCreateNews": "",
+      "canDeleteNews": "",
+      "canGetNews": "",
+      "canGetNewsList": "",
+      "canUpdateNews": "",
+      "canViewNewsFeature": ""
+    }
+  }
+}

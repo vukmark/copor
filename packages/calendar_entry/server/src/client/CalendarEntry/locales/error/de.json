@@ -1,0 +1,5 @@
+{
+  "CalendarEntryOverlapException": "Dieser Zeitraum überschneidet sich mit einem vorhandenen Kalendereintrag",
+  "InvalidCalendarEntryException": "Kalendereintrag existiert nicht",
+  "InvalidCalendarEntryTypeException": "Diese Kalenderkategorie kann nicht manuell verwaltet werden"
+}

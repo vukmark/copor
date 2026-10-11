@@ -1,0 +1,15 @@
+import {SaveCAMEL_CASE_NAMERepo} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/repository/SaveCAMEL_CASE_NAMERepo';
+import {SaveCAMEL_CASE_NAMEDTO} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/dto/SaveCAMEL_CASE_NAMEDTO';
+import {db} from '@copor/core/client/AppDataSource';
+
+export class KyselyUpdateCAMEL_CASE_NAMEInteractorRepo implements SaveCAMEL_CASE_NAMERepo {
+	async save(saveDTO: SaveCAMEL_CASE_NAMEDTO): Promise<void> {
+		await db
+			.updateTable('LOWER_FIRST_CAMEL_CASE_NAME')
+			.set({
+				name: saveDTO.name
+			})
+			.where('id', '=', saveDTO.id)
+			.execute();
+	}
+}

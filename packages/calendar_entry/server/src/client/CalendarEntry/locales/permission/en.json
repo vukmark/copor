@@ -1,0 +1,20 @@
+{
+  "translationStringList": {
+    "calendar_entry": {
+      "canCreateCalendarEntry": "Create calendar entry",
+      "canUpdateCalendarEntry": "Update calendar entry",
+      "canDeleteCalendarEntry": "Delete calendar entry",
+      "canGetCalendarEntry": "View calendar entry",
+      "canGetCalendarEntryList": "View calendar entry list"
+    }
+  },
+  "descriptions": {
+    "calendar_entry": {
+      "canCreateCalendarEntry": "Allows creating a calendar entry. Found in the My Account area.",
+      "canUpdateCalendarEntry": "Allows updating a calendar entry. Found in the My Account area.",
+      "canDeleteCalendarEntry": "Allows deleting a calendar entry. Found in the My Account area.",
+      "canGetCalendarEntry": "Allows viewing a calendar entry. Found in the My Account area.",
+      "canGetCalendarEntryList": "Allows viewing calendar entry list. Found in the My Account area."
+    }
+  }
+}

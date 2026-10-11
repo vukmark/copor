@@ -1,0 +1,20 @@
+import {ListItems} from '@copor/core/domain/Core/Repository/ListItems';
+import {GetCAMEL_CASE_NAMEDTO} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/dto/GetCAMEL_CASE_NAMEDTO';
+import {ListRepoInputDTO} from '@copor/core/domain/Core/Interactors/ListItemsUseCase';
+
+export class FakeGetCAMEL_CASE_NAMEListInteractorRepo implements ListItems<GetCAMEL_CASE_NAMEDTO> {
+	public list(input: ListRepoInputDTO): Promise<GetCAMEL_CASE_NAMEDTO[]> {
+		return new Promise((resolve) => {
+			resolve([
+				{
+					id: 'someId',
+					name: 'Contract Name'
+				},
+				{
+					id: 'someId2',
+					name: 'Contract Name 2'
+				}
+			]);
+		});
+	}
+}

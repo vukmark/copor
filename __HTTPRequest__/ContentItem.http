@@ -1,0 +1,100 @@
+import login.http
+run login.http
+
+### Create Content Item
+POST {{host}}/content-item
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "title": "Neues Kulturzentrum im Stadtzentrum feierlich eröffnet",
+  "summary": "Die Stadt hat ein modernes Kulturzentrum eröffnet, das künftig zahlreiche Veranstaltungen, Ausstellungen und Bildungsprogramme für Bürgerinnen und Bürger anbieten wird.",
+  "content": "Am Freitag wurde das neue Kulturzentrum im Herzen der Stadt offiziell eröffnet. Zahlreiche Gäste, Vertreter der lokalen Verwaltung sowie Bürgerinnen und Bürger nahmen an der feierlichen Zeremonie teil. Das Gebäude verfügt über moderne Veranstaltungsräume, eine Bibliothek, mehrere Ausstellungsflächen und Räume für Bildungsprogramme.\n\nNach Angaben der Stadtverwaltung soll das Zentrum als wichtiger Treffpunkt für kulturelle und gesellschaftliche Aktivitäten dienen. Bereits in den kommenden Wochen sind Konzerte, Kunstausstellungen und Workshops geplant.\n\nBesucher zeigten sich begeistert von der modernen Architektur und dem vielfältigen Angebot. Die Verantwortlichen erwarten, dass das neue Zentrum einen positiven Beitrag zum kulturellen Leben der Region leisten wird.",
+  "roleId": ["ac896493-4998-42ed-ac79-50fe8e535564", "df433db5-2066-4d44-842a-648d8ac774a6"],
+  "publishStatus": "PUBLISHED",
+  "contentType": "NEWS"
+}
+> {% client.global.set("id", response.body); %}
+
+### Update Content Item By Id
+PATCH {{host}}/content-item/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "id": "{{id}}",
+  "title": "Title-test",
+  "summary": "Summary-test",
+  "content": "Content-test",
+  "roleId": ["ac896493-4998-42ed-ac79-50fe8e535564"],
+  "publishStatus": "PUBLISHED",
+  "contentType": "NEWS"
+}
+
+### GET Content Item By ID
+GET {{host}}/content-item/{{id}}
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Content Item List
+POST {{host}}/content-item/list
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [""]
+    },
+    {
+      "name": "SORT_BY_NAME",
+      "values": ["desc"]
+    }
+  ],
+  "limit": "10",
+  "offset": "0"
+}
+
+### GET Content Item Form
+GET {{host}}/content-item/form
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Content Item Form
+GET {{host}}/content-item/form/{{id}}
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### Get Content Item Table
+POST {{host}}/content-item/table
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [""]
+    },
+    {
+      "name": "SORT_BY_NAME",
+      "values": [""]
+    }
+  ],
+  "limit": "3",
+  "offset": "3"
+}
+
+### DELETE Content Item by ID
+DELETE {{host}}/content-item/{{id}}
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}

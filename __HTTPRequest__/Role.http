@@ -1,0 +1,120 @@
+import login.http
+run login.http
+
+### Get Role List
+POST {{host}}/role/list
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [""]
+    },
+    {
+      "name": "SORT_BY_NAME",
+      "values": ["desc"]
+    }
+  ]
+}
+
+### Get Role Simple List
+POST {{host}}/role/simple-list
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [""]
+    },
+    {
+      "name": "SORT_BY_NAME",
+      "values": ["desc"]
+    }
+  ]
+}
+
+### Get Role By RoleType
+GET {{host}}/role/type/2
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+### Get Role Table
+POST {{host}}/role/table
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [
+        ""
+      ]
+    },
+    {
+      "name": "SORT_BY_NAME",
+      "values": [
+        "asc"
+      ]
+    }
+  ],
+  "limit": "2",
+  "offset": "2"
+}
+
+### Get Role
+GET {{host}}/role/3146a99f-33c8-42f4-9b31-bd339b46f696
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+### CREATE Role
+POST {{host}}/role
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "name": "Support agent",
+  "type": "USER"
+}
+
+
+### DELETE Role
+DELETE {{host}}/role/df433db5-2066-4d44-842a-648d8ac774a6
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### UPDATE Role
+PATCH {{host}}/role
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "id": "b2d754ff-e41d-44b7-9773-8695f1da7609",
+  "name": "Updated",
+  "type": "66"
+}
+
+### Get Role Form
+GET {{host}}/role/form/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+### Get Role Form with current values
+GET {{host}}/role/form/79def640-4c91-4d51-9138-7bd82661b719
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}

@@ -1,0 +1,26 @@
+import login.http
+run login.http
+
+
+### CREATE Email
+POST {{host}}/email
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "type": "someType",
+  "receiver": "some@some.com",
+  "subject": "Subject string",
+  "payload": "Payload content"
+}
+
+### SEND pending emails from outbox
+POST {{host}}/email/send
+Content-Type: application/json
+x-version: {{x-version}}
+
+
+
+
+

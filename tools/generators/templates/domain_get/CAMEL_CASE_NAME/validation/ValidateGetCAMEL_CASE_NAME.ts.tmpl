@@ -1,0 +1,15 @@
+import {ValidateCanGetCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/validator/ValidateCanGetCAMEL_CASE_NAME';
+import {ValidateGetCAMEL_CASE_NAMERepo} from '../repository/ValidateGetCAMEL_CASE_NAMERepo';
+import {ValidateGetCAMEL_CASE_NAMEDTO} from './dto/ValidateGetCAMEL_CASE_NAMEDTO';
+import {ValidateCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/validator/ValidateCAMEL_CASE_NAME';
+import {ValidationWithPermissionAndRepo} from '@copor/core/domain/Core/Validations/ValidationWithPermissionAndRepo';
+import {Validator} from '@copor/core/domain/Core/Validations/Validators/Validator';
+
+export class ValidateGetCAMEL_CASE_NAME extends ValidationWithPermissionAndRepo<ValidateGetCAMEL_CASE_NAMEDTO, ValidateGetCAMEL_CASE_NAMERepo> {
+	public getValidators(): Validator[] {
+		return [
+			new ValidateCanGetCAMEL_CASE_NAME(this.permissionRepo, this.input.actorId),
+			new ValidateCAMEL_CASE_NAME(this.storageRepo, this.input.LOWER_FIRST_CAMEL_CASE_NAME)
+		];
+	}
+}

@@ -1,0 +1,48 @@
+import {PermissionRepository} from '@copor/core/domain/Core/Validations/PermissionRepository';
+import {ValidateGetCAMEL_CASE_NAMERepo} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/repository/ValidateGetCAMEL_CASE_NAMERepo';
+import {ValidateGetCAMEL_CASE_NAMEDTO} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/dto/ValidateGetCAMEL_CASE_NAMEDTO';
+import {ErrorList} from '@copor/core/domain/Core/Exceptions/ErrorList';
+import {ForbiddenAccessException} from '@copor/core/domain/Core/Exceptions/ForbiddenAccessException';
+import {ValidateGetCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/ValidateGetCAMEL_CASE_NAME';
+import {InvalidCAMEL_CASE_NAMEException} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/exception/InvalidCAMEL_CASE_NAMEException';
+
+describe('Validate get contract type test', () => {
+	let mockPermissionRepo: jest.Mocked<PermissionRepository>;
+	let mockStorageRepo: jest.Mocked<ValidateGetCAMEL_CASE_NAMERepo>;
+	let input: ValidateGetCAMEL_CASE_NAMEDTO;
+
+	beforeEach(() => {
+		mockPermissionRepo = {
+			isAllowed: jest.fn()
+		};
+		mockStorageRepo = {
+			isInvalidCAMEL_CASE_NAME: jest.fn()
+		};
+		input = {
+			actorId: 'actorId',
+			LOWER_FIRST_CAMEL_CASE_NAME: 'LOWER_FIRST_CAMEL_CASE_NAME'
+		};
+		mockPermissionRepo.isAllowed.mockResolvedValue(true);
+		mockStorageRepo.isInvalidCAMEL_CASE_NAME.mockResolvedValue(false);
+	});
+
+	it('Should throw error if user does not have permission to get Contract Type', async() => {
+		const errorList = new ErrorList([new ForbiddenAccessException()]);
+
+		mockPermissionRepo.isAllowed.mockResolvedValue(false);
+		const validator: ValidateGetCAMEL_CASE_NAME = new ValidateGetCAMEL_CASE_NAME(input, mockPermissionRepo, mockStorageRepo);
+		const result = await validator.validate();
+
+		expect(result).toStrictEqual(errorList);
+	});
+
+	it('Should throw error if Contract Type is invalid', async() => {
+		const errorList = new ErrorList([new InvalidCAMEL_CASE_NAMEException()]);
+		const validator = new ValidateGetCAMEL_CASE_NAME(input, mockPermissionRepo, mockStorageRepo);
+
+		mockStorageRepo.isInvalidCAMEL_CASE_NAME.mockResolvedValue(true);
+		const result = await validator.validate();
+
+		expect(result).toStrictEqual(errorList);
+	});
+});

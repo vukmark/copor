@@ -1,0 +1,17 @@
+import {NewRepositoryPicker} from '@copor/core/client/Core/RepositoryPicker';
+import {ValidateDeleteCAMEL_CASE_NAMERepo}
+	from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/repository/ValidateDeleteCAMEL_CASE_NAMERepo';
+import {AppContext} from '@copor/core/client/Interface/AppContext';
+import {DBEnv} from '@copor/core/client/enum/DBEnv';
+import {FakeDeleteCAMEL_CASE_NAMEValidatorStorageRepo} from '../fake/FakeDeleteCAMEL_CASE_NAMEValidatorStorageRepo';
+import {KyselyDeleteCAMEL_CASE_NAMEValidatorStorageRepo}
+	from '@copor/PACKAGE_NAME/client/CAMEL_CASE_NAME/DeleteCAMEL_CASE_NAME/repo/kysely/KyselyDeleteCAMEL_CASE_NAMEValidatorStorageRepo';
+
+export class DeleteCAMEL_CASE_NAMEValidatorStorageRepoPicker extends NewRepositoryPicker<ValidateDeleteCAMEL_CASE_NAMERepo> {
+	protected getRepositoryList(): Record<string, new (appContext: AppContext) => ValidateDeleteCAMEL_CASE_NAMERepo> {
+		return {
+			[DBEnv.FAKE]: FakeDeleteCAMEL_CASE_NAMEValidatorStorageRepo,
+			[DBEnv.KYSELY]: KyselyDeleteCAMEL_CASE_NAMEValidatorStorageRepo
+		};
+	}
+}

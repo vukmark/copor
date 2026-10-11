@@ -1,0 +1,18 @@
+import {SaveCAMEL_CASE_NAMEDTO} from '../interactor/dto/SaveCAMEL_CASE_NAMEDTO';
+import {ValidateCanUpdateCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/validator/ValidateCanUpdateCAMEL_CASE_NAME';
+import {ValidateUpdateCAMEL_CASE_NAMERepo} from '../repository/ValidateUpdateCAMEL_CASE_NAMERepo';
+import {ValidationWithPermissionAndRepo} from '@copor/core/domain/Core/Validations/ValidationWithPermissionAndRepo';
+import {Validator} from '@copor/core/domain/Core/Validations/Validators/Validator';
+import {ValidateEmptyName} from '@copor/core/domain/Core/Validations/Validators/ValidateEmptyName';
+import {ValidateCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/validator/ValidateCAMEL_CASE_NAME';
+
+export class ValidateUpdateCAMEL_CASE_NAME
+	extends ValidationWithPermissionAndRepo<SaveCAMEL_CASE_NAMEDTO, ValidateUpdateCAMEL_CASE_NAMERepo> {
+	public getValidators(): Validator[] {
+		return [
+			new ValidateCanUpdateCAMEL_CASE_NAME(this.permissionRepo, this.input.actorId),
+			new ValidateCAMEL_CASE_NAME(this.storageRepo, this.input.id),
+			new ValidateEmptyName(this.input.name)
+		];
+	}
+}

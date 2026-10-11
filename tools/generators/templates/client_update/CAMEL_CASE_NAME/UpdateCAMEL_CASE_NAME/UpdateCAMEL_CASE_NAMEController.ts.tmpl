@@ -1,0 +1,60 @@
+import {UpdateCAMEL_CASE_NAMEReqBodyDTO} from './dto/UpdateCAMEL_CASE_NAMEReqBodyDTO';
+import {
+	UpdateCAMEL_CASE_NAMEValidatorStorageRepoPicker
+} from './repo/repoPicker/UpdateCAMEL_CASE_NAMEValidatorStorageRepoPicker';
+import {SaveCAMEL_CASE_NAMEDTO} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/dto/SaveCAMEL_CASE_NAMEDTO';
+import {ValidateUpdateCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/ValidateUpdateCAMEL_CASE_NAME';
+import {UpdateCAMEL_CASE_NAMEInteractorRepoPicker} from './repo/repoPicker/UpdateCAMEL_CASE_NAMEInteractorRepoPicker';
+import {UpdateCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/UpdateCAMEL_CASE_NAME';
+import {UpdateCAMEL_CASE_NAMELoggerRepoPicker} from './repo/repoPicker/UpdateCAMEL_CASE_NAMELoggerRepoPicker';
+import {
+	LogDataForUpdateCAMEL_CASE_NAME,
+	LogUpdateCAMEL_CASE_NAME
+} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/logger/LogUpdateCAMEL_CASE_NAME';
+import {CreateLogDetails} from '@copor/core/client/GlobalRepository/CreateLogDetails';
+import {Validator} from '@copor/core/domain/Core/Validations/Validators/Validator';
+import {PermissionValidatorRepoPicker} from '@copor/core/client/Core/PermissionValidatorRepo/PermissionValidatorRepoPicker';
+import {UpdateBaseController} from '@copor/core/client/Core/Controller/UpdateBaseController';
+
+export class UpdateCAMEL_CASE_NAMEController extends UpdateBaseController<UpdateCAMEL_CASE_NAMEReqBodyDTO> {
+	protected getValidator(): Validator {
+		const validatorPermissionRepo = this.container.getNewRepoPicker(PermissionValidatorRepoPicker);
+		const validatorStorageRepo = this.container.getNewRepoPicker(
+			UpdateCAMEL_CASE_NAMEValidatorStorageRepoPicker
+		);
+
+		return this.container.getValidator(
+			ValidateUpdateCAMEL_CASE_NAME,
+			this.getValidatorInput(),
+			validatorPermissionRepo,
+			validatorStorageRepo
+		);
+	}
+
+	protected getInteractor() {
+		return this.container.getInteractor(
+			UpdateCAMEL_CASE_NAME,
+			this.container.getNewRepoPicker(UpdateCAMEL_CASE_NAMEInteractorRepoPicker),
+			this.getValidatorInput()
+		);
+	}
+
+	protected getLogger() {
+		const loggerRepo = this.container.getNewRepoPicker(UpdateCAMEL_CASE_NAMELoggerRepoPicker);
+		const logData: LogDataForUpdateCAMEL_CASE_NAME = this.request.body;
+
+		return this.container.getLogger(
+			LogUpdateCAMEL_CASE_NAME,
+			loggerRepo,
+			new CreateLogDetails(this.actorId),
+			logData
+		);
+	}
+
+	private getValidatorInput(): SaveCAMEL_CASE_NAMEDTO {
+		return {
+			... this.request.body,
+			actorId: this.actorId
+		};
+	}
+}

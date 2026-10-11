@@ -1,0 +1,59 @@
+#!/bin/bash
+
+source $COPOR_HELPERS_PATH/printer.sh
+source $COPOR_HELPERS_PATH/string_helper.sh
+source $COPOR_HELPERS_PATH/templates_helper.sh
+SOURCE_DIR="$COPOR_TEMPLATES_PATH/domain_get_list"
+
+function usage() {
+    print_info "Usage: copor generate domain_get_list -n <NAME> [-p <PACKAGE>]"
+    print_info "Options: "
+    print_info "{ -n <NAME> } Name of the resource. If have multiple words in name separate it with underscore.
+For example, if you need 'GetContractType', just type 'Contract_Type' instead <NAME>."
+    print_info "{ -p <PACKAGE> } Package folder under packages/ (core, todo, vu_meet, …). Default: core.
+Files go to packages/<PACKAGE>/server/src/domain."
+    exit 1
+}
+
+PACKAGE="core"
+OPTSTRING=":n:p:"
+
+while getopts ${OPTSTRING} opt; do
+  case ${opt} in
+    n)
+      NAME=${OPTARG}
+      ;;
+    p)
+      PACKAGE=${OPTARG}
+      ;;
+    :)
+      usage
+      ;;
+    ?)
+      print_error "Required option: -${OPTARG}"
+      usage
+      ;;
+  esac
+done
+
+if [ -z "$NAME" ]; then
+    print_error "Name cannot be empty."
+    usage
+fi
+
+DEST_DIR="$COPOR_PATH/packages/$PACKAGE/server/src/domain"
+
+# Check if the source directory exists
+if [[ ! -d "$SOURCE_DIR" ]]; then
+    print_error "Error: Source directory '$SOURCE_DIR' does not exist."
+    exit 1
+fi
+
+# Check if the destination directory exists
+if [[ ! -d "$DEST_DIR" ]]; then
+    print_error "Error: Destination directory '$DEST_DIR' does not exist (is '$PACKAGE' a server package?)."
+    exit 1
+fi
+
+create_from_template_and_replace_placeholders $SOURCE_DIR $DEST_DIR $NAME $PACKAGE
+[ -n "$VUK_GENERATE_QUIET" ] || print_server_next_steps $NAME $PACKAGE

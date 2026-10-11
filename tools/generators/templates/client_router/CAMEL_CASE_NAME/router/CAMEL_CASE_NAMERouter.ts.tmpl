@@ -1,0 +1,26 @@
+import {BaseRouter} from '@copor/core/client/Core/BaseRouter';
+import {
+	CreateCAMEL_CASE_NAMEController
+} from '@copor/PACKAGE_NAME/client/CAMEL_CASE_NAME/CreateCAMEL_CASE_NAME/CreateCAMEL_CASE_NAMEController';
+import {
+	DeleteCAMEL_CASE_NAMEController
+} from '@copor/PACKAGE_NAME/client/CAMEL_CASE_NAME/DeleteCAMEL_CASE_NAME/DeleteCAMEL_CASE_NAMEController';
+import {GetCAMEL_CASE_NAMEController} from '@copor/PACKAGE_NAME/client/CAMEL_CASE_NAME/GetCAMEL_CASE_NAME/GetCAMEL_CASE_NAMEController';
+import {
+	GetCAMEL_CASE_NAMEListController
+} from '@copor/PACKAGE_NAME/client/CAMEL_CASE_NAME/GetCAMEL_CASE_NAMEList/GetCAMEL_CASE_NAMEListController';
+import {
+	UpdateCAMEL_CASE_NAMEController
+} from '@copor/PACKAGE_NAME/client/CAMEL_CASE_NAME/UpdateCAMEL_CASE_NAME/UpdateCAMEL_CASE_NAMEController';
+
+// Register this router: in core, in Core/MainRouter.ts; in a module, in the
+// `routes` of its <Feature>Module.ts.
+export class CAMEL_CASE_NAMERouter extends BaseRouter {
+	protected initializeRoutes(): void {
+		this.patch('/', UpdateCAMEL_CASE_NAMEController);
+		this.post('/list', GetCAMEL_CASE_NAMEListController);
+		this.delete('/:id', DeleteCAMEL_CASE_NAMEController);
+		this.get('/:id', GetCAMEL_CASE_NAMEController);
+		this.post('/', CreateCAMEL_CASE_NAMEController);
+	}
+}

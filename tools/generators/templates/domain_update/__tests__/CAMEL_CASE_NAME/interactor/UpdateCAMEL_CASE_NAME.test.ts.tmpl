@@ -1,0 +1,25 @@
+import {SaveCAMEL_CASE_NAMERepo} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/repository/SaveCAMEL_CASE_NAMERepo';
+import {SaveCAMEL_CASE_NAMEDTO} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/dto/SaveCAMEL_CASE_NAMEDTO';
+import {UpdateCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/UpdateCAMEL_CASE_NAME';
+
+describe('update Contract Type test', () => {
+	let mockRepo: jest.Mocked<SaveCAMEL_CASE_NAMERepo>;
+	let inputDTO: SaveCAMEL_CASE_NAMEDTO;
+	let updateCAMEL_CASE_NAME: UpdateCAMEL_CASE_NAME;
+
+	beforeEach(() => {
+		mockRepo = {
+			save: jest.fn()
+		};
+		inputDTO = {
+			id: 'id',
+			name: 'name',
+			actorId: 'actorId'
+		};
+		updateCAMEL_CASE_NAME = new UpdateCAMEL_CASE_NAME(inputDTO, mockRepo);
+	});
+	it('should save data for update', async () => {
+		await updateCAMEL_CASE_NAME.execute();
+		expect(mockRepo.save).toHaveBeenCalledWith(inputDTO);
+	});
+});

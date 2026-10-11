@@ -1,0 +1,17 @@
+#!/bin/bash
+
+source $COPOR_PATH/tools/helpers/printer.sh
+source $COPOR_PATH/tools/helpers/input_validators.sh
+
+VERSION_NUMBER=$1
+exit_if_invalid_version $VERSION_NUMBER
+
+# One repo (server, Flutter, tooling): one tag per release, on the release branch
+RELEASE_BRANCH=${COPOR_RELEASE_BRANCH:-master}
+
+cd $COPOR_PATH
+git checkout $RELEASE_BRANCH
+git pull
+git tag $VERSION_NUMBER
+git push origin --tags
+print_info "Created tag $VERSION_NUMBER on $RELEASE_BRANCH and pushed it to remote"

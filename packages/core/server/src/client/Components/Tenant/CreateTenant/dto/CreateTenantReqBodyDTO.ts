@@ -1,0 +1,44 @@
+import {PublishStatus} from '@copor/core/domain/Core/enum/PublishStatus';
+
+export interface CreateTenantReqBodyDTO {
+	name: string;
+	isBaseTenant: boolean;
+	addressStreet: string;
+	city: string;
+	regionCityId: string;
+	publishStatus: PublishStatus;
+	email: string;
+	phone?: string;
+	contactName?: string;
+	contactDepartment?: string;
+	contactAddressStreet?: string;
+	contactPostalCode?: string;
+	contactCity?: string;
+	contactPhone?: string;
+	contactEmail: string;
+	latitude?: number;
+	longitude?: number;
+	dataProtectionOfficerName?: string;
+	dataProtectionOfficerCity?: string;
+	dataProtectionOfficerPosition?: string;
+	dataProtectionOfficerAddress?: string;
+	dataProtectionOfficerPhone?: string;
+	dataProtectionOfficerEmail?: string;
+	dataProtectionOfficerPostalCode?: string;
+	dataProtectionOfficerWebsite?: string;
+	authorizingOfficerFirstName?: string;
+	authorizingOfficerLastName?: string;
+	authorizingOfficerDepartment?: string;
+	authorizingOfficerAddress?: string;
+	authorizingOfficerPhone?: string;
+	authorizingOfficerEmail?: string;
+	deputyDataProtectionOfficerName?: string;
+	deputyDataProtectionOfficerCity?: string;
+	deputyDataProtectionOfficerPosition?: string;
+	deputyDataProtectionOfficerAddress?: string;
+	deputyDataProtectionOfficerPhone?: string;
+	deputyDataProtectionOfficerEmail?: string;
+	deputyDataProtectionOfficerPostalCode?: string;
+	deputyDataProtectionOfficerWebsite?: string;
+	tenantNotificationUser?: string;
+}

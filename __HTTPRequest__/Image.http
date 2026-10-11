@@ -1,0 +1,27 @@
+import login.http
+run login.http
+
+### CREATE Image
+POST http://localhost:3000/image
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="Bojan.jpeg"
+Content-Type: image/jpeg
+
+< /home/developer/Downloads/Bojan.jpeg
+--WebAppBoundary--
+
+### DELETE image
+DELETE {{host}}/image/65721877-6068-44bf-b555-eb1d0776e7a2
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET image
+GET {{host}}/image/05dcc4f2-6418-4839-936d-56851237ccdb
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}

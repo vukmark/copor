@@ -1,0 +1,7 @@
+{
+  "InvalidToDoAttachmentException": "Ungültiger Anhang zur Aufgabe",
+  "InvalidToDoCategoryException": "Ungültige Aufgabenkategorie",
+  "InvalidToDoCommentException": "Ungültiger Aufgabenkommentar",
+  "InvalidToDoException": "Ungültige Aufgabe",
+  "InvalidUserListException": "Ungültige Benutzerliste"
+}

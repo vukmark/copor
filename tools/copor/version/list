@@ -1,0 +1,7 @@
+#!/bin/bash
+
+source $COPOR_PATH/tools/helpers/printer.sh
+
+cd $COPOR_PATH
+print_info "Available versions: "
+print_info "$(git tag -l)"

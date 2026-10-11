@@ -1,0 +1,4 @@
+export enum TypingStatus {
+	STARTED_TYPING = 'STARTED_TYPING',
+	STOPPED_TYPING = 'STOPPED_TYPING'
+}

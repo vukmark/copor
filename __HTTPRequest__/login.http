@@ -1,0 +1,10 @@
+POST {{host}}/login
+Content-Type: application/json
+x-version:1.0.0
+
+{
+  "username": "super.admin",
+  "password": "a"
+}
+
+> {% client.global.set("auth_token", response.body.authToken); %}

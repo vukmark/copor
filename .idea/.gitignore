@@ -1,0 +1,17 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+/data_source_mapping.xml
+#DartPackages ignored
+/libraries/Dart_Packages.xml
+db-forest-config.xml# Personal IDE state (not shared)
+/caches/
+/deviceManager.xml
+/material_theme_project_new.xml
+/php.xml
+/dataSources.xml

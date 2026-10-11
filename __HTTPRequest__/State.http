@@ -1,0 +1,69 @@
+import login.http
+run login.http
+
+
+### GET State List
+GET {{host}}/state/list/25e3a1c5-2248-4bd1-9034-78b6cd6d92a7
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET State List
+GET {{host}}/state/simple-list
+Content-Type: application/json
+x-Version: {{x-version}}
+
+### GET State by ID
+GET {{host}}/state/a5ef81b1-ea37-4ba9-852f-6ca5e275db5f
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### UPDATE State
+PATCH {{host}}/state
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "id": "38f95ba2-b0f9-45e6-b8e7-480aafa4292a",
+  "name": "Pederacija",
+  "code": "PD",
+  "countryId": "25e3a1c5-2248-4bd1-9034-78b6cd6d92a7",
+  "publishStatus": "PUBLISHED"
+}
+
+### DELETE State
+DELETE {{host}}/state/0j0j0000-jjjj-4jjj-bjjj-0j0j0j0j0j0j
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### CREATE State
+POST {{host}}/state
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "name": "PS Federacija BiH",
+  "code": "FBH",
+  "countryId": "25e3a1c5-2248-4bd1-9034-78b6cd6d92a7",
+  "publishStatus": "UNPUBLISHED"
+}
+
+
+###
+# curl -w "\ntime_total: %{time_total}s\n" -o /dev/null -s
+#
+#    -H "Content-Type: application/json"
+#
+#    -H "x-Version: 1.0.0"
+#
+#    http://REMOTE_HOST:PORT/state/simple-list
+GET http://REMOTE_HOST:PORT/state/simple-list
+x-Version: 1.0.0
+Content-Type: application/json
+
+###

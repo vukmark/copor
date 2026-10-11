@@ -1,0 +1,21 @@
+import {GetCAMEL_CASE_NAMERepo} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/repository/GetCAMEL_CASE_NAMERepo';
+import {GetCAMEL_CASE_NAMEDTO} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/dto/GetCAMEL_CASE_NAMEDTO';
+import {GetCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/GetCAMEL_CASE_NAME';
+
+describe('get Contract Type interactor test', () => {
+	const mockRepo: jest.Mocked<GetCAMEL_CASE_NAMERepo> = {
+		load: jest.fn()
+	};
+
+	const expectedResponse: GetCAMEL_CASE_NAMEDTO = {
+		id: 'id',
+		name: 'name'
+	};
+	const getCAMEL_CASE_NAME: GetCAMEL_CASE_NAME = new GetCAMEL_CASE_NAME('unique-id', mockRepo);
+
+	it('should return Contract Type based on provided id', async () => {
+		mockRepo.load.mockResolvedValue(expectedResponse);
+
+		expect(await getCAMEL_CASE_NAME.execute()).toEqual(expectedResponse);
+	});
+});

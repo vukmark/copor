@@ -1,0 +1,32 @@
+{
+  "translationStringList": {
+    "TAGS": "Tags",
+    "SORT_BY": "Sort",
+    "FILTER_BY": "Filter",
+    "FILTER": "Filter",
+    "ACTIONS": "Actions",
+    "NAME": "Name",
+    "COLOR": "Color",
+    "SEARCH_TAG": "Search tags",
+    "ADD": "Add",
+    "PUBLISHED": "Published",
+    "UNPUBLISHED": "Unpublished",
+    "EDIT_TAG": "Edit Tag",
+    "CREATE_TAG": "Add",
+    "IS_PROGRESS_BAR_VISIBLE": "Is progress bar visible",
+    "REQUIRED_NAME_MESSAGE": "Tag name can't be empty",
+    "TAG_NAME": "Tag name",
+    "IS_PRIVATE": "Private",
+    "PUBLISH_STATUS": "Status",
+    "UNKNOWN": "Unknown",
+    "DESCRIPTION": "Description",
+    "DELETE_MESSAGE": "Do you want to delete this tag?",
+    "ID": "ID",
+    "REQUIRED_COLOR_MESSAGE": "Color is required",
+    "REQUIRED_DESCRIPTION_MESSAGE": "Description is required",
+    "DELETE_TAG_SUCCESS_MESSAGE": "Tag deleted successfully.",
+    "CREATE_TAG_SUCCESS_MESSAGE": "Tag created successfully.",
+    "UPDATE_TAG_SUCCESS_MESSAGE": "Tag updated successfully.",
+    "TAG": "Tag"
+  }
+}

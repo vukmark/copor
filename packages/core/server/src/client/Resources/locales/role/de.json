@@ -1,0 +1,27 @@
+{
+  "translationStringList": {
+    "USER_GROUP": "Benutzergruppe",
+    "USER_ROLE": "Benutzerrolle",
+    "ROLE": "Rollen",
+    "SEARCH_ROLES": "Rollen suchen",
+    "ACTIONS": "Aktionen",
+    "SORT_BY": "Sortieren",
+    "FILTER_BY": "Filtern",
+    "FILTER": "Filtern",
+    "ADD": "Hinzufügen",
+    "NAME": "Name",
+    "TYPE": "Typ",
+    "ADMIN": "Admin",
+    "SUPER_ADMIN": "Superadministrator",
+    "NAME_REQUIRED": "Name ist erforderlich",
+    "UNKNOWN": "Unbekannt",
+    "ROLE_TYPE": "Rollentype",
+    "ROLE_NAME": "Rollenname",
+    "EDIT_USER_GROUP": "Benutzergruppe bearbeiten",
+    "CREATE_USER_GROUP": "Benutzergruppe erstellen",
+    "CREATE_USER_GROUP_SUCCESS_MESSAGE": "Benutzergruppe erfolgreich erstellt.",
+    "UPDATE_USER_GROUP_SUCCESS_MESSAGE": "Benutzergruppe erfolgreich aktualisiert.",
+    "DELETE_USER_GROUP_SUCCESS_MESSAGE": "Benutzergruppe erfolgreich gelöscht.",
+    "DELETE_MESSAGE": "Möchten Sie diese Benutzergruppe löschen?"
+  }
+}

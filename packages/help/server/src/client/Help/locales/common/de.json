@@ -1,0 +1,22 @@
+{
+  "translationStringList": {
+    "TOOLS": "Werkzeuge",
+    "HELP": "Hilfe",
+    "ABOUT": "Über",
+    "VERSION": "Version",
+    "PUBLISHED_APP": "Publiziert",
+    "COPYRIGHT": "Copyright",
+    "LICENSE": "Lizenz",
+    "SUPPORT": "Support",
+    "POLICY": "Datenschutz",
+    "VERSION_HISTORY": "Versionsgeschichte",
+    "NO_VERSION_HISTORY": "Keine Versionsgeschichte gefunden.",
+    "COULD_NOT_LOAD_CHANGELOG": "Changelog konnte nicht geladen werden.",
+    "DOWNLOADS": "Downloads",
+    "PRIVACY_POLICY": "Datenschutzerklärung",
+    "APP_INSTALLATION_MESSAGE": "Installieren Sie die Copor-App für die beste Benutzererfahrung.",
+    "APP_DOWNLOAD": "App Herunterladen",
+    "DOCU": "Doku",
+    "ACCOUNT_DELETION_INFO": "Löschung Ihres Kontos und der zugehörigen Daten beantragen"
+  }
+}

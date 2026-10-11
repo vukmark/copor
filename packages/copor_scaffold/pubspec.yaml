@@ -1,0 +1,20 @@
+name: copor_scaffold
+description: >
+  Copor scaffold system — CoporScaffoldCubit, CoporScaffold shell, notification
+  queue, error banner, page-interface contracts, and a built-in scaffold tester.
+  Designed for use in all Copor applications.
+publish_to: none
+version: 0.1.0
+
+environment:
+  sdk: '>=3.8.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.0.0
+  bloc: ^9.0.0
+  equatable: ^2.0.5
+  provider: ^6.0.0
+  copor_theme:
+    path: ../copor_theme

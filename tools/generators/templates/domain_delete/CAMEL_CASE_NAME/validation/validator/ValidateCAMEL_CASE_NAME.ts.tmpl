@@ -1,0 +1,10 @@
+import {InvalidCAMEL_CASE_NAMEException} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/exception/InvalidCAMEL_CASE_NAMEException';
+import {ValidatorWithRepo} from '@copor/core/domain/Core/Validations/Validators/ValidatorWithRepo';
+import {IsInvalidCAMEL_CASE_NAMERepo} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/repository/IsInvalidCAMEL_CASE_NAMERepo';
+
+export class ValidateCAMEL_CASE_NAME extends ValidatorWithRepo<IsInvalidCAMEL_CASE_NAMERepo, string | undefined> {
+	public async validate(): Promise<void> {
+		if (await this.repository.isInvalidCAMEL_CASE_NAME(this.input))
+			throw new InvalidCAMEL_CASE_NAMEException();
+	}
+}

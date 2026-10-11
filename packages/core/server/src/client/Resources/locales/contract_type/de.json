@@ -1,0 +1,30 @@
+{
+  "translationStringList": {
+    "SORT_BY": "Sortieren",
+    "FILTER_BY": "Filtern",
+    "ACTIONS": "Aktionen",
+    "NAME": "Name",
+    "DESCRIPTION": "Beschreibung",
+    "SEARCH_CONTRACT_TYPES": "Vertragsarten suchen",
+    "ADD": "Hinzufügen",
+    "PUBLISHED": "Veröffentlicht",
+    "UNPUBLISHED": "Unveröffentlicht",
+    "NAME_IS_REQUIRED": "Name ist erforderlich",
+    "UNKNOWN": "Unbekannt",
+    "PUBLISH_STATUS": "Status",
+    "FILE": "Datei",
+    "FILE_REQUIRED": "Datei ist erforderlich",
+    "DESCRIPTION_OPTIONAL": "Beschreibung (optional)",
+    "EDIT_CONTRACT_TYPE": "Vertragstyp bearbeiten",
+    "CREATE_CONTRACT_TYPE": "Vertragstyp erstellen",
+    "FILTER": "Filter",
+    "DRAFT": "Entwurf",
+    "DELETE_CONTRACT_TYPE_SUCCESS_MESSAGE": "Vertragsart erfolgreich gelöscht.",
+    "CREATE_CONTRACT_TYPE_SUCCESS_MESSAGE": "Vertragsart erfolgreich erstellt.",
+    "UPDATE_CONTRACT_TYPE_SUCCESS_MESSAGE": "Vertragsart erfolgreich aktualisiert.",
+    "DELETE_MESSAGE": "Möchten Sie dies wirklich löschen?",
+    "REQUIRED_NAME_MESSAGE": "Name ist ein Pflichtfeld.",
+    "REQUIRED_DESCRIPTION_MESSAGE": "Beschreibung ist ein Pflichtfeld.",
+    "CONTRACT_TYPE": "Vertragsart"
+  }
+}

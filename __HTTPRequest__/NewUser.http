@@ -1,0 +1,87 @@
+import login.http
+run login.http
+
+### GET User
+GET {{host}}/user/0ed461d4-f103-4470-a09e-1ced4435f750
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET User List
+POST {{host}}/user/list
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": ["t"]
+    },
+    {
+      "name": "SORT_BY_NAME",
+      "values": ["desc"]
+    }
+  ],
+  "limit": "2",
+  "offset": "0"
+}
+
+### GET User List Table
+POST {{host}}/user/table
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [""]
+    },
+    {
+      "name": "SORT_BY_NAME",
+      "values": [""]
+    },
+    {
+      "name": "SORT_BY_SURNAME",
+      "values": ["asc"]
+    }
+  ],
+  "limit": "30",
+  "offset": "0"
+}
+
+### GET Simple Contact List
+POST {{host}}/user/simple-list
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [""]
+    }
+  ],
+  "limit": "200",
+  "offset": "0"
+}
+
+### Forgot PasswordForgotPasswordController
+POST {{host}}/user/forgot-password
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "username":"sasa"
+}
+
+### GET User Account Full Info
+GET {{host}}/user/account-full-info/f99b1dd4-38bd-11f1-916b-df41a98aba05
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}

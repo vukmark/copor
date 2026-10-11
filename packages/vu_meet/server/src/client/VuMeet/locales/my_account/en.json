@@ -1,0 +1,8 @@
+{
+  "translationStringList": {
+    "VU_MEET_NOTIFICATIONS": "VuMeet",
+    "VU_MEET_NOTIFICATIONS_ON": "You get a push notification for every new chat message. Incoming calls always ring.",
+    "VU_MEET_NOTIFICATIONS_OFF": "No push notifications for chat messages. Incoming calls still ring.",
+    "VU_MEET_MESSAGE_PUSH": "Chat messages"
+  }
+}

@@ -1,0 +1,107 @@
+import login.http
+run login.http
+
+
+### Create user group
+POST {{host}}/user-group/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "name": "test groupddasdasdas",
+  "parentUserGroupId": "c0427365-244c-4c86-ba53-98ae4ac91fea",
+  "userList": ["32370ecd-94ef-46ae-b040-1e292387aa17"]
+}
+
+
+### Set user group user list
+POST {{host}}/user-group/set-users
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "userList": ["32370ecd-94ef-46ae-b040-1e292387aa17"],
+  "userGroupId": "22050195-bac9-4faf-833d-8eaf146a6af8"
+}
+
+### add user to user group
+POST {{host}}/user-group/add-user
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "userId": "2057690d-d92e-411f-8a05-5dfc8dc01916",
+  "userGroupId": "c0427365-244c-4c86-ba53-98ae4ac91fea"
+}
+
+
+### Delete user group
+DELETE {{host}}/user-group/e5911029-74e2-426d-b1c6-4ed7054ac92f
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### Get user group
+GET {{host}}/user-group/dfe6dcff-385c-456b-a1d1-9fb2f3012871
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### Get update user group form
+GET {{host}}/user-group/form/fcf36d89-a71c-4dd9-b489-df8cbaa2709f
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### Get create user group form
+GET {{host}}/user-group/form
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### Get user group tree
+GET {{host}}/user-group/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### Update user group
+PATCH {{host}}/user-group/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "id": "f7c5c566-e9af-4570-a524-096376fd0c60",
+  "name": "grupa g",
+  "userList": ["568fb29f-fb8f-42f9-8d20-481960f07748"]
+}
+
+
+### Get user group list
+GET {{host}}/user-group/list
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+
+### Get user group user list
+POST {{host}}/user-group/get-users
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "userGroupId": "fcf36d89-a71c-4dd9-b489-df8cbaa2709f",
+  "limit": 10,
+  "offset": 0
+}

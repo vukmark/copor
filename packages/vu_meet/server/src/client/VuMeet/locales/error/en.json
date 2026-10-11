@@ -1,0 +1,7 @@
+{
+  "DuplicateChatMemberException": "This user is already a member of the chat",
+  "EmptyGroupChatNameException": "Group name is required",
+  "InvalidChatException": "Invalid chat",
+  "InvalidChatMemberCountException": "A chat needs at least 2 members",
+  "UserNotInChatException": "User is not in the chat"
+}

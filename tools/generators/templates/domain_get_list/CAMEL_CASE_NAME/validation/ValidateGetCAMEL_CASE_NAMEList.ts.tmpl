@@ -1,0 +1,12 @@
+import {ValidateCanGetCAMEL_CASE_NAMEList}
+	from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/validator/ValidateCanGetCAMEL_CASE_NAMEList';
+import {ValidationWithPermission} from '@copor/core/domain/Core/Validations/ValidationWithPermission';
+import {Validator} from '@copor/core/domain/Core/Validations/Validators/Validator';
+
+export class ValidateGetCAMEL_CASE_NAMEList extends ValidationWithPermission<string> {
+	public getValidators(): Validator[] {
+		return [
+			new ValidateCanGetCAMEL_CASE_NAMEList(this.permissionRepo, this.input)
+		];
+	}
+}

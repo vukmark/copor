@@ -1,0 +1,11 @@
+import {PresenterInstance} from '@copor/core/client/Core/Presenter/Presenter';
+import {GetCAMEL_CASE_NAMEDTO} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/dto/GetCAMEL_CASE_NAMEDTO';
+import {GetCAMEL_CASE_NAMEViewModel} from './GetCAMEL_CASE_NAMEViewModel';
+
+export class GetCAMEL_CASE_NAMEPresenter extends PresenterInstance<GetCAMEL_CASE_NAMEDTO, GetCAMEL_CASE_NAMEViewModel> {
+	present(): GetCAMEL_CASE_NAMEViewModel {
+		return {
+			... this.input
+		};
+	}
+}

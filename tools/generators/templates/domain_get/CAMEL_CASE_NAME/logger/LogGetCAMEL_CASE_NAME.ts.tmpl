@@ -1,0 +1,11 @@
+import {TypedLogger} from '@copor/core/domain/Core/Logger/Logger';
+
+export class LogGetCAMEL_CASE_NAME extends TypedLogger<LogDataForGetCAMEL_CASE_NAME> {
+	getType(): string {
+		return 'getCAMEL_CASE_NAME';
+	}
+}
+
+export interface LogDataForGetCAMEL_CASE_NAME {
+	LOWER_FIRST_CAMEL_CASE_NAMEId: string;
+}

@@ -1,0 +1,98 @@
+import login.http
+run login.http
+
+### Create News
+POST {{host}}/news
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "title": "Neues Kulturzentrum im Stadtzentrum feierlich eröffnet",
+  "summary": "Die Stadt hat ein modernes Kulturzentrum eröffnet, das künftig zahlreiche Veranstaltungen, Ausstellungen und Bildungsprogramme für Bürgerinnen und Bürger anbieten wird.",
+  "content": "Am Freitag wurde das neue Kulturzentrum im Herzen der Stadt offiziell eröffnet. Zahlreiche Gäste, Vertreter der lokalen Verwaltung sowie Bürgerinnen und Bürger nahmen an der feierlichen Zeremonie teil. Das Gebäude verfügt über moderne Veranstaltungsräume, eine Bibliothek, mehrere Ausstellungsflächen und Räume für Bildungsprogramme.\n\nNach Angaben der Stadtverwaltung soll das Zentrum als wichtiger Treffpunkt für kulturelle und gesellschaftliche Aktivitäten dienen. Bereits in den kommenden Wochen sind Konzerte, Kunstausstellungen und Workshops geplant.\n\nBesucher zeigten sich begeistert von der modernen Architektur und dem vielfältigen Angebot. Die Verantwortlichen erwarten, dass das neue Zentrum einen positiven Beitrag zum kulturellen Leben der Region leisten wird.",
+  "roleId": ["ac896493-4998-42ed-ac79-50fe8e535564", "df433db5-2066-4d44-842a-648d8ac774a6"],
+  "publishStatus": "PUBLISHED"
+}
+
+### GET News By ID
+GET {{host}}/news/1cf61635-2389-4716-bc96-6fe056cc8307
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### DELETE News by ID
+DELETE {{host}}/news/ef854a1a-b06a-43a6-95a2-6eea8c7467d6
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+### Update News By Id
+PATCH {{host}}/news/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "id": "063f1dd4-da5c-4f0b-828b-5c8edf26dd34",
+  "title": "Title-test",
+  "summary": "Summary-test",
+  "content": "Content-test",
+  "roleId": ["ac896493-4998-42ed-ac79-50fe8e535564"],
+  "publishStatus": "PUBLISHED"
+}
+
+### GET News List
+POST {{host}}/news/list
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [""]
+    },
+    {
+      "name": "SORT_BY_NAME",
+      "values": ["desc"]
+    }
+  ],
+  "limit": "10",
+  "offset": "0"
+}
+
+### GET News Form
+GET {{host}}/news/form
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### GET News Form
+GET {{host}}/news/form/5ce0bfe4-fd95-4c11-9438-a35ac4772a6c
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### Get News Table
+POST {{host}}/news/table
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [""]
+    },
+    {
+      "name": "SORT_BY_NAME",
+      "values": [""]
+    }
+  ],
+  "limit": "3",
+  "offset": "3"
+}

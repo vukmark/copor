@@ -1,0 +1,17 @@
+{
+  "translationStringList": {
+    "START_VIDEO_CALL": "Start video call",
+    "END_CALL": "End call",
+    "CALLING": "Calling...",
+    "INCOMING_CALL_STATUS": "Incoming call...",
+    "DIDNT_ANSWER": "didn't answer",
+    "ANSWER": "Answer",
+    "DECLINE": "Decline",
+    "CALL_AGAIN": "Call again",
+    "RETURN_TO_CALL": "Return to call",
+    "CALL_ENDED_LABEL": "Call ended",
+    "CALL_DECLINED": "Call declined",
+    "SEND": "Send",
+    "VIDEO_CALL_MOBILE_ONLY": "Video calls are only available on the mobile app. Please use the Copor app on your phone to start a call."
+  }
+}

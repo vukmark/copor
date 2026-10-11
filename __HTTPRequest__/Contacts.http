@@ -1,0 +1,37 @@
+import login.http
+run login.http
+
+### GET Contact List (scoped by contacts.canGetContactList)
+POST {{host}}/contacts/list
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": ["jo"]
+    }
+  ],
+  "limit": "20",
+  "offset": "0"
+}
+
+> {%
+    if (response.body.items && response.body.items.length > 0) {
+        client.global.set("contact_id", response.body.items[0].id);
+    }
+%}
+
+### GET Contact details (contacts.canGetContactById)
+GET {{host}}/contacts/{{contact_id}}
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+### GET Contact information (contacts.canGetUserContactInformation)
+GET {{host}}/contacts/{{contact_id}}/information
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}

@@ -1,0 +1,17 @@
+{
+  "translationStringList": {
+    "START_VIDEO_CALL": "Videoanruf starten",
+    "END_CALL": "Anruf beenden",
+    "CALLING": "Anruf läuft...",
+    "INCOMING_CALL_STATUS": "Eingehender Anruf...",
+    "DIDNT_ANSWER": "hat nicht geantwortet",
+    "ANSWER": "Annehmen",
+    "DECLINE": "Ablehnen",
+    "CALL_AGAIN": "Erneut anrufen",
+    "RETURN_TO_CALL": "Zurück zum Anruf",
+    "CALL_ENDED_LABEL": "Anruf beendet",
+    "CALL_DECLINED": "Anruf abgelehnt",
+    "SEND": "Senden",
+    "VIDEO_CALL_MOBILE_ONLY": "Videoanrufe sind nur in der mobilen App verfügbar. Bitte verwenden Sie die Copor-App auf Ihrem Handy, um einen Anruf zu starten."
+  }
+}

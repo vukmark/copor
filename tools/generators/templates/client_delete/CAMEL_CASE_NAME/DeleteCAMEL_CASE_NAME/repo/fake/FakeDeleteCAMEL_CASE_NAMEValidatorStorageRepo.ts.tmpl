@@ -1,0 +1,11 @@
+import {ValidateDeleteCAMEL_CASE_NAMERepo}
+	from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/repository/ValidateDeleteCAMEL_CASE_NAMERepo';
+
+export class FakeDeleteCAMEL_CASE_NAMEValidatorStorageRepo implements ValidateDeleteCAMEL_CASE_NAMERepo {
+	entityHasReferences(value: string): Promise<{tableName: string} | false> {
+		return Promise.resolve(false);
+	}
+	isInvalidCAMEL_CASE_NAME(LOWER_FIRST_CAMEL_CASE_NAMEId: string): Promise<boolean> {
+		return Promise.resolve(false);
+	}
+}

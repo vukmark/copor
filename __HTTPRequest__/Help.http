@@ -1,0 +1,13 @@
+### Changelog (public, no token) — read from apps/copor/server/changelog/<version>.md
+
+### Every version with its date, newest first
+GET {{host}}/help/changelog
+x-Version: {{x-version}}
+
+### One version (content without the RELEASES block, plus the parsed download links)
+GET {{host}}/help/changelog/1.0.0
+x-Version: {{x-version}}
+
+### The newest version (app installation page, login page's install button)
+GET {{host}}/help/changelog/latest
+x-Version: {{x-version}}

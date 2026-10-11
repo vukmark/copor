@@ -1,0 +1,56 @@
+import login.http
+run login.http
+
+### GET Get user preferences
+# Besides core's settings: `maxImageSize` (MAX_MEDIA_SIZE_MB), `modulePreferences`
+# (every included module's on/off setting, stored value or default) and
+# `moduleConfig` (per module, e.g. {"cloud": {"maxFileSize": 64}}).
+GET {{host}}/user-preferences/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### PATCH Update user preferences
+PATCH {{host}}/user-preferences/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "contrast": 0,
+  "themeMode": 1,
+  "language": "299ef4b8-a876-4861-87f8-c2c0ee5a931d",
+  "colorSet": "SET22",
+  "contactPrivacy": {
+    "picture": true,
+    "email": true,
+    "dateOfBirth": false,
+    "tenant": true,
+    "group": true,
+    "private": false
+  },
+  "useIcons": false,
+  "fontSize": "LG",
+  "modulePreferences": {
+    "vu_meet.messagePushNotifications": false
+  }
+}
+
+### PATCH An unknown module preference is rejected (InvalidModulePreferenceException)
+PATCH {{host}}/user-preferences/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "contrast": 0,
+  "themeMode": 1,
+  "language": "299ef4b8-a876-4861-87f8-c2c0ee5a931d",
+  "colorSet": "SET22",
+  "useIcons": false,
+  "fontSize": "LG",
+  "modulePreferences": {
+    "vu_meet.notAPreference": true
+  }
+}

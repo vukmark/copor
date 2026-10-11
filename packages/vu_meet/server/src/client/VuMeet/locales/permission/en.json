@@ -1,0 +1,57 @@
+{
+  "translationStringList": {
+    "vu_meet": {
+      "canGetChatInfo": "View chat information",
+      "canStartGroupCall": "Start group call",
+      "canStartPrivateCall": "Start private call",
+      "canCreateChat": "Create chat",
+      "canCreateGroupChat": "Create group chat",
+      "canCreateGroupMessage": "Create group message",
+      "canGetGroupMessageList": "View group message list",
+      "canUpdateGroupChat": "Update group chat",
+      "canGetUserChatList": "View user chat list",
+      "canSendTypingStatus": "Send typing status",
+      "canGetGroupChat": "View group chat",
+      "canGetChat": "View chat",
+      "canGetVuMeetContactList": "View VuMeet contact list",
+      "canGetChatWithUser": "View chat with user",
+      "canSearchAllMessages": "Search all messages",
+      "canSearchMessagesInChat": "Search messages in chat",
+      "canSearchMessagesInGroupChat": "Search messages in group chat",
+      "canMarkGroupChatMessagesSeen": "Mark group chat messages as seen",
+      "canGetVuMeetFile": "View VuMeet file",
+      "canUpdateChat": "Update chat",
+      "canViewVuMeetFeature": "Access VuMeet feature",
+      "canGetMessageList": "View message list",
+      "canCreateMessage": "Create message",
+      "canMarkMessagesSeen": "Mark messages as seen"
+    }
+  },
+  "descriptions": {
+    "vu_meet": {
+      "canGetChatInfo": "Allows viewing chat information. Found in the VuMeet area.",
+      "canCreateChat": "Allows creating a chat. Found in the VuMeet area.",
+      "canCreateGroupChat": "Allows creating a group chat. Found in the VuMeet area.",
+      "canCreateGroupMessage": "Allows creating a group message. Found in the VuMeet area.",
+      "canGetGroupMessageList": "Allows viewing group message list. Found in the VuMeet area.",
+      "canUpdateGroupChat": "Allows updating a group chat. Found in the VuMeet area.",
+      "canGetUserChatList": "Allows viewing user chat list. Found in the VuMeet area.",
+      "canSendTypingStatus": "Allows sending a typing status. Found in the VuMeet area.",
+      "canGetGroupChat": "Allows viewing a group chat. Found in the VuMeet area.",
+      "canGetChat": "Allows viewing a chat. Found in the VuMeet area.",
+      "canGetVuMeetContactList": "Allows viewing VuMeet contact list. Found in the VuMeet area.",
+      "canGetChatWithUser": "Allows viewing a chat with a user. Found in the VuMeet area.",
+      "canSearchAllMessages": "Allows searching all messages. Found in the VuMeet area.",
+      "canSearchMessagesInChat": "Allows searching messages in a chat. Found in the VuMeet area.",
+      "canSearchMessagesInGroupChat": "Allows searching messages in group chat. Found in the VuMeet area.",
+      "canMarkGroupChatMessagesSeen": "Allows marking group chat messages seen. Found in the VuMeet area.",
+      "canGetVuMeetFile": "",
+      "canUpdateChat": "Allows updating a chat. Found in the VuMeet area.",
+      "canViewVuMeetFeature": "Allows seeing the VuMeet section in the app's navigation.",
+      "canStartGroupCall": "Allows starting a group voice or video call. Found in the VuMeet area.",
+      "canStartPrivateCall": "Allows starting a one-on-one voice or video call. Found in the VuMeet area.",
+      "canCreateMessage": "Allows creating a message. Found in the VuMeet area.",
+      "canGetMessageList": "Allows viewing message list. Found in the VuMeet area."
+    }
+  }
+}

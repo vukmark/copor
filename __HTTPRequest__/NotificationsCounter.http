@@ -1,0 +1,14 @@
+import login.http
+run login.http
+
+### Get Notification count
+GET {{host}}/notification/count
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### DELETE Notification Token / Unsubscribe for Notification Token
+DELETE {{host}}/notification-token/token
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}

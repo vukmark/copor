@@ -1,0 +1,14 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "../../todo/server/src/client/ToDo/types/ToDoTables.ts"
+  ],
+  "exclude": [
+    "src/**/__tests__",
+    "src/**/__test__"
+  ]
+}

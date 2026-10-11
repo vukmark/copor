@@ -1,0 +1,4 @@
+{
+  "InvalidChecklistException": "Ungültige Checkliste",
+  "InvalidChecklistItemException": "Ungültiger Checklistenpunkt"
+}

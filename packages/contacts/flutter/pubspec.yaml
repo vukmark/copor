@@ -1,0 +1,39 @@
+name: copor_contacts
+description: "Copor Contacts module (Flutter)"
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.8.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  bloc_concurrency: ^0.3.0
+  dartz: ^0.10.1
+  dio: ^5.7.0
+  equatable: ^2.0.5
+  flutter_bloc: ^9.0.0
+  flutter_hooks: ^0.21.3
+  get_it: ^9.1.1
+  go_router: ^17.0.0
+  json_annotation: ^4.9.0
+  path_provider: ^2.1.5
+  qr_flutter: ^4.1.0
+  retrofit: ^4.4.1
+  rxdart: any
+  share_plus: ^12.0.0
+  copor_core:
+    path: ../../core/flutter
+  copor_scaffold:
+    path: ../../copor_scaffold
+  copor_theme:
+    path: ../../copor_theme
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  build_runner: ^2.4.0
+  json_serializable: ^6.8.0
+  retrofit_generator: ^10.0.2

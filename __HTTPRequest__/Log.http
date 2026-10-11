@@ -1,0 +1,40 @@
+import login.http
+run login.http
+
+### GET Log Table
+POST {{host}}/log/table
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [
+        "sas"
+      ]
+    }
+  ],
+  "limit": "50",
+  "offset": "3"
+}
+
+### GET Log Info
+GET {{host}}/log/info/0180abfc-3a8f-4b1e-b91f-572beac9907b
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### Get Log list
+GET {{host}}/log/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Log By Id
+GET {{host}}/log/0028b7f7-9a82-4332-9824-2599babf2294
+Accept-Language: de
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}

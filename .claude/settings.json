@@ -1,0 +1,42 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "find_root() { d=\"$1\"; while [ \"$d\" != \"/\" ] && [ -n \"$d\" ]; do if [ -d \"$d/packages\" ] && [ -d \"$d/apps\" ] && [ -d \"$d/frontend\" ]; then printf \"%s\" \"$d\"; return 0; fi; d=$(dirname \"$d\"); done; return 1; }\nINPUT=$(cat)\nSTART=$(printf '%s' \"$INPUT\" | jq -r '.cwd // .workspace.current_dir // .workspace.project_dir // empty' 2>/dev/null)\n[ -z \"$START\" ] && START=\"$PWD\"\nROOT=$(find_root \"$START\")\n[ -z \"$ROOT\" ] && ROOT=\"$START\"\ngb() { git -C \"$1\" branch --show-current 2>/dev/null || echo '?'; }\nB=$(gb \"$ROOT\")\nDBENV=$(grep -m1 '^DB_ENV=' \"$ROOT/apps/copor/server/.env\" 2>/dev/null | cut -d= -f2)\nUSED_PCT=$(printf '%s' \"$INPUT\" | jq -r '.context_window.used_percentage // empty' 2>/dev/null)\nSIZE=$(printf '%s' \"$INPUT\" | jq -r '.context_window.context_window_size // empty' 2>/dev/null)\nINTOK=$(printf '%s' \"$INPUT\" | jq -r '.context_window.total_input_tokens // empty' 2>/dev/null)\nif [ -n \"$SIZE\" ] && [ -n \"$INTOK\" ]; then\n  LEFT=$((SIZE - INTOK))\n  LEFT_K=$((LEFT / 1000))\n  CTX_STR=\"${USED_PCT:-?}% used, ${LEFT_K}k left\"\nelse\n  CTX_STR=\"warming up\"\nfi\nprintf 'branch:%s | DB_ENV:%s | ctx: %s' \"$B\" \"${DBENV:-?}\" \"$CTX_STR\""
+  },
+  "permissions": {
+    "allow": [
+      "Bash(flutter pub:*)",
+      "Bash(flutter analyze:*)",
+      "Bash(dart analyze *)",
+      "Bash(dart run:*)",
+      "Bash(npx jest *)",
+      "Bash(npx tsc *)",
+      "Bash(git stash *)",
+      "Bash(pkill -f \"flutter_tools.snapshot\")",
+      "Read(docs/**)",
+      "Edit(docs/**)",
+      "Read(packages/copor_theme/**)",
+      "Edit(packages/copor_theme/**)",
+      "Read(packages/copor_scaffold/**)",
+      "Edit(packages/copor_scaffold/**)"
+    ]
+  },
+  "extraKnownMarketplaces": {
+    "dart-flutter": {
+      "source": {
+        "source": "github",
+        "repo": "flutter/agent-plugins"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "remember@claude-plugins-official": true,
+    "dart-flutter@dart-flutter": true
+  }
+}

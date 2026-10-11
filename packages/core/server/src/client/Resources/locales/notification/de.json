@@ -1,0 +1,6 @@
+{
+    "translationStringList": {
+        "ACCOUNT_DELETION_REQUESTED_NOTIFICATION_TITLE": "Kontolöschung beantragt",
+        "ACCOUNT_DELETION_REQUESTED_NOTIFICATION_DESCRIPTION": "{{requesterName}} hat die Löschung des Kontos beantragt."
+    }
+}

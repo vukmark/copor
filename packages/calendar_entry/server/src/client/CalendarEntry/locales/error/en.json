@@ -1,0 +1,5 @@
+{
+  "CalendarEntryOverlapException": "This time span overlaps an existing calendar entry",
+  "InvalidCalendarEntryException": "Calendar entry does not exist",
+  "InvalidCalendarEntryTypeException": "This calendar category cannot be managed manually"
+}

@@ -1,0 +1,10 @@
+{
+  "translationStringList": {
+    "CLOUD": "Cloud",
+    "CLOUD_NOTIFICATIONS": "Cloud",
+    "CLOUD_NOTIFICATIONS_ON": "You get a push notification when a file is added to the selected folders.",
+    "CLOUD_NOTIFICATIONS_OFF": "No push notifications for new files in these folders.",
+    "CLOUD_GROUP_FOLDERS": "Group folders",
+    "CLOUD_USER_FOLDER": "Files sent to me"
+  }
+}

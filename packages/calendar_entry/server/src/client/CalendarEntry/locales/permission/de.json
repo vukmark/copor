@@ -1,0 +1,20 @@
+{
+  "translationStringList": {
+    "calendar_entry": {
+      "canCreateCalendarEntry": "Kalendereintrag erstellen",
+      "canUpdateCalendarEntry": "Kalendereintrag bearbeiten",
+      "canDeleteCalendarEntry": "Kalendereintrag löschen",
+      "canGetCalendarEntry": "Kalendereintrag anzeigen",
+      "canGetCalendarEntryList": "Kalendereintragsliste anzeigen"
+    }
+  },
+  "descriptions": {
+    "calendar_entry": {
+      "canCreateCalendarEntry": "",
+      "canUpdateCalendarEntry": "",
+      "canDeleteCalendarEntry": "",
+      "canGetCalendarEntry": "",
+      "canGetCalendarEntryList": ""
+    }
+  }
+}

@@ -1,0 +1,15 @@
+import {GetItem} from '@copor/core/domain/Core/Repository/GetItem';
+import {GetCAMEL_CASE_NAMEDTO} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/dto/GetCAMEL_CASE_NAMEDTO';
+
+export class FakeGetCAMEL_CASE_NAMEInteractorRepo implements GetItem<GetCAMEL_CASE_NAMEDTO> {
+	load(id: string): Promise<GetCAMEL_CASE_NAMEDTO> {
+		return new Promise((resolve) => {
+			resolve(
+				{
+					id: 'someId',
+					name: 'Contract Name'
+				}
+			);
+		});
+	}
+}

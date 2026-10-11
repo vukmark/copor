@@ -1,0 +1,39 @@
+import login.http
+run login.http
+
+### Create Checklist item
+POST {{host}}/checklist/item
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "checklistId": "db95a35d-d53f-4ee3-8abc-5260a7f9fac0",
+  "description": "ZZ Test create item",
+  "isChecked": false
+}
+
+### Get all items for checklist
+GET {{host}}/checklist/item/ed5cfc05-47e1-4470-bfd3-0fd6a80386f1
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### Update Checklist item
+PATCH {{host}}/checklist/item
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "id": "ed5cfc05-47e1-4470-bfd3-0fd6a80386f1",
+  "checklistId": "db95a35d-d53f-4ee3-8abc-5260a7f9fac0",
+  "description": "ZUpdated item Buy groceries",
+  "isChecked": false
+}
+
+### Delete Checklist item
+DELETE {{host}}/checklist/item/ed5cfc05-47e1-4470-bfd3-0fd6a80386f1
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}

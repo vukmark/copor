@@ -1,0 +1,16 @@
+{
+  "translationStringList": {
+    "HOLIDAYS": "Holidays",
+    "TRAVEL": "Travel",
+    "CALENDAR_CATEGORY": "Category",
+    "CALENDAR_START_DATE": "Start date",
+    "CALENDAR_END_DATE": "End date",
+    "CALENDAR_DESCRIPTION": "Description",
+    "ADD_CALENDAR_ENTRY": "Add time span",
+    "EDIT_CALENDAR_ENTRY": "Edit time span",
+    "DELETE_CALENDAR_ENTRY": "Delete time span",
+    "DELETE_CALENDAR_ENTRY_CONFIRMATION": "Do you really want to delete this time span?",
+    "CALENDAR_ENTRY_OVERLAP": "This time span overlaps an existing entry. Pick different dates.",
+    "CALENDAR_ENTRY_INVALID_RANGE": "The end date must not be before the start date."
+  }
+}

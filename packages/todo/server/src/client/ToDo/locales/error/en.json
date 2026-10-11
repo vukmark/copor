@@ -1,0 +1,7 @@
+{
+  "InvalidToDoAttachmentException": "Invalid to do attachment",
+  "InvalidToDoCategoryException": "Invalid to do category",
+  "InvalidToDoCommentException": "Invalid to do comment",
+  "InvalidToDoException": "Invalid to do",
+  "InvalidUserListException": "Invalid user list"
+}

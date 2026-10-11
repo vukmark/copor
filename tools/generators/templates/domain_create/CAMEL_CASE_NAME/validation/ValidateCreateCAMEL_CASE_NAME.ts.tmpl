@@ -1,0 +1,14 @@
+import {ValidateCanCreateCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/validator/ValidateCanCreateCAMEL_CASE_NAME';
+import {ValidationWithPermission} from '@copor/core/domain/Core/Validations/ValidationWithPermission';
+import {Validator} from '@copor/core/domain/Core/Validations/Validators/Validator';
+import {ValidateEmptyName} from '@copor/core/domain/Core/Validations/Validators/ValidateEmptyName';
+import {ValidateCreateCAMEL_CASE_NAMEDTO} from './dto/ValidateCreateCAMEL_CASE_NAMEDTO';
+
+export class ValidateCreateCAMEL_CASE_NAME extends ValidationWithPermission<ValidateCreateCAMEL_CASE_NAMEDTO> {
+	public getValidators(): Validator[] {
+		return [
+			new ValidateCanCreateCAMEL_CASE_NAME(this.permissionRepo, this.input.actorId),
+			new ValidateEmptyName(this.input.name)
+		];
+	}
+}

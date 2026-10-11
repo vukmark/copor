@@ -1,0 +1,29 @@
+import login.http
+run login.http
+
+### Create Checklist
+POST {{host}}/checklist
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "title": "NewESTChecklist"
+}
+
+### Update Checklist
+PATCH {{host}}/checklist
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "id": "db95a35d-d53f-4ee3-8abc-5260a7f9fac0",
+  "title": "ChecklistName"
+}
+
+### Get Checklist
+GET {{host}}/checklist/db95a35d-d53f-4ee3-8abc-5260a7f9fac0
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}

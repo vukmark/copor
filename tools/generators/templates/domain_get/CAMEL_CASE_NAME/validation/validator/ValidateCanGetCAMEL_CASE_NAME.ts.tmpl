@@ -1,0 +1,9 @@
+import {PermissionValidator} from '@copor/core/domain/Core/Validations/Validators/PermissionValidator';
+import {PermissionType} from '@copor/core/domain/Core/Permission/PermissionType';
+import {PERMISSION_ENUM} from 'PERMISSION_IMPORT';
+
+export class ValidateCanGetCAMEL_CASE_NAME extends PermissionValidator {
+	public getPermissionType(): PermissionType {
+		return PERMISSION_ENUM.canGetCAMEL_CASE_NAME;
+	}
+}

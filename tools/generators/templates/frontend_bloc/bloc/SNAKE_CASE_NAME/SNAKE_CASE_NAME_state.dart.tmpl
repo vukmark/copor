@@ -1,0 +1,46 @@
+import 'package:MODULE_IMPORT_PREFIX/data/model/SNAKE_CASE_NAME/SNAKE_CASE_NAME_model.dart';
+import 'package:copor_core/src/error/failure.dart';
+import 'package:copor_core/src/bloc/utils/bloc_state.dart';
+
+final class CAMEL_CASE_NAMEState extends BaseState<CAMEL_CASE_NAMEItemModel> {
+  const CAMEL_CASE_NAMEState._({
+    super.result,
+    super.isLoading,
+    super.isUpdated,
+    super.failure,
+  });
+
+  const CAMEL_CASE_NAMEState.initial() : this._(result: null);
+  const CAMEL_CASE_NAMEState.loading({required Result<CAMEL_CASE_NAMEItemModel>? result}) : this._(result: result, isLoading: true);
+  const CAMEL_CASE_NAMEState.fetched({required Result<CAMEL_CASE_NAMEItemModel> result}) : this._(result: result);
+  const CAMEL_CASE_NAMEState.failure({required Failure failure, required Result<CAMEL_CASE_NAMEItemModel>? result})
+      : this._(result: result, failure: failure);
+
+  @override
+  CAMEL_CASE_NAMEState copyWith({
+    Result<CAMEL_CASE_NAMEItemModel>? result,
+    bool? isLoading,
+    bool? isUpdated,
+    Failure? failure,
+  }) {
+    return CAMEL_CASE_NAMEState._(
+      result: result ?? this.result,
+      isLoading: isLoading ?? this.isLoading,
+      isUpdated: isUpdated ?? this.isUpdated,
+      failure: failure ?? this.failure,
+    );
+  }
+}
+
+class CAMEL_CASE_NAMEResult {
+  CAMEL_CASE_NAMEItemModel LOWER_FIRST_CAMEL_CASE_NAMEModel;
+  Failure? warning;
+  CAMEL_CASE_NAMEResult({required this.LOWER_FIRST_CAMEL_CASE_NAMEModel, this.warning});
+}
+
+class CAMEL_CASE_NAMEOperationSuccess {
+  CAMEL_CASE_NAMEItemModel? LOWER_FIRST_CAMEL_CASE_NAMEModel;
+  Failure? warning;
+  CAMEL_CASE_NAMEOperationSuccess({this.LOWER_FIRST_CAMEL_CASE_NAMEModel, this.warning});
+}
+

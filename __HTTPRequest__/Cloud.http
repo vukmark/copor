@@ -1,0 +1,134 @@
+import ../login.http
+run login.http
+
+### GET File list
+GET {{host}}/cloud/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET File
+GET {{host}}/cloud/b7d84277-b85f-4030-977c-740b0acc6599
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### Upload file to user group
+POST http://localhost:3000/cloud/USER_GROUP/0193e75e-a110-4e36-97d4-786e27f2fffc/testdir
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="Bojan.jpeg"
+Content-Type: image/jpeg
+
+< /home/developer/Downloads/Jovan.jpeg
+--WebAppBoundary
+Content-Disposition: form-data; name="description"
+
+Opis fajla za korisničku grupu
+--WebAppBoundary
+Content-Disposition: form-data; name="notifyReceivers"
+
+true
+--WebAppBoundary--
+
+
+### Upload file to my own Private folder
+POST {{host}}/cloud/PRIVATE/
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="Bojan.jpeg"
+Content-Type: image/jpeg
+
+< /home/developer/Downloads/Bojan.jpeg
+--WebAppBoundary--
+
+### Upload file to my own Public folder
+POST {{host}}/cloud/PUBLIC/
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="Bojan.jpeg"
+Content-Type: image/jpeg
+
+< /home/developer/Downloads/Bojan.jpeg
+--WebAppBoundary--
+
+### GET Share recipient list (users the actor may send a file to, scoped by cloud.canGetShareRecipientList)
+POST {{host}}/cloud/recipients
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": ["jo"]
+    }
+  ],
+  "limit": "20",
+  "offset": "0"
+}
+
+> {%
+    if (response.body.items && response.body.items.length > 0) {
+        client.global.set("share_recipient_id", response.body.items[0].id);
+    }
+%}
+
+### Upload file into another user's Public folder
+POST {{host}}/cloud/PUBLIC/USER/{{share_recipient_id}}/testdir
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="Bojan.jpeg"
+Content-Type: image/jpeg
+
+< /home/developer/Downloads/Bojan.jpeg
+--WebAppBoundary
+Content-Disposition: form-data; name="notifyReceivers"
+
+true
+--WebAppBoundary--
+
+### GET File list
+GET {{host}}/cloud/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET File
+GET {{host}}/cloud/b7d84277-b85f-4030-977c-740b0acc6599
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### DELETE File
+DELETE {{host}}/cloud/26c26bae-cfdd-4b7a-9847-5a452b0191af
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### Bulk delete cloud files
+DELETE {{host}}/cloud/bulk
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "ids": [
+    "26c26bae-cfdd-4b7a-9847-5a452b0191af",
+    "e9704e59-e568-4e51-ad73-a64f7c47c5c0"
+  ]
+}

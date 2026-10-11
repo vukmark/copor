@@ -1,0 +1,12 @@
+{
+  "translationStringList": {
+    "PASSWORD_RESET_CODE_EMAIL_TITLE": "Password Reset Code",
+    "PASSWORD_RESET_CODE_EMAIL": "Hello {{userName}},<br><br>Your password reset code is:<br><strong>{{resetCode}}</strong><br><br>This code expires in 30 minutes.<br><br>",
+    "REGISTRATION_LINK": "<a href='https://example.com/registration' rel='noopener noreferrer' target='_blank'>example.com/registration</a>",
+    "EMAIL_SIGNATURE": "<p>Kind regards,<br><br>The Copor team</p><hr style=\"border:none; border-top:1px dashed #ddd; margin:16px 0;\"><p style=\"margin:0;\"><a href=\"https://example.com/info/terms_and_conditions\">Terms &amp; Conditions</a><br><a href=\"https://example.com/info/impressum\">Impressum</a><br><a href=\"https://example.com/privacy\">Privacy Policy</a></p>",
+    "TEST_EMAIL": "<p>Hello, this is a test email from Copor.<p><br>{{body}}",
+    "TEST_EMAIL_SUBJECT": "Test-E-Mail gesendet am {{dateTime}}",
+    "REGISTRATION_CODE_EMAIL_TITLE": "Confirm your e-mail address",
+    "REGISTRATION_CODE_EMAIL": "Hello {{firstName}},<br><br>Your verification code is:<br><strong>{{verificationCode}}</strong><br><br>Enter it on the registration page to activate your account. This code expires in 30 minutes.<br><br>If you did not create an account, you can ignore this e-mail.<br><br>"
+  }
+}

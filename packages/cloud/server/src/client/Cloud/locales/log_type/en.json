@@ -1,0 +1,17 @@
+{
+  "translationStringList": {
+    "createCloudCategory": "Created cloud category",
+    "getCloudCategory": "Retrieved cloud category",
+    "deleteCloudCategory": "Deleted cloud category",
+    "updateCloudCategory": "Updated cloud category",
+    "getCloudCategoryList": "Retrieved cloud category list",
+    "getShareRecipientList": "Retrieved file share recipients",
+    "createFile": "Created file",
+    "deleteFile": "Deleted file",
+    "getFile": "Retrieved file",
+    "getFileListForUser": "Retrieved file list for user",
+    "categoryType": "Category Type",
+    "cloudCategoryId": "Cloud Category ID",
+    "cloudGroupId": "Cloud Group ID"
+  }
+}

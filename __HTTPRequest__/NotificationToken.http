@@ -1,0 +1,19 @@
+import login.http
+run login.http
+
+### CREATE Notification Token
+POST {{host}}/notification-token
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+ "token": "token",
+  "type": 1
+}
+
+### DELETE Notification Token / Unsubscribe for Notification Token
+DELETE {{host}}/notification-token/token
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}

@@ -1,0 +1,15 @@
+# Real config and secrets (templates: .dist.env, settings/*.json.dist)
+.env
+firebase-adminsdk-key.json
+settings/smtp.json
+settings/global.json
+settings/display.json
+settings/password.json
+# Runtime data
+/MediaFiles/
+/assets/img/????????-????-????-????-????????????.*
+/logs/
+*.log
+# Build output
+node_modules/
+dist/

@@ -1,0 +1,17 @@
+{
+  "translationStringList": {
+    "createCloudCategory": "Cloud-Kategorie erstellt",
+    "getCloudCategory": "Cloud-Kategorie abgerufen",
+    "deleteCloudCategory": "Cloud-Kategorie gelöscht",
+    "updateCloudCategory": "Cloud-Kategorie aktualisiert",
+    "getCloudCategoryList": "Cloud-Kategorienliste abgerufen",
+    "getShareRecipientList": "Empfänger zum Teilen von Dateien abgerufen",
+    "createFile": "Datei erstellt",
+    "deleteFile": "Datei gelöscht",
+    "getFile": "Datei abgerufen",
+    "getFileListForUser": "Dateiliste für Benutzer abgerufen",
+    "categoryType": "Kategorietyp",
+    "cloudCategoryId": "Cloud-Kategorie-ID",
+    "cloudGroupId": "Cloud-Gruppen-ID"
+  }
+}

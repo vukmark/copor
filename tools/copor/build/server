@@ -1,0 +1,53 @@
+#!/bin/bash
+
+RED_COLOR='\033[0;31m'
+NO_COLOR='\033[0m' # No Color
+if [ -z "$VUKMARK_PATH" ]; then
+  echo -e "${RED_COLOR}VUKMARK_PATH is not set${NO_COLOR}"
+  exit
+fi
+
+source $VUKMARK_PATH/tools/helpers/printer.sh
+source $VUKMARK_PATH/tools/helpers/input_validators.sh
+
+if [ "$#" -ne 2 ]; then
+  print_error "Usage: vuk build server <VERSION_NUMBER> <SERVER_NAME>"
+  exit 1
+fi
+
+source "$VUKMARK_PATH/apps/vukmark/server/.env"
+VERSION_NUMBER=$1
+SERVER_NAME=$2
+RELEASE_BRANCH=${VUKMARK_RELEASE_BRANCH:-master}
+
+exit_if_invalid_version $VERSION_NUMBER
+cd $VUKMARK_PATH || { print_error "VukMark not found at $VUKMARK_PATH."; exit 1; }
+
+# Checkout the release branch and pull the latest changes
+git checkout $RELEASE_BRANCH || { print_error "Failed to checkout $RELEASE_BRANCH branch."; exit 1; }
+git pull || { print_error "Failed to pull latest changes from $RELEASE_BRANCH."; exit 1; }
+
+# Checkout tag for given version
+git pull --tags
+git checkout tags/$VERSION_NUMBER || { print_error "Failed to checkout tag '$VERSION_NUMBER'."; exit 1; }
+
+# Install npm packages (workspaces: every package and the app)
+rm -fr node_modules
+npm ci || { print_error "npm install failed."; exit 1; }
+
+cd $VUKMARK_PATH/apps/vukmark/server || { print_error "Directory 'apps/vukmark/server' not found."; exit 1; }
+
+# Apply pending Kysely migrations (schema only; existing data is kept)
+npm run db:migrate || { print_error "Database migrations failed."; exit 1; }
+
+# Build: dist/ is a self-contained bundle with its own runtime dependencies
+rm -fr dist
+npm run build || { print_error "npm build failed."; exit 1; }
+(cd dist && npm ci --omit=dev) || { print_error "Installing the bundle's dependencies failed."; exit 1; }
+
+pm2 stop $SERVER_NAME
+
+# Working directory = the app folder (.env, settings/, changelog/, assets/)
+pm2 start --name $SERVER_NAME --cwd "$VUKMARK_PATH/apps/vukmark/server" "$VUKMARK_PATH/apps/vukmark/server/dist/apps/vukmark/server/src/index.js" || { print_error "Failed to start $SERVER_NAME"; exit 1; }
+
+print_info "$SERVER_NAME built completed successfully."

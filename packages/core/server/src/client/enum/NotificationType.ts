@@ -1,0 +1,5 @@
+export enum NotificationType {
+	TODO = 'TODO',
+	VU_MEET = 'VU_MEET',
+	ACCOUNT_DELETION_REQUEST = 'ACCOUNT_DELETION_REQUEST'
+}

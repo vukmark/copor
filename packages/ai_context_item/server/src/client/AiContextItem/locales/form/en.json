@@ -1,0 +1,10 @@
+{
+  "translationStringList": {
+    "QUESTION_IS_REQUIRED": "Question or keywords are required",
+    "QUESTION_DE": "German question/keywords",
+    "QUESTION_EN": "English question/keywords",
+    "ANSWER_IS_REQUIRED": "Answer is required",
+    "ANSWER_EN": "English answer/description",
+    "ANSWER_DE": "German answer/description"
+  }
+}

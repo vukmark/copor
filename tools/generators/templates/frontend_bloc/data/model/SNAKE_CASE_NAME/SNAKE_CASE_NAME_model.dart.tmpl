@@ -1,0 +1,33 @@
+import 'package:copor_core/src/data/model/base_model.dart';
+import 'package:copor_core/src/utils/typedef.dart';
+import 'package:MODULE_IMPORT_PREFIX/config/MODULE_NAME_SNAKE_CASE_name_spaces.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+part 'SNAKE_CASE_NAME_model.g.dart';
+
+@JsonSerializable()
+class CAMEL_CASE_NAMEItemModel extends BaseModel {
+  static const String namespaceStatic = MODULE_NAME_CAMEL_CASENamespaces.CAMEL_CASE_NAME;
+  CAMEL_CASE_NAMEItemModel(
+
+      );
+
+  factory CAMEL_CASE_NAMEItemModel.fromJson(JSON json) => _$CAMEL_CASE_NAMEItemModelFromJson(json);
+
+  JSON toJson() => _$CAMEL_CASE_NAMEItemModelToJson(this);
+
+  CAMEL_CASE_NAMEItemModel copyWith(
+
+      ) {
+    return CAMEL_CASE_NAMEItemModel(
+
+    );
+  }
+
+  @override
+  List<Object?> get props => [];
+
+  @override
+  String get namespace => namespaceStatic;
+}
+

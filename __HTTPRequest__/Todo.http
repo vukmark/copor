@@ -1,0 +1,95 @@
+import login.http
+run login.http
+
+
+### POST Get Todo List with Filter
+POST {{host}}/todo/get-all-for-user
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [""]
+    }
+  ]
+}
+
+
+### Create todo
+POST {{host}}/todo/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "title": "New Endpoints test",
+  "tagList": ["b5e6c7d8-1f2a-4a68-8f79-2c1f7a1c8c22", "c0d1e2f3-0b1c-4874-8e23-fcbbaeeff199"],
+  "priority": "HIGH",
+  "isDisplayedInCalendar": true,
+  "progress": "STARTED",
+  "deadline": "2025-05-15T23:59:00",
+  "isPinned": false,
+  "type": "PRIVATE"
+}
+
+
+### Update todo
+PATCH {{host}}/todo
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "id": "4b5c6d7e-8f90-1234-a5b6-c7d8e9f01234",
+  "title": "Test endpoint",
+  "tagList": ["d9e0f1a2-5c6d-4a7e-b5f3-7e0f93aa9c44"],
+  "priority": "NORMAL",
+  "isDisplayedInCalendar": true,
+  "progress": "TO_DO",
+  "deadline": "2025-05-25T23:59:00",
+  "isPinned": false,
+  "type": "PRIVATE"
+}
+
+
+### GET todo
+GET {{host}}/todo/4b5c6d7e-8f90-1234-a5b6-c7d8e9f01234/PRIVATE
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### DELETE todo
+DELETE {{host}}/todo/4b5c6d7e-8f90-1234-a5b6-c7d8e9f01234/PRIVATE
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### Create attachment for a private todo
+POST {{host}}/todo/attachment/09976f08-614b-42b2-a89f-6998e60af290
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="BERABYTE-16-26.pdf"
+Content-Type: application/pdf
+
+< /home/developer/Downloads/BERABYTE-16-26.pdf
+--WebAppBoundary--
+
+
+### GET todo attachment (downloads the file)
+GET {{host}}/todo/attachment/57f7b86c-45a9-4145-9ffd-71198a957b35
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### DELETE todo attachment
+DELETE {{host}}/todo/attachment/57f7b86c-45a9-4145-9ffd-71198a957b35
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}

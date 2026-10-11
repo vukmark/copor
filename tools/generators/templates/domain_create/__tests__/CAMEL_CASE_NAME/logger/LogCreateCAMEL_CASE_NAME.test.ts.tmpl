@@ -1,0 +1,36 @@
+import {LogRepository} from '@copor/core/domain/Core/Logger/LogRepository';
+import {
+	LogCreateCAMEL_CASE_NAME,
+	LogDataForCreateCAMEL_CASE_NAME
+} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/logger/LogCreateCAMEL_CASE_NAME';
+import {CurrentUTCDate} from '@copor/core/domain/Core/global/SimpleDateAndTime/interactor/CurrentUTCDate';
+import {LogForSave} from '@copor/core/domain/Core/Logger/LogForSave';
+import {LogDetails} from '@copor/core/domain/Core/Logger/Logger';
+
+describe('log create CAMEL_CASE_NAME tests', () => {
+	const mockRepo: jest.Mocked<LogRepository<LogDataForCreateCAMEL_CASE_NAME>> = {
+		save: jest.fn()
+	};
+	const logData: LogDataForCreateCAMEL_CASE_NAME = {
+		id: 'id',
+		name: 'name'
+	};
+	const actorId = 'actorId';
+	const actionTime = new CurrentUTCDate();
+
+	const expectedLog: LogForSave<LogDataForCreateCAMEL_CASE_NAME> = {
+		actionTime: actionTime,
+		actorUserId: actorId,
+		actionType: 'createCAMEL_CASE_NAME',
+		logData: logData
+	};
+
+	const logDetails = new LogDetails(actorId);
+
+	it('should successfully log action', async () => {
+		const logger: LogCreateCAMEL_CASE_NAME = new LogCreateCAMEL_CASE_NAME(mockRepo, logDetails, logData);
+
+		await logger.log();
+		expect(mockRepo.save).toHaveBeenCalledWith(expectedLog);
+	});
+});

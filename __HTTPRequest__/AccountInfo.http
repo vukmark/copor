@@ -1,0 +1,184 @@
+import login.http
+run login.http
+
+### GET Account Info
+GET {{host}}/user/account-information/f99ce525-38bd-11f1-916b-df41a98aba05
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### UPDATE Personal Account info
+PATCH {{host}}/user/account-information
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "firstName": "Sasha",
+  "lastName": "Militsch",
+  "address": "Some Address 123",
+  "postalCode": "79220",
+  "city": "Maine",
+  "country": "4e9932d6-5f6c-42d3-8f44-2b7683ba413d",
+  "state": "2b2b2222-bbbb-4bbb-bbbb-2b2b2b2b2b2b",
+  "email": "testmail@mail.com",
+  "phoneNumberList": [
+    {
+      "id": "16f97f82-583c-41c8-abcf-134b6fb2a04b",
+      "phoneNumber": "12321232123526",
+      "phoneNumberType": "PHONE_MOBILE"
+    },
+    {
+      "id": "",
+      "phoneNumber": "234564345345345",
+      "phoneNumberType": "PHONE_MOBILE"
+    }
+  ]
+}
+
+### UPDATE Personal Account info (POST)
+POST {{host}}/user/account-information
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "firstName": "Markec",
+  "lastName": "Militsch",
+  "address": "Some Address 123",
+  "postalCode": "79220",
+  "city": "Maine",
+  "country": "4e9932d6-5f6c-42d3-8f44-2b7683ba413d",
+  "state": "2b2b2222-bbbb-4bbb-bbbb-2b2b2b2b2b2b",
+  "email": "testmail@mail.com",
+  "phoneNumberList": [
+    {
+      "id": "16f97f82-583c-41c8-abcf-134b6fb2a04b",
+      "phoneNumber": "12321232123526",
+      "phoneNumberType": "PHONE_MOBILE"
+    },
+    {
+      "id": "",
+      "phoneNumber": "234564345345345",
+      "phoneNumberType": "PHONE_MOBILE"
+    }
+  ]
+}
+
+### UPDATE Personal Account info (POST)
+POST {{host}}/user/account-information
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "firstName": "Markec",
+  "lastName": "Militsch",
+  "address": "Some Address 123",
+  "postalCode": "79220",
+  "city": "Maine",
+  "country": "6a3bb514-a257-485c-bb63-fb15a47ac8b1",
+  "state": "3607226c-7fb3-40f2-a0d8-6a36ffca7214",
+  "email": "testmail@mail.com",
+  "phoneNumberList": [
+    {
+      "id": "16f97f82-583c-41c8-abcf-134b6fb2a04b",
+      "phoneNumber": "12321232123526",
+      "phoneNumberType": "PHONE_MOBILE"
+    },
+    {
+      "id": "",
+      "phoneNumber": "234564345345345",
+      "phoneNumberType": "PHONE_MOBILE"
+    }
+  ]
+}
+
+### UPDATE User Account info
+PATCH {{host}}/user/account-information
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "id": "6f3fd5b0-560e-456d-9b2f-26a160e38b9a",
+  "firstName": "Sasha",
+  "lastName": "Milic",
+  "addressId": "5c160a1f-3889-4da7-a806-e78f7197162c",
+  "address": "Some Address 123",
+  "postalCode": "79220",
+  "city": "Maine",
+  "country": "4e9932d6-5f6c-42d3-8f44-2b7683ba413d",
+  "state": "2b2b2222-bbbb-4bbb-bbbb-2b2b2b2b2b2b",
+  "email": "testmail@mail.com",
+  "phoneNumberList": [
+    {
+      "id": "d7d447c4-b53f-4e07-8e71-c0da0f8ad944",
+      "phoneNumber": "+67676767676767676767676767676767676",
+      "phoneNumberType": "PHONE_MOBILE"
+    }
+  ]
+}
+
+### UPDATE Account Passsword
+PATCH {{host}}/user/change-password
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "oldPassword": "Licma888!",
+  "newPassword": "NoviPassword"
+}
+
+### Upload personal user image
+POST {{host}}/user/personal-image
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="markob.jpeg"
+Content-Type: image/jpeg
+
+< /home/developer/Downloads/markob.jpeg
+--WebAppBoundary--
+
+### Upload user image
+POST {{host}}/user/image
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="serbiangamesbl-majca.jpeg"
+Content-Type: image/jpeg
+
+< /home/developer/Downloads/serbiangamesbl-majca.jpeg
+--WebAppBoundary
+Content-Disposition: form-data; name="userId"
+
+f9a267a5-38bd-11f1-916b-df41a98aba05
+--WebAppBoundary--
+
+### Upload user image (userId in route)
+POST {{host}}/user/image/f9a267a5-38bd-11f1-916b-df41a98aba05
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="image"; filename="serbiangamesbl-majca.jpeg"
+Content-Type: image/jpeg
+
+< /home/developer/Downloads/serbiangamesbl-majca.jpeg
+--WebAppBoundary--
+
+
+### GET Account Info Form
+GET {{host}}/user/account-information/form/c29ca88b-e9e9-47f4-ba69-bad339c3ad56
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+

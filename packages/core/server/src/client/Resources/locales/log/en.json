@@ -1,0 +1,14 @@
+{
+  "translationStringList": {
+    "ACTOR": "Actor",
+    "ACTIONS": "Actions",
+    "ACTION_TYPE": "Action Type",
+    "TIMESTAMP": "Timestamp",
+    "SEARCH_USER": "Search users",
+    "FILTER_BY": "Filter",
+    "LOG_INFO": "Log info",
+    "GET_LOG_LIST": "Get log list.",
+    "GET_USER_PREFERENCES": "Get user preferences.",
+    "SEARCH_LOGS": "Search logs"
+  }
+}

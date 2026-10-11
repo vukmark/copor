@@ -1,0 +1,10 @@
+import 'package:dartz/dartz.dart';
+import 'package:MODULE_IMPORT_PREFIX/data/model/SNAKE_CASE_NAME/SNAKE_CASE_NAME_model.dart';
+import 'package:copor_core/src/error/failure.dart';
+import 'package:copor_core/src/bloc/utils/bloc_state.dart';
+
+abstract class CAMEL_CASE_NAMERepository {
+    // If you need a LIST of items, use:
+    // Future<Either<Failure, Result<List<CAMEL_CASE_NAMEItemModel>>>> getCAMEL_CASE_NAME();
+    Future<Either<Failure, Result<CAMEL_CASE_NAMEItemModel>>> getCAMEL_CASE_NAME();
+}

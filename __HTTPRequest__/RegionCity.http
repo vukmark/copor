@@ -1,0 +1,108 @@
+import login.http
+run login.http
+
+### CREATE Region-City
+POST {{host}}/region-city/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "regionId": "38b3c439-00a4-414c-82f8-b7790a2754c8",
+  "city": "Istocno Sarajevo",
+  "province": "Sarajevska Regija",
+  "provinceCode": "SRJ002",
+  "community": "Lukavica",
+  "communityCode": "LKV456",
+  "latitude": 43.8228,
+  "longitude": 18.3830
+}
+
+### UPDATE Region-City
+PATCH {{host}}/region-city
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "id": "daefe097-f2b2-4b34-a52d-165352eb5597",
+  "regionId": "38b3c439-00a4-414c-82f8-b7790a2754c8",
+  "city": "Banja Luka",
+  "province": "Republika Srpska",
+  "provinceCode": "RS001",
+  "community": "Lazarevo",
+  "communityCode": "LZR789",
+  "latitude": 44.7722,
+  "longitude": 17.1910
+}
+
+### GET RegionCity by ID
+GET {{host}}/region-city/daefe097-f2b2-4b34-a52d-165352eb5597
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Region City List
+POST {{host}}/region-city/list/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [
+        ""
+      ]
+    },
+    {
+      "name": "SORT_BY_CITY",
+      "values": [
+        "desc"
+      ]
+    }
+  ],
+  "limit": "5",
+  "offset": "0"
+}
+
+
+### GET Region City Table SORT_BY_CITY
+POST {{host}}/region-city/table
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [""]
+    },
+    {
+      "name": "SORT_BY_CITY",
+      "values": ["asc"]
+    }
+  ],
+  "limit": "5",
+  "offset": "0"
+}
+
+### GET Region City Form
+GET {{host}}/region-city/form
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Region City Form by ID
+GET {{host}}/region-city/form/daefe097-f2b2-4b34-a52d-165352eb5597
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### DELETE Region City
+DELETE {{host}}/region-city/3f5d9d6e-398f-4626-99a1-0edb424ab33e
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}

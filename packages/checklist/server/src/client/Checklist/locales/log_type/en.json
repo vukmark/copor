@@ -1,0 +1,14 @@
+{
+  "translationStringList": {
+    "createChecklist": "Created checklist",
+    "editChecklist": "Edited checklist",
+    "createChecklistItem": "Created checklist item",
+    "deleteChecklist": "Deleted checklist",
+    "deleteChecklistItem": "Deleted checklist item",
+    "editChecklistItem": "Edited checklist item",
+    "getChecklist": "Retrieved checklist",
+    "getChecklistItemList": "Retrieved checklist item list",
+    "deleteChecklistId": "Delete Checklist ID",
+    "deleteChecklistItemId": "Delete Checklist Item ID"
+  }
+}

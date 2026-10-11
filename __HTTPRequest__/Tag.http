@@ -1,0 +1,131 @@
+import login.http
+run login.http
+
+### POST Create Tag
+POST {{host}}/tag/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "name": "TEST TAG",
+  "description": "Optional label description",
+  "color": 1,
+  "isPrivate": true
+}
+
+### DELETE Tag By Id
+DELETE {{host}}/tag/b5e6c7d8-1f2a-4a68-8f79-2c1f7a1c8c22
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+### GET Tag By Id
+GET {{host}}/tag/c7d8e9f0-3b4c-4fd1-9e3f-4455eaa1ab33
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Tag Table
+POST {{host}}/tag/table
+Accept-Language: en
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [
+        ""
+      ]
+    },
+    {
+      "name": "SORT_BY_NAME",
+      "values": [
+        "desc"
+      ]
+    }
+  ],
+  "limit": "2",
+  "offset": "0"
+}
+
+### GET Public Tag List
+POST {{host}}/tag/public-tags
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [""]
+    },
+    {
+      "name": "SORT_BY_NAME",
+      "values": ["desc"]
+    }
+  ]
+}
+
+### GET All Tags For User
+GET {{host}}/tag/all-tags-for-user
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET All Tags For User
+GET {{host}}/tag/all-tags-for-user/test
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Private Tag List
+GET {{host}}/tag/private-tags
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Private Tag List
+GET {{host}}/tag/private-tags/test
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Search Tag List
+GET {{host}}/tag/search/design
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### Update Tag By Id
+PATCH {{host}}/tag/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "id": "c7d8e9f0-3b4c-4fd1-9e3f-4455eaa1ab33",
+  "name": "Test 123",
+  "description": "Optional label description",
+  "color": 3,
+  "isPrivate": true
+}
+
+### GET Tag Form
+GET {{host}}/tag/form
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Tag Form By Id
+GET {{host}}/tag/form/a6b7c8d9-8f9a-4dc3-8431-2bbecddaa677
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+

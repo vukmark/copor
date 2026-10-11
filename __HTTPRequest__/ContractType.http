@@ -1,0 +1,107 @@
+import login.http
+run login.http
+
+### Create Contract Type
+POST {{host}}/contract-type
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "name": "PS Some complicated name contract",
+  "file": "file.file.py",
+  "description": "This is some description",
+  "publishStatus": "PUBLISHED"
+}
+
+### DELETE Contract Type
+DELETE {{host}}/contract-type/b7a88dbe-38aa-4819-bb3a-422da21d6162
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Contract Type By ID
+GET {{host}}/contract-type/a7ccf62a-1785-4ec8-8b5c-6ced00235158
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Contract Type Table
+POST {{host}}/contract-type/table
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [
+        ""
+      ]
+    },
+    {
+      "name": "SORT_BY_NAME",
+      "values": [
+        "asc"
+      ]
+    },
+    {
+      "name": "PUBLISH_STATUS",
+      "values": [
+        "PUBLISHED"
+      ]
+    }
+  ],
+  "limit": "2",
+  "offset": "2"
+}
+
+### GET Contract Type List
+POST {{host}}/contract-type/list
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [""]
+    },
+    {
+      "name": "SORT_BY_NAME",
+      "values": ["asc"]
+    },
+    {
+      "name": "PUBLISH_STATUS",
+      "values": ["UNPUBLISHED"]
+    }
+  ]
+}
+
+### UPDATE Contract Type
+PATCH {{host}}/contract-type
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "name": "Vendor Contract Updated",
+  "description": "Updated: Agreement for external vendors",
+  "file": "updated_vendor_contract.pdf",
+  "publishStatus": "PUBLISHED"
+}
+
+### GET Contract Type Form By ID
+GET {{host}}/contract-type/form/123e4567-e89b-12d3-a456-426614174000
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Contract Type Form
+GET {{host}}/contract-type/form
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}

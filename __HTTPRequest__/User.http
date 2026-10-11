@@ -1,0 +1,43 @@
+import login.http
+run login.http
+
+### GET Get user preferences
+GET {{host}}/user/32370ecd-94ef-46ae-b040-1e292387aa17
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### PATCH Admin update auth_user email and username
+PATCH {{host}}/user/auth-information
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "id": "0ed461d4-f103-4470-a09e-1ced4435f750",
+  "userName": "klaus222",
+  "email": "klaus@example.com"
+}
+
+### PATCH Request account deletion
+PATCH {{host}}/user/deletion-request
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### POST Get user deletion request list (table)
+POST {{host}}/user/deletion-requests/table
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "filterList": [],
+  "limit": "10",
+  "offset": "0"
+}
+
+### DELETE User
+DELETE {{host}}/user/40273726-df85-459f-99b2-6c7d3d6eb80e
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}

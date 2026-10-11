@@ -1,0 +1,8 @@
+import {SaveCAMEL_CASE_NAMERepo} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/repository/SaveCAMEL_CASE_NAMERepo';
+import {SaveCAMEL_CASE_NAMEDTO} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/dto/SaveCAMEL_CASE_NAMEDTO';
+
+export class FakeUpdateCAMEL_CASE_NAMEInteractorRepo implements SaveCAMEL_CASE_NAMERepo {
+	save(saveDTO: SaveCAMEL_CASE_NAMEDTO): Promise<void> {
+		return Promise.resolve(undefined);
+	}
+}

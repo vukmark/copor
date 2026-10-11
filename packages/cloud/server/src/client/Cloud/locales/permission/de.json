@@ -1,0 +1,32 @@
+{
+  "translationStringList": {
+    "cloud": {
+      "canCreateCloudCategory": "Cloud-Kategorie erstellen",
+      "canGetCloudCategory": "Cloud-Kategorie anzeigen",
+      "canDeleteCloudCategory": "Cloud-Kategorie löschen",
+      "canGetCloudCategoryList": "Cloud-Kategorien anzeigen",
+      "canUpdateCloudCategory": "Cloud-Kategorie aktualisieren",
+      "canCreateUserGroupFile": "Datei für Benutzergruppe erstellen",
+      "canGetFileListForUser": "Dateiliste des Benutzers anzeigen",
+      "canGetFile": "Datei anzeigen",
+      "canDeleteFile": "Datei löschen",
+      "canViewCloudFeature": "Cloud-Funktion anzeigen",
+      "canCreatePublicFile": "Öffentliche Datei erstellen",
+      "canGetShareRecipientList": "Empfängerliste zum Teilen abrufen"
+    }
+  },
+  "descriptions": {
+    "cloud": {
+      "canCreateCloudCategory": "",
+      "canGetCloudCategory": "",
+      "canDeleteCloudCategory": "",
+      "canGetCloudCategoryList": "",
+      "canUpdateCloudCategory": "",
+      "canCreateUserGroupFile": "",
+      "canGetFileListForUser": "",
+      "canGetFile": "",
+      "canDeleteFile": "",
+      "canViewCloudFeature": ""
+    }
+  }
+}

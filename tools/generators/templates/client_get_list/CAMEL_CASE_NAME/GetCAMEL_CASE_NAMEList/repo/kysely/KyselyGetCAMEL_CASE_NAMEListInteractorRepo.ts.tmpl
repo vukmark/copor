@@ -1,0 +1,54 @@
+import {ListItems} from '@copor/core/domain/Core/Repository/ListItems';
+import {GetCAMEL_CASE_NAMEDTO} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/dto/GetCAMEL_CASE_NAMEDTO';
+import {db} from '@copor/core/client/AppDataSource';
+import {GetFilterDTO} from '@copor/core/domain/Core/global/Filter/dto/GetFilterDTO';
+import {DB} from '@copor/core/client/types/db';
+import {FilterNameValues} from '@copor/core/domain/Core/enum/FilterNameValues';
+import {FilterHelper} from '@copor/core/client/Core/Helpers/FilterHelper';
+import {SelectQueryBuilder} from 'kysely';
+import {ListRepoInputDTO} from '@copor/core/domain/Core/Interactors/ListItemsUseCase';
+
+export class KyselyGetCAMEL_CASE_NAMEListInteractorRepo implements ListItems<GetCAMEL_CASE_NAMEDTO> {
+	public async list(input: ListRepoInputDTO): Promise<GetCAMEL_CASE_NAMEDTO[]> {
+		let query = db
+			.selectFrom('LOWER_FIRST_CAMEL_CASE_NAME')
+			.select(['id', 'name']);
+
+		query = this.applyFilters(input.filters, query, input.limit, input.offset);
+
+		const results = await query.execute();
+
+		return results;
+	}
+
+	private applyFilters (
+		filterList: GetFilterDTO[],
+		dbQuery: SelectQueryBuilder<DB, 'LOWER_FIRST_CAMEL_CASE_NAME', QueryDTO>,
+		limit?: string,
+		offset?: string
+	) {
+		for (const filter of filterList) {
+			switch (filter.name) {
+				case FilterNameValues.SEARCH as string :
+					dbQuery = FilterHelper.addSearchFilter(dbQuery, filter, 'name');
+					break;
+				case FilterNameValues.SORT_BY_NAME as string :
+					dbQuery = FilterHelper.addSortFilter(dbQuery, filter, 'name');
+					break;
+			}
+		}
+		dbQuery = dbQuery.orderBy('name', 'asc');
+
+		if (limit && offset) {
+			const parsedLimit = parseInt(limit, 10);
+			const parsedOffset = parseInt(offset, 10);
+
+			dbQuery = dbQuery.limit(parsedLimit).offset(parsedOffset);
+		}
+		return dbQuery;
+	}
+}
+interface QueryDTO {
+	id: string;
+	name: string;
+}

@@ -1,0 +1,10 @@
+{
+  "translationStringList": {
+    "CLOUD": "Cloud",
+    "CLOUD_NOTIFICATIONS": "Cloud",
+    "CLOUD_NOTIFICATIONS_ON": "Sie erhalten eine Push-Benachrichtigung, wenn eine Datei in die ausgewählten Ordner gelegt wird.",
+    "CLOUD_NOTIFICATIONS_OFF": "Keine Push-Benachrichtigungen für neue Dateien in diesen Ordnern.",
+    "CLOUD_GROUP_FOLDERS": "Gruppenordner",
+    "CLOUD_USER_FOLDER": "An mich gesendete Dateien"
+  }
+}

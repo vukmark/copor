@@ -1,0 +1,35 @@
+import {LogRepository} from '@copor/core/domain/Core/Logger/LogRepository';
+import {
+	LogDataForUpdateCAMEL_CASE_NAME,
+	LogUpdateCAMEL_CASE_NAME
+} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/logger/LogUpdateCAMEL_CASE_NAME';
+import {CurrentUTCDate} from '@copor/core/domain/Core/global/SimpleDateAndTime/interactor/CurrentUTCDate';
+import {LogForSave} from '@copor/core/domain/Core/Logger/LogForSave';
+import {LogDetails} from '@copor/core/domain/Core/Logger/Logger';
+
+describe('log update contract type tests', () => {
+	const mockRepo: jest.Mocked<LogRepository<LogDataForUpdateCAMEL_CASE_NAME>> = {
+		save: jest.fn()
+	};
+	const logData: LogDataForUpdateCAMEL_CASE_NAME = {
+		id: 'id',
+		name: 'name'
+	};
+	const actorId = 'user-id';
+	const actionTime = new CurrentUTCDate();
+
+	const expectedLog: LogForSave<LogDataForUpdateCAMEL_CASE_NAME> = {
+		actionTime: actionTime,
+		actorUserId: actorId,
+		actionType: 'updateCAMEL_CASE_NAME',
+		logData: logData
+	};
+	const logDetails = new LogDetails(actorId);
+
+	it('Should successfully log action', async () => {
+		const logger: LogUpdateCAMEL_CASE_NAME = new LogUpdateCAMEL_CASE_NAME(mockRepo, logDetails, logData);
+
+		await logger.log();
+		expect(mockRepo.save).toHaveBeenCalledWith(expectedLog);
+	});
+});

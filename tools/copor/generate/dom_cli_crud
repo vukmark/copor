@@ -1,0 +1,56 @@
+#!/bin/bash
+
+source $COPOR_HELPERS_PATH/printer.sh
+source $COPOR_HELPERS_PATH/string_helper.sh
+source $COPOR_HELPERS_PATH/templates_helper.sh
+
+function usage() {
+    print_info "Usage: copor generate dom_cli_crud -n <NAME> [-p <PACKAGE>]"
+    print_info "Options: "
+    print_info "{ -n <NAME> } Name of the resource. If have multiple words in name separate it with underscore.
+For example, if you need Create/Update/Get/Delete+ContractType (client and domain), just type 'Contract_Type' instead <NAME>."
+    print_info "{ -p <PACKAGE> } Package folder under packages/ (core, todo, vu_meet, …). Default: core."
+    exit 1
+}
+
+PACKAGE="core"
+OPTSTRING=":n:p:"
+
+while getopts ${OPTSTRING} opt; do
+  case ${opt} in
+    n)
+      NAME=${OPTARG}
+      echo $NAME
+      ;;
+    p)
+      PACKAGE=${OPTARG}
+      ;;
+    :)
+      usage
+      ;;
+    ?)
+      print_error "Required option: -${OPTARG}"
+      usage
+      ;;
+  esac
+done
+
+if [ -z "$NAME" ]; then
+    print_error "Name cannot be empty."
+    usage
+fi
+
+export VUK_GENERATE_QUIET=1
+copor generate domain_create -n $NAME -p $PACKAGE
+copor generate domain_get -n $NAME -p $PACKAGE
+copor generate domain_get_list -n $NAME -p $PACKAGE
+copor generate domain_update -n $NAME -p $PACKAGE
+copor generate domain_delete -n $NAME -p $PACKAGE
+copor generate client_create -n $NAME -p $PACKAGE
+copor generate client_get -n $NAME -p $PACKAGE
+copor generate client_get_list -n $NAME -p $PACKAGE
+copor generate client_update -n $NAME -p $PACKAGE
+copor generate client_delete -n $NAME -p $PACKAGE
+copor generate client_router -n $NAME -p $PACKAGE
+unset VUK_GENERATE_QUIET
+print_server_next_steps $NAME $PACKAGE

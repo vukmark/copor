@@ -1,0 +1,10 @@
+{
+  "translationStringList": {
+    "QUESTION_IS_REQUIRED": "Frage oder Stichwörter sind erforderlich",
+    "QUESTION_DE": "Deutsche Frage/Stichwörter",
+    "QUESTION_EN": "Englische Frage/Stichwörter",
+    "ANSWER_IS_REQUIRED": "Antwort ist erforderlich",
+    "ANSWER_EN": "Englische Antwort/Beschreibung",
+    "ANSWER_DE": "Deutsche Antwort/Beschreibung"
+  }
+}

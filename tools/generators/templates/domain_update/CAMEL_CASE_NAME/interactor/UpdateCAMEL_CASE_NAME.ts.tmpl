@@ -1,0 +1,9 @@
+import {SaveCAMEL_CASE_NAMEDTO} from './dto/SaveCAMEL_CASE_NAMEDTO';
+import {SaveCAMEL_CASE_NAMERepo} from '../repository/SaveCAMEL_CASE_NAMERepo';
+import {ExecuteUseCase} from '@copor/core/domain/Core/Interactors/ExecuteUseCase';
+
+export class UpdateCAMEL_CASE_NAME extends ExecuteUseCase<SaveCAMEL_CASE_NAMEDTO, SaveCAMEL_CASE_NAMERepo, void> {
+	public async execute(): Promise<void> {
+		await this.repository.save(this.input);
+	}
+}

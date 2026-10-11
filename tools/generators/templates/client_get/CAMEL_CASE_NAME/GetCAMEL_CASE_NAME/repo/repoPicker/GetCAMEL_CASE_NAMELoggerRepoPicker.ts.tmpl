@@ -1,0 +1,16 @@
+import {NewRepositoryPicker} from '@copor/core/client/Core/RepositoryPicker';
+import {LogRepository} from '@copor/core/domain/Core/Logger/LogRepository';
+import {LogDataForGetCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/logger/LogGetCAMEL_CASE_NAME';
+import {AppContext} from '@copor/core/client/Interface/AppContext';
+import {DBEnv} from '@copor/core/client/enum/DBEnv';
+import {FakeGetCAMEL_CASE_NAMELoggerRepo} from '../fake/FakeGetCAMEL_CASE_NAMELoggerRepo';
+import {KyselyLogRepository} from '@copor/core/client/Core/Logger/KyselyLogRepository';
+
+export class GetCAMEL_CASE_NAMELoggerRepoPicker extends NewRepositoryPicker<LogRepository<LogDataForGetCAMEL_CASE_NAME>> {
+	protected getRepositoryList(): Record<string, new (appContext: AppContext) => LogRepository<LogDataForGetCAMEL_CASE_NAME>> {
+		return {
+			[DBEnv.KYSELY]: KyselyLogRepository,
+			[DBEnv.FAKE]: FakeGetCAMEL_CASE_NAMELoggerRepo
+		};
+	}
+}

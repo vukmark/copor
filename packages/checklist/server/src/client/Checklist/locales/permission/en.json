@@ -1,0 +1,28 @@
+{
+  "translationStringList": {
+    "checklist": {
+      "canGetChecklistItemList": "View checklist item list",
+      "canCreateChecklist": "Create checklist",
+      "canEditChecklist": "Edit checklist",
+      "canCreateChecklistItem": "Create checklist item",
+      "canDeleteChecklist": "Delete checklist",
+      "canDeleteChecklistItem": "Delete checklist item",
+      "canEditChecklistItem": "Edit checklist item",
+      "canSetCheckedChecklistItem": "Mark checklist item as completed",
+      "canGetChecklist": "View checklist"
+    }
+  },
+  "descriptions": {
+    "checklist": {
+      "canGetChecklistItemList": "Allows viewing checklist item list. Found in the Todo area.",
+      "canCreateChecklist": "Allows creating checklist. Found in the Todo area.",
+      "canEditChecklist": "Allows updating checklist. Found in the Todo area.",
+      "canCreateChecklistItem": "Allows creating a checklist item. Found in the Todo area.",
+      "canDeleteChecklist": "Allows deleting checklist. Found in the Todo area.",
+      "canDeleteChecklistItem": "Allows deleting a checklist item. Found in the Todo area.",
+      "canEditChecklistItem": "Allows updating a checklist item. Found in the Todo area.",
+      "canSetCheckedChecklistItem": "",
+      "canGetChecklist": "Allows viewing checklist. Found in the Todo area."
+    }
+  }
+}

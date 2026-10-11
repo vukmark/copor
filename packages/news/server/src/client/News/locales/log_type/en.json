@@ -1,0 +1,10 @@
+{
+  "translationStringList": {
+    "createNews": "Created news",
+    "deleteNews": "Deleted news",
+    "getNews": "Retrieved news",
+    "getNewsList": "Retrieved news list",
+    "updateNews": "Updated news",
+    "newsId": "News ID"
+  }
+}

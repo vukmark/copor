@@ -1,0 +1,14 @@
+{
+  "translationStringList": {
+    "getPrivateMessageList": "Retrieved private message list",
+    "getUserChatList": "Retrieved user chat list",
+    "getVuMeetContactList": "Retrieved VuMeet contact list",
+    "getChatWithUser": "Retrieved chat with user",
+    "searchAllMessages": "Searched all messages",
+    "searchMessagesInChat": "Searched messages in chat",
+    "markChatMessagesSeen": "Marked chat messages seen",
+    "getChatInfo": "Retrieved chat info",
+    "getVuMeetFile": "Retrieved VuMeet file",
+    "updateChat": "Updated chat"
+  }
+}

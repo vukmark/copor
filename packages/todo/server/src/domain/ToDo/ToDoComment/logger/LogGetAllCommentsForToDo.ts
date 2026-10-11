@@ -1,0 +1,7 @@
+import {NoDataLogger} from '@copor/core/domain/Core/Logger/NoDataLogger';
+
+export class LogGetAllCommentsForToDo extends NoDataLogger {
+	getType(): string {
+		return 'getAllCommentsForToDo';
+	}
+}

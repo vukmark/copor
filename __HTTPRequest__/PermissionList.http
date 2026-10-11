@@ -1,0 +1,89 @@
+import login.http
+run login.http
+
+### Set permission list for role
+POST {{host}}/permission/role
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "roleId": "db323f62-ee78-4590-b031-33249dfd12dd",
+  "permissionList": [
+    {
+      "permissionType": "vu_meet.canGetChatInfo",
+      "scope": "OWN",
+      "effect": "ALLOW"
+    },
+    {
+      "permissionType": "todo.canCreateToDoCategory",
+      "scope": "TENANT",
+      "effect": "ALLOW"
+    }
+  ]
+}
+
+### Set permission list for user
+POST {{host}}/permission/user
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "userId": "bd2bb86e-3df4-4b29-95e0-fa05ecb8ccf1",
+  "permissionList": [
+    {
+      "permissionType": "todo.canCreateToDoComment",
+      "scope": "ALL",
+      "effect": "DENY"
+    }
+  ]
+}
+
+
+### Set permission list for user group
+POST {{host}}/permission/user-group
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "userGroupId": "c0427365-244c-4c86-ba53-98ae4ac91fea",
+  "permissionList": [
+    {
+      "permissionType": "todo.canCreateToDoComment",
+      "scope": "ALL"
+    }
+  ]
+}
+
+### Get specific permission list for user
+GET {{host}}/permission/user/1a9e0b45-4249-4fbc-a108-ff640c6a364c
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### Get specific permission list for user group
+GET {{host}}/permission/user-group/582fe9a8-2daf-49ee-bb5a-c08b0f8f29c8
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### Get permission list for role
+GET {{host}}/permission/role/db323f62-ee78-4590-b031-33249dfd12dd
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### Get all permissions for user
+GET {{host}}/permission/user/all
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### Get permission tree
+GET {{host}}/permission/tree
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}

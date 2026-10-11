@@ -1,0 +1,31 @@
+### After setting up the configuration, to run the package execute this command bellow.
+### dart run flutter_launcher_icons
+
+flutter_launcher_icons:
+  image_path: "assets/copor.png"
+  image_path_android: "assets/app_icon/logo_google.png"
+  image_path_ios: "assets/app_icon/logo_apple.png"
+
+  android: true
+  min_sdk_android: 21
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/app_icon/logo_google.png"
+  adaptive_icon_foreground_inset: 16
+
+  ios: true
+  remove_alpha_ios: true
+
+  web:
+    generate: true
+    image_path: "assets/copor.png"
+    background_color: "#FAFAF9"
+    theme_color: "#C2410C"
+
+  windows:
+    generate: true
+    image_path: "assets/copor.png"
+    icon_size: 48
+
+  macos:
+    generate: true
+    image_path: "assets/copor.png"

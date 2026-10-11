@@ -1,0 +1,32 @@
+import {LogRepository} from '@copor/core/domain/Core/Logger/LogRepository';
+import {
+	LogDataForDeleteCAMEL_CASE_NAME,
+	LogDeleteCAMEL_CASE_NAME
+} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/logger/LogDeleteCAMEL_CASE_NAME';
+import {CurrentUTCDate} from '@copor/core/domain/Core/global/SimpleDateAndTime/interactor/CurrentUTCDate';
+import {LogForSave} from '@copor/core/domain/Core/Logger/LogForSave';
+import {LogDetails} from '@copor/core/domain/Core/Logger/Logger';
+
+describe('Log deletion of a contract type', () => {
+	const repo: jest.Mocked<LogRepository<LogDataForDeleteCAMEL_CASE_NAME>> = {
+		save: jest.fn()
+	};
+
+	const actionTime = new CurrentUTCDate();
+	const actorId = 'userId';
+	const logData: LogDataForDeleteCAMEL_CASE_NAME = {LOWER_FIRST_CAMEL_CASE_NAMEId: 'deleteCAMEL_CASE_NAME'};
+	const expectedLogForSave: LogForSave<LogDataForDeleteCAMEL_CASE_NAME> = {
+		actionTime: actionTime,
+		actorUserId: actorId,
+		actionType: 'deleteCAMEL_CASE_NAME',
+		logData: logData
+	};
+	const logDetails = new LogDetails(actorId);
+
+	it('Should log deletion of a Contract Type', async () => {
+		const logger = new LogDeleteCAMEL_CASE_NAME(repo, logDetails, logData);
+
+		await logger.log();
+		expect(repo.save).toHaveBeenCalledWith(expectedLogForSave);
+	});
+});

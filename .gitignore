@@ -1,0 +1,6 @@
+node_modules
+screenshots
+# Real env files are created locally from the tracked *.dist.env templates.
+configs/*.env
+# Firebase service-account keys, wherever they are placed.
+*firebase-adminsdk*.json

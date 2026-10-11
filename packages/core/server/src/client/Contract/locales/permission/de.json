@@ -1,0 +1,24 @@
+{
+  "translationStringList": {
+    "contract": {
+      "canUpdateContractType": "Vertragstyp aktualisieren",
+      "canGetContractTypeList": "Vertragstypen anzeigen",
+      "canGetContractType": "Vertragstyp anzeigen",
+      "canDeleteContractType": "Vertragstyp löschen",
+      "canCreateContractType": "Vertragstyp erstellen",
+      "canSignContract": "Vertrag unterzeichnen",
+      "canViewAdministrationContractTypeFeature": "Verwaltung der Vertragstypen anzeigen"
+    }
+  },
+  "descriptions": {
+    "contract": {
+      "canUpdateContractType": "",
+      "canGetContractTypeList": "",
+      "canGetContractType": "",
+      "canDeleteContractType": "",
+      "canCreateContractType": "",
+      "canSignContract": "",
+      "canViewAdministrationContractTypeFeature": ""
+    }
+  }
+}

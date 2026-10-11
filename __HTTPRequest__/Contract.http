@@ -1,0 +1,13 @@
+import login.http
+run login.http
+
+### Sign contract
+POST {{host}}/contract/sign
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "userId": "4f6e66ba-01c4-4110-9b1d-de46bf60e7a0",
+  "contractType": 2
+}

@@ -1,0 +1,8 @@
+import {SaveItem} from '@copor/core/domain/Core/Repository/SaveItem';
+import {SaveCAMEL_CASE_NAMEDTO} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/dto/SaveCAMEL_CASE_NAMEDTO';
+
+export class FakeCreateCAMEL_CASE_NAMEInteractorRepo implements SaveItem<SaveCAMEL_CASE_NAMEDTO> {
+	save(saveDTO: SaveCAMEL_CASE_NAMEDTO): Promise<void> {
+		return Promise.resolve();
+	}
+}

@@ -1,0 +1,4 @@
+{
+  "InvalidChecklistException": "Invalid checklist",
+  "InvalidChecklistItemException": "Invalid checklist item"
+}

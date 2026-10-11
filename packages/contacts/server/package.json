@@ -1,0 +1,13 @@
+{
+  "name": "@copor/contacts",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "description": "Copor contacts module (server)",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@copor/core": "*"
+  }
+}

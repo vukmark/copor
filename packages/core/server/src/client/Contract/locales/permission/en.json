@@ -1,0 +1,24 @@
+{
+  "translationStringList": {
+    "contract": {
+      "canUpdateContractType": "Update contract type",
+      "canGetContractTypeList": "View contract type list",
+      "canGetContractType": "View contract type",
+      "canDeleteContractType": "Delete contract type",
+      "canCreateContractType": "Create contract type",
+      "canSignContract": "Sign contract",
+      "canViewAdministrationContractTypeFeature": "Access contract type administration"
+    }
+  },
+  "descriptions": {
+    "contract": {
+      "canUpdateContractType": "Allows updating a contract type. Found in the Administration Contract Type area.",
+      "canGetContractTypeList": "Allows viewing contract type list. Found in the Administration Contract Type area.",
+      "canGetContractType": "Allows viewing a contract type. Found in the Administration Contract Type area.",
+      "canDeleteContractType": "Allows deleting a contract type. Found in the Administration Contract Type area.",
+      "canCreateContractType": "Allows creating a contract type. Found in the Administration Contract Type area.",
+      "canSignContract": "Allows signing a contract. Found in the Core area.",
+      "canViewAdministrationContractTypeFeature": "Allows seeing the Administration Contract Type section in the app's navigation."
+    }
+  }
+}

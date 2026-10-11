@@ -1,0 +1,12 @@
+import {EntityRepoHelper} from '@copor/core/client/Core/repositoryHelper/EntityRepoHelper';
+
+export class CAMEL_CASE_NAMEKyselyHelper {
+	private static readonly helper = new EntityRepoHelper('LOWER_FIRST_CAMEL_CASE_NAME');
+
+	public static async isInvalidCAMEL_CASE_NAME(id: string | undefined) {
+		return this.helper.isInvalid(id);
+	}
+	public static async LOWER_FIRST_CAMEL_CASE_NAMEHasReferences(id: string | undefined) {
+		return this.helper.hasReferences(id);
+	}
+}

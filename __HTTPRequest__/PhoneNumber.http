@@ -1,0 +1,45 @@
+import login.http
+run login.http
+
+### CREATE Phone Number
+POST {{host}}/phone-number
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+[
+  {
+    "user": "6f3fd5b0-560e-456d-9b2f-26a160e38b9a",
+    "phoneNumber": "+112358132da",
+    "phoneNumberType": "PHONE_MOBILE"
+  }
+]
+
+### GET Phone Number List By User ID
+GET {{host}}/phone-number/4a2f9601-58d2-47ba-a4a0-00b96e8ce330
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### DELETE Phone Number
+DELETE {{host}}/phone-number/85b9a330-bdda-42d5-83f2-5e53fc186aa8
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### UPDATE Phone Number List
+PATCH {{host}}/phone-number
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+[
+  {
+    "id": "a8b64e63-df74-48b9-a4cd-1196a5cb5f6b",
+    "user": "2b98e1d0-f513-481f-a422-b6f3cbc0bd5d",
+    "phoneNumber": "+388888888888",
+    "phoneNumberType": "PHONE_MOBILE"
+  }
+]

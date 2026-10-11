@@ -1,0 +1,15 @@
+import login.http
+run login.http
+
+### GET Feature list
+GET {{host}}/feature-list
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### GET Menu
+GET {{host}}/feature-list/menu
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}

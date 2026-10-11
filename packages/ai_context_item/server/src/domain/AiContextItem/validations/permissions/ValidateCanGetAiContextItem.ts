@@ -1,0 +1,9 @@
+import {PermissionValidator} from '@copor/core/domain/Core/Validations/Validators/PermissionValidator';
+import {PermissionType} from '@copor/core/domain/Core/Permission/PermissionType';
+import {AiContextItemPermission} from '@copor/ai_context_item/domain/AiContextItem/AiContextItemPermission';
+
+export class ValidateCanGetAiContextItem extends PermissionValidator {
+	public getPermissionType(): PermissionType {
+		return AiContextItemPermission.canGetAiContextItem;
+	}
+}

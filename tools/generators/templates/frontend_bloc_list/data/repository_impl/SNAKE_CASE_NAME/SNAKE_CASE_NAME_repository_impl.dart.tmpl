@@ -1,0 +1,43 @@
+import 'package:dartz/dartz.dart';
+import 'package:copor_core/src/data/repository_impl/base_repository.dart';
+import 'package:copor_core/src/error/failure.dart';
+import 'package:MODULE_IMPORT_PREFIX/data/repository_impl/SNAKE_CASE_NAME/SNAKE_CASE_NAME_repository.dart';
+import 'package:MODULE_IMPORT_PREFIX/data/model/SNAKE_CASE_NAME/SNAKE_CASE_NAME_model.dart';
+import 'package:copor_core/src/bloc/utils/bloc_state.dart';
+
+class CAMEL_CASE_NAMERepositoryImpl extends BaseRepository implements CAMEL_CASE_NAMERepository {
+  final CAMEL_CASE_NAMERemoteDataSource remoteDataSource;
+  final CAMEL_CASE_NAMELocalDataSource localDataSource;
+
+  CAMEL_CASE_NAMERepositoryImpl({
+    required this.remoteDataSource,
+    required this.localDataSource,
+    required super.errorHandler,
+    required super.connectivityService,
+  });
+  
+  @override
+  Future<Either<Failure, Result<List<CAMEL_CASE_NAMEItemModel>>>> getCAMEL_CASE_NAME() {
+    return performOperationAndMapToResult<List<CAMEL_CASE_NAMEItemModel>>(
+        localOperation: () {
+      return performLocalStorageOperation<List<CAMEL_CASE_NAMEItemModel>>(
+          localDataSource.getCAMEL_CASE_NAME);
+    }, remoteOperation: () {
+      return performNetworkOperation<List<CAMEL_CASE_NAMEItemModel>>(() async {
+        final model = await remoteDataSource.getCAMEL_CASE_NAME();
+        await localDataSource.setCAMEL_CASE_NAME(model);
+        return model;
+      });
+    });
+  }
+
+}
+
+abstract class CAMEL_CASE_NAMERemoteDataSource {
+  Future<List<CAMEL_CASE_NAMEItemModel>> getCAMEL_CASE_NAME();
+}
+
+abstract class CAMEL_CASE_NAMELocalDataSource {
+  Future<List<CAMEL_CASE_NAMEItemModel>> getCAMEL_CASE_NAME();
+  Future<void> setCAMEL_CASE_NAME(List<CAMEL_CASE_NAMEItemModel> model);
+}

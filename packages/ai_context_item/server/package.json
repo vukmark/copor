@@ -1,0 +1,15 @@
+{
+  "name": "@copor/ai_context_item",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "description": "Copor ai_context_item module (server)",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "i18next": "^23.11.5",
+    "kysely": "^0.28.16",
+    "@copor/core": "*"
+  }
+}

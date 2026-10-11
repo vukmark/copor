@@ -1,0 +1,14 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "../../ai_context_item/server/src/client/AiContextItem/types/AiContextItemTables.ts"
+  ],
+  "exclude": [
+    "src/**/__tests__",
+    "src/**/__test__"
+  ]
+}

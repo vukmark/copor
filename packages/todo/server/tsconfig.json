@@ -1,0 +1,15 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "../../cloud/server/src/client/Cloud/types/CloudTables.ts",
+    "../../vu_meet/server/src/client/VuMeet/types/VuMeetTables.ts"
+  ],
+  "exclude": [
+    "src/**/__tests__",
+    "src/**/__test__"
+  ]
+}

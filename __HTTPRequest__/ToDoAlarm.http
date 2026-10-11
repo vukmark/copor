@@ -1,0 +1,49 @@
+import ../login.http
+run login.http
+
+### POST Create ToDo alarm
+POST {{host}}/todo/alarm/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "alarmableId": "some-id-321",
+  "alarmableType": 1,
+  "alarmTime": "2025-05-25T10:08:00",
+  "repeatFrequency": 1,
+  "alarmStatus": 1
+}
+
+### GET Alarm
+GET {{host}}/todo/alarm/28e71a54-5f6d-4d7e-b6c9-56789abcdef2
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Alarm list
+GET {{host}}/todo/alarm/list/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### PATCH update ToDo alarm
+PATCH {{host}}/todo/alarm/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "id": "28126794-4b3b-444a-9359-f4f85c28f7a8",
+  "alarmableId": "some-id-321-updated",
+  "alarmableType": 1,
+  "alarmTime": "2025-05-25T20:08:00",
+  "repeatFrequency": 1,
+  "alarmStatus": 1
+}
+
+### DELETE todo alarm
+DELETE {{host}}/todo/alarm/28126794-4b3b-444a-9359-f4f85c28f7a8
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}

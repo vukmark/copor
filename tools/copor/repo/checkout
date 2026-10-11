@@ -1,0 +1,10 @@
+#!/bin/bash
+
+source $COPOR_PATH/tools/helpers/printer.sh
+cd $COPOR_PATH;
+# Find all subdirectories that are Git repositories
+for d in $(find . -name ".git" -type d | sed 's/\/.git//'); do
+  cd $COPOR_PATH/$d
+  print_info "Checkout in $(pwd)"
+  git checkout $1
+done

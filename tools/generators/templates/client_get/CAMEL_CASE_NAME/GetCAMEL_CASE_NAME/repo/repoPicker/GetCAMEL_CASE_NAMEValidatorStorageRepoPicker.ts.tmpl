@@ -1,0 +1,17 @@
+import {NewRepositoryPicker} from '@copor/core/client/Core/RepositoryPicker';
+import {ValidateGetCAMEL_CASE_NAMERepo} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/repository/ValidateGetCAMEL_CASE_NAMERepo';
+import {IsInvalidCAMEL_CASE_NAMERepo} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/repository/IsInvalidCAMEL_CASE_NAMERepo';
+import {AppContext} from '@copor/core/client/Interface/AppContext';
+import {DBEnv} from '@copor/core/client/enum/DBEnv';
+import {FakeGetCAMEL_CASE_NAMEValidatorStorageRepo} from '../fake/FakeGetCAMEL_CASE_NAMEValidatorStorageRepo';
+import {KyselyGetCAMEL_CASE_NAMEValidatorStorageRepo}
+	from '@copor/PACKAGE_NAME/client/CAMEL_CASE_NAME/GetCAMEL_CASE_NAME/repo/kysely/KyselyGetCAMEL_CASE_NAMEValidatorStorageRepo';
+
+export class GetCAMEL_CASE_NAMEValidatorStorageRepoPicker extends NewRepositoryPicker<ValidateGetCAMEL_CASE_NAMERepo> {
+	protected getRepositoryList(): Record<string, new (appContext: AppContext) => IsInvalidCAMEL_CASE_NAMERepo> {
+		return {
+			[DBEnv.KYSELY]: KyselyGetCAMEL_CASE_NAMEValidatorStorageRepo,
+			[DBEnv.FAKE]: FakeGetCAMEL_CASE_NAMEValidatorStorageRepo
+		};
+	}
+}

@@ -1,0 +1,13 @@
+import {ValidateDeleteCAMEL_CASE_NAMERepo}
+	from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/repository/ValidateDeleteCAMEL_CASE_NAMERepo';
+import {CAMEL_CASE_NAMEKyselyHelper} from '@copor/PACKAGE_NAME/client/CAMEL_CASE_NAME/repositoryHelper/CAMEL_CASE_NAMEKyselyHelper';
+
+export class KyselyDeleteCAMEL_CASE_NAMEValidatorStorageRepo implements ValidateDeleteCAMEL_CASE_NAMERepo {
+	isInvalidCAMEL_CASE_NAME(id: string | undefined): Promise<boolean> {
+		return CAMEL_CASE_NAMEKyselyHelper.isInvalidCAMEL_CASE_NAME(id);
+	}
+
+	entityHasReferences(id: string): Promise<{tableName: string} | false> {
+		return CAMEL_CASE_NAMEKyselyHelper.LOWER_FIRST_CAMEL_CASE_NAMEHasReferences(id);
+	}
+}

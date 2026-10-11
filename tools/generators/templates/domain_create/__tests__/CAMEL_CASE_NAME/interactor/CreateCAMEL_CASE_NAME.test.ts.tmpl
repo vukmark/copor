@@ -1,0 +1,27 @@
+import {CreateCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/CreateCAMEL_CASE_NAME';
+import {SaveCAMEL_CASE_NAMERepo} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/repository/SaveCAMEL_CASE_NAMERepo';
+import {SaveCAMEL_CASE_NAMEDTO} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/dto/SaveCAMEL_CASE_NAMEDTO';
+
+describe('Create CAMEL_CASE_NAME User', () => {
+	let createCAMEL_CASE_NAME: CreateCAMEL_CASE_NAME;
+	let mockRepo: jest.Mocked<SaveCAMEL_CASE_NAMERepo>;
+	let inputDTO: SaveCAMEL_CASE_NAMEDTO;
+
+	beforeEach(() => {
+		mockRepo = {
+			save: jest.fn()
+		};
+		inputDTO = {
+			id: 'id',
+			name: 'name',
+			actorId: 'actorId'
+		};
+		createCAMEL_CASE_NAME = new CreateCAMEL_CASE_NAME(inputDTO, mockRepo);
+	});
+	it('should save CAMEL_CASE_NAME', async () => {
+		const result = await createCAMEL_CASE_NAME.execute();
+
+		expect(result).toEqual('id');
+		expect(mockRepo.save).toHaveBeenCalledWith(inputDTO);
+	});
+});

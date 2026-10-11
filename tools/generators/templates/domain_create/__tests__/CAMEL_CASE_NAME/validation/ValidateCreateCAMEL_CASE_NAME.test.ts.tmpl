@@ -1,0 +1,46 @@
+import {PermissionRepository} from '@copor/core/domain/Core/Validations/PermissionRepository';
+import {ValidateCreateCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/ValidateCreateCAMEL_CASE_NAME';
+import {
+	ValidateCreateCAMEL_CASE_NAMEDTO
+} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/dto/ValidateCreateCAMEL_CASE_NAMEDTO';
+import {ErrorList} from '@copor/core/domain/Core/Exceptions/ErrorList';
+import {ForbiddenAccessException} from '@copor/core/domain/Core/Exceptions/ForbiddenAccessException';
+import {EmptyNameException} from '@copor/core/domain/Core/Exceptions/empty/EmptyNameException';
+
+describe('validate create CAMEL_CASE_NAME tests', () => {
+	let mockPermissionRepo: jest.Mocked<PermissionRepository>;
+	let validator: ValidateCreateCAMEL_CASE_NAME;
+	let input: ValidateCreateCAMEL_CASE_NAMEDTO;
+
+	beforeEach(() => {
+		mockPermissionRepo = {
+			isAllowed: jest.fn()
+		};
+
+		input = {
+			name: 'name',
+			actorId: 'actorId'
+		};
+		mockPermissionRepo.isAllowed.mockResolvedValue(true);
+	});
+
+	it('should throw error if user is not authorized to create CAMEL_CASE_NAME', async () => {
+		const errorList = new ErrorList([new ForbiddenAccessException()]);
+
+		mockPermissionRepo.isAllowed.mockResolvedValue(false);
+		validator = new ValidateCreateCAMEL_CASE_NAME(input, mockPermissionRepo);
+		const result = await validator.validate();
+
+		expect(result).toStrictEqual(errorList);
+	});
+
+	it('should throw error if name is empty', async () => {
+		const errorList = new ErrorList([new EmptyNameException()]);
+
+		input.name = '';
+		validator = new ValidateCreateCAMEL_CASE_NAME(input, mockPermissionRepo);
+		const result = await validator.validate();
+
+		expect(result).toStrictEqual(errorList);
+	});
+});

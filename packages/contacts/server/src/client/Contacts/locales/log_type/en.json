@@ -1,0 +1,7 @@
+{
+  "translationStringList": {
+    "getUserContactInformation": "Retrieved user contact information",
+    "getContactList": "Get contact list",
+    "getContactById": "Retrieved contact by ID"
+  }
+}

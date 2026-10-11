@@ -1,0 +1,11 @@
+{
+  "translationStringList": {
+    "LOGS": "Logs",
+    "LOG_INFO": "Log Info",
+    "LOG_DATA": "Log Data",
+    "LOG_ID": "Log ID",
+    "ACTOR": "Actor",
+    "ACTION_TYPE": "Log Type",
+    "TIME": "Timestamp"
+  }
+}

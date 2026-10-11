@@ -1,0 +1,22 @@
+{
+  "translationStringList": {
+    "TOOLS": "Tools",
+    "HELP": "Help",
+    "ABOUT": "About",
+    "VERSION": "Version",
+    "PUBLISHED_APP": "Published",
+    "COPYRIGHT": "Copyright",
+    "LICENSE": "License",
+    "SUPPORT": "Support",
+    "POLICY": "Data Protection",
+    "VERSION_HISTORY": "Version History",
+    "NO_VERSION_HISTORY": "No version history found.",
+    "COULD_NOT_LOAD_CHANGELOG": "Could not load changelog.",
+    "DOWNLOADS": "Downloads",
+    "PRIVACY_POLICY": "Privacy Policy",
+    "APP_INSTALLATION_MESSAGE": "Install Copor app for best user experience.",
+    "APP_DOWNLOAD": "App Download",
+    "DOCU": "Docu",
+    "ACCOUNT_DELETION_INFO": "Request deletion of your account and associated data"
+  }
+}

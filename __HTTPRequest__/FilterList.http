@@ -1,0 +1,32 @@
+import login.http
+run login.http
+
+### GET ToDo Filter List (todo module)
+GET {{host}}/filter/TODO
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Contract Type Filter List (contract module)
+GET {{host}}/filter/CONTRACT_TYPE
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Log Filter List
+GET {{host}}/filter/LOG
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Country Filter List
+GET {{host}}/filter/COUNTRY
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET User filter list
+GET {{host}}/filter/USER
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}

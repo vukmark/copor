@@ -1,0 +1,15 @@
+{
+  "translationStringList": {
+    "help": {
+      "canViewHelpFeature": "Hilfe-Funktion anzeigen",
+      "canViewAboutFeature": "Info-Funktion anzeigen",
+      "canViewToolsFeature": "Zugriff auf Werkzeuge"
+    }
+  },
+  "descriptions": {
+    "help": {
+      "canViewHelpFeature": "",
+      "canViewAboutFeature": ""
+    }
+  }
+}

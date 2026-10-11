@@ -1,0 +1,55 @@
+{
+  "translationStringList": {
+    "vu_meet": {
+      "canGetChatInfo": "Chat-Informationen anzeigen",
+      "canStartGroupCall": "Gruppenanruf starten",
+      "canStartPrivateCall": "Privatanruf starten",
+      "canCreateChat": "Chat erstellen",
+      "canCreateGroupChat": "Gruppenchat erstellen",
+      "canCreateGroupMessage": "Gruppennachricht erstellen",
+      "canGetGroupMessageList": "Liste der Gruppennachrichten anzeigen",
+      "canUpdateGroupChat": "Gruppenchat aktualisieren",
+      "canGetUserChatList": "Benutzer-Chatliste anzeigen",
+      "canSendTypingStatus": "Schreibstatus senden",
+      "canGetGroupChat": "Gruppenchat anzeigen",
+      "canGetChat": "Chat anzeigen",
+      "canGetVuMeetContactList": "VuMeet-Kontaktliste anzeigen",
+      "canGetChatWithUser": "Chat mit Benutzer anzeigen",
+      "canSearchAllMessages": "Alle Nachrichten durchsuchen",
+      "canSearchMessagesInChat": "Nachrichten im Chat durchsuchen",
+      "canSearchMessagesInGroupChat": "Nachrichten im Gruppenchat durchsuchen",
+      "canMarkGroupChatMessagesSeen": "Gruppenchat-Nachrichten als gesehen markieren",
+      "canGetVuMeetFile": "VuMeet-Datei anzeigen",
+      "canUpdateChat": "Chat aktualisieren",
+      "canViewVuMeetFeature": "Zugriff auf VuMeet-Funktion",
+      "canCreateMessage": "Nachricht erstellen",
+      "canGetMessageList": "Nachrichtenliste anzeigen",
+      "canMarkMessagesSeen": "Nachricht als gelesen markieren"
+    }
+  },
+  "descriptions": {
+    "vu_meet": {
+      "canGetChatInfo": "",
+      "canStartGroupCall": "",
+      "canStartPrivateCall": "",
+      "canCreateChat": "",
+      "canCreateGroupChat": "",
+      "canCreateGroupMessage": "",
+      "canGetGroupMessageList": "",
+      "canUpdateGroupChat": "",
+      "canGetUserChatList": "",
+      "canSendTypingStatus": "",
+      "canGetGroupChat": "",
+      "canGetChat": "",
+      "canGetVuMeetContactList": "",
+      "canGetChatWithUser": "",
+      "canSearchAllMessages": "",
+      "canSearchMessagesInChat": "",
+      "canSearchMessagesInGroupChat": "",
+      "canMarkGroupChatMessagesSeen": "",
+      "canGetVuMeetFile": "",
+      "canUpdateChat": "",
+      "canViewVuMeetFeature": ""
+    }
+  }
+}

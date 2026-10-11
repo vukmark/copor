@@ -1,0 +1,46 @@
+import 'package:copor_core/src/config/connectivity_service.dart';
+import 'package:copor_core/src/config/key_generator.dart';
+import 'package:copor_core/src/error/error_handler.dart';
+import 'package:get_it/get_it.dart';
+
+// DO NOT DELETE WORDS STARTING WITH GENERATE_
+//GENERATE_IMPORT_REPOSITORY
+//GENERATE_IMPORT_REPO_IMPL
+//GENERATE_IMPORT_LOCAL_SOURCE
+//GENERATE_IMPORT_REMOTE_SOURCE
+//GENERATE_IMPORT_BLOC
+
+// DO NOT FORGET to call this: from the module's CoporModule.registerDependencies()
+// (config/<module>_module.dart), or for a core feature from core's
+// config/dependency_injection.dart.
+// See how vuMeet was registered as example
+final GetIt getIt = GetIt.instance;
+
+Future<void> init() async {
+  registerLocalDataSources();
+  registerRemoteDataSources();
+  registerRepositories();
+  registerFactoryBlocs();
+}
+
+void registerLocalDataSources() {
+    //GENERATE_REGISTER_LOCAL_SOURCE
+}
+
+void registerRemoteDataSources() {
+    //GENERATE_REGISTER_REMOTE_SOURCE
+}
+
+void registerRepositories() {
+    //GENERATE_REGISTER_REPOSITORIES
+}
+
+void registerFactoryBlocs() {
+  //GENERATE_REGISTER_BLOC
+  // Register here translation, here is example of VuMeet
+  /*
+  getIt.registerFactory<TranslationBloc<VuMeetPageTranslation>>(() =>
+      TranslationBloc<VuMeetPageTranslation>(
+          translationRepository: getIt<TranslationRepository>()));
+  */
+}

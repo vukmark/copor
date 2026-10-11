@@ -1,0 +1,17 @@
+import {NewRepositoryPicker} from '@copor/core/client/Core/RepositoryPicker';
+import {SaveCAMEL_CASE_NAMERepo} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/repository/SaveCAMEL_CASE_NAMERepo';
+import {AppContext} from '@copor/core/client/Interface/AppContext';
+import {DBEnv} from '@copor/core/client/enum/DBEnv';
+import {FakeUpdateCAMEL_CASE_NAMEInteractorRepo} from '../fake/FakeUpdateCAMEL_CASE_NAMEInteractorRepo';
+import {
+	KyselyUpdateCAMEL_CASE_NAMEInteractorRepo
+} from '@copor/PACKAGE_NAME/client/CAMEL_CASE_NAME/UpdateCAMEL_CASE_NAME/repo/kysely/KyselyUpdateCAMEL_CASE_NAMEInteractorRepo';
+
+export class UpdateCAMEL_CASE_NAMEInteractorRepoPicker extends NewRepositoryPicker<SaveCAMEL_CASE_NAMERepo> {
+	protected getRepositoryList(): Record<string, new (appContext: AppContext) => SaveCAMEL_CASE_NAMERepo> {
+		return {
+			[DBEnv.FAKE]: FakeUpdateCAMEL_CASE_NAMEInteractorRepo,
+			[DBEnv.KYSELY]: KyselyUpdateCAMEL_CASE_NAMEInteractorRepo
+		};
+	}
+}

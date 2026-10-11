@@ -1,0 +1,22 @@
+{
+  "translationStringList": {
+    "content_item": {
+      "canCreateContentItem": "Inhaltselement erstellen",
+      "canDeleteContentItem": "Inhaltselement löschen",
+      "canGetContentItem": "Inhaltselement anzeigen",
+      "canGetContentItemList": "Liste der Inhaltselemente anzeigen",
+      "canUpdateContentItem": "Inhaltselement aktualisieren",
+      "canViewAdministrationContentItemFeature": "Verwaltung der Inhaltselemente anzeigen"
+    }
+  },
+  "descriptions": {
+    "content_item": {
+      "canCreateContentItem": "",
+      "canDeleteContentItem": "",
+      "canGetContentItem": "",
+      "canGetContentItemList": "",
+      "canUpdateContentItem": "",
+      "canViewAdministrationContentItemFeature": ""
+    }
+  }
+}

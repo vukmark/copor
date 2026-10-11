@@ -1,0 +1,34 @@
+{
+  "translationStringList": {
+    "cloud": {
+      "canCreateCloudCategory": "Create cloud category",
+      "canGetCloudCategory": "View cloud category",
+      "canDeleteCloudCategory": "Delete cloud category",
+      "canGetCloudCategoryList": "View cloud category list",
+      "canUpdateCloudCategory": "Update cloud category",
+      "canCreateUserGroupFile": "Create user group file",
+      "canGetFileListForUser": "View user file list",
+      "canGetFile": "View file",
+      "canDeleteFile": "Delete file",
+      "canViewCloudFeature": "Access cloud feature",
+      "canCreatePublicFile": "Create public file",
+      "canGetShareRecipientList": "Get share recipient list"
+    }
+  },
+  "descriptions": {
+    "cloud": {
+      "canCreateCloudCategory": "Allows creating a cloud category. Found in the Cloud area.",
+      "canGetCloudCategory": "Allows viewing a cloud category. Found in the Cloud area.",
+      "canDeleteCloudCategory": "Allows deleting a cloud category. Found in the Cloud area.",
+      "canGetCloudCategoryList": "Allows viewing cloud category list. Found in the Cloud area.",
+      "canUpdateCloudCategory": "Allows updating a cloud category. Found in the Cloud area.",
+      "canCreateUserGroupFile": "Allows creating a file. Found in the Cloud area.",
+      "canGetFileListForUser": "Allows viewing file list for user. Found in the Cloud area.",
+      "canGetFile": "Allows viewing a file. Found in the Cloud area.",
+      "canDeleteFile": "Allows deleting a file. Found in the Cloud area.",
+      "canViewCloudFeature": "Allows seeing the Cloud section in the app's navigation.",
+      "canCreatePublicFile": "Allows creating a file that is visible to everyone, not just its creator. Found in the Cloud area.",
+      "canGetShareRecipientList": "Allows listing the users a file can be sent to; the scope decides whom (own: nobody, tenant: the same tenant, all: everyone). Found in the Cloud area."
+    }
+  }
+}

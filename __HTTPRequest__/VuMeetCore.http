@@ -1,0 +1,51 @@
+import ../login.http
+run login.http
+
+### Get Contact list
+POST {{host}}/vu-meet/contacts/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": ["ma"]
+    }
+  ],
+  "limit": "3",
+  "offset": "0"
+}
+
+
+### Get User Chats List
+GET {{host}}/vu-meet/user-chats/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### Search All Messages List
+GET {{host}}/vu-meet/search/a
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### POST DeepSeek AI VuMeet Bot
+POST {{host}}/vu-meet/bot
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello, how can you help me."
+    }
+  ],
+  "role": "user",
+  "featureList": []
+}
+

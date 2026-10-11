@@ -1,0 +1,32 @@
+name: copor_calendar_entry
+description: "Copor Calendar module (Flutter)"
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.8.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dartz: ^0.10.1
+  dio: ^5.7.0
+  equatable: ^2.0.5
+  flutter_bloc: ^9.0.0
+  get_it: ^9.1.1
+  json_annotation: ^4.9.0
+  retrofit: ^4.4.1
+  copor_core:
+    path: ../../core/flutter
+  copor_theme:
+    path: ../../copor_theme
+  copor_todo:
+    path: ../../todo/flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  build_runner: ^2.4.0
+  json_serializable: ^6.8.0
+  retrofit_generator: ^10.0.2

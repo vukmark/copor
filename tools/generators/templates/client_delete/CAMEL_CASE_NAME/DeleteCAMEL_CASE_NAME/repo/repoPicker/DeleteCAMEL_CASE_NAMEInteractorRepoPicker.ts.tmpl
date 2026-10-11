@@ -1,0 +1,17 @@
+import {NewRepositoryPicker} from '@copor/core/client/Core/RepositoryPicker';
+import {DeleteItem} from '@copor/core/domain/Core/Repository/DeleteItem';
+import {AppContext} from '@copor/core/client/Interface/AppContext';
+import {DBEnv} from '@copor/core/client/enum/DBEnv';
+import {FakeDeleteCAMEL_CASE_NAMEInteractorRepo} from '../fake/FakeDeleteCAMEL_CASE_NAMEInteractorRepo';
+import {
+	KyselyDeleteCAMEL_CASE_NAMEInteractorRepo
+} from '@copor/PACKAGE_NAME/client/CAMEL_CASE_NAME/DeleteCAMEL_CASE_NAME/repo/kysely/KyselyDeleteCAMEL_CASE_NAMEInteractorRepo';
+
+export class DeleteCAMEL_CASE_NAMEInteractorRepoPicker extends NewRepositoryPicker<DeleteItem> {
+	protected getRepositoryList(): Record<string, new (appContext: AppContext) => DeleteItem> {
+		return {
+			[DBEnv.FAKE]: FakeDeleteCAMEL_CASE_NAMEInteractorRepo,
+			[DBEnv.KYSELY]: KyselyDeleteCAMEL_CASE_NAMEInteractorRepo
+		};
+	}
+}

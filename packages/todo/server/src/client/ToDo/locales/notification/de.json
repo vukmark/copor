@@ -1,0 +1,10 @@
+{
+  "translationStringList": {
+    "TODO_CREATED_NOTIFICATION_TITLE": "ToDo Erstellt",
+    "TODO_CREATED_NOTIFICATION_DESCRIPTION": "Neues ToDo erstellt von {{author}}. Überprüfen Sie die ToDo-Liste.",
+    "TODO_DELETED_NOTIFICATION_TITLE": "ToDo gelöscht",
+    "TODO_DELETED_NOTIFICATION_DESCRIPTION": "ToDo von {{author}} gelöscht. Überprüfe die ToDo-Liste.",
+    "TODO_UPDATED_NOTIFICATION_TITLE": "ToDo aktualisiert",
+    "TODO_UPDATED_NOTIFICATION_DESCRIPTION": "ToDo von {{author}} aktualisiert. Überprüfe die ToDo-Liste."
+  }
+}

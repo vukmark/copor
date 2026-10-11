@@ -1,0 +1,16 @@
+{
+  "translationStringList": {
+    "HOLIDAYS": "Urlaubstag",
+    "TRAVEL": "Reisetag",
+    "CALENDAR_CATEGORY": "Kategorie",
+    "CALENDAR_START_DATE": "Startdatum",
+    "CALENDAR_END_DATE": "Enddatum",
+    "CALENDAR_DESCRIPTION": "Beschreibung",
+    "ADD_CALENDAR_ENTRY": "Zeitraum hinzufügen",
+    "EDIT_CALENDAR_ENTRY": "Zeitraum bearbeiten",
+    "DELETE_CALENDAR_ENTRY": "Zeitraum löschen",
+    "DELETE_CALENDAR_ENTRY_CONFIRMATION": "Möchten Sie diesen Zeitraum wirklich löschen?",
+    "CALENDAR_ENTRY_OVERLAP": "Dieser Zeitraum überschneidet sich mit einem vorhandenen Eintrag. Bitte andere Daten wählen.",
+    "CALENDAR_ENTRY_INVALID_RANGE": "Das Enddatum darf nicht vor dem Startdatum liegen."
+  }
+}

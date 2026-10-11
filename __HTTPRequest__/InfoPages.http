@@ -1,0 +1,5 @@
+### GET Terms And Conditions
+GET {{host}}/info/terms_and_conditions
+
+### Get Impressum
+GET {{host}}/info/impressum

@@ -1,0 +1,28 @@
+{
+  "translationStringList": {
+    "TENANT_ACTIVATION": "Aktivierung der Organisation",
+    "TENANT_ACTIVATION_TITLE": "Organisation aktivieren",
+    "TENANT_ACTIVATION_WELCOME_TITLE": "Willkommen",
+    "TENANT_ACTIVATION_WELCOME_INTRO": " — aktivieren Sie Ihre Organisation, um loszulegen.",
+    "CONTINUE": "Weiter",
+    "CANCEL": "Abbrechen",
+    "CREATE_AN_ACCOUNT": "Ein Konto erstellen",
+    "FIRST_NAME": "Vorname",
+    "LAST_NAME": "Nachname",
+    "EMAIL": "E-Mail",
+    "USERNAME": "Benutzername",
+    "PASSWORD": "Passwort",
+    "CONFIRM_PASSWORD": "Passwort bestätigen",
+    "PASSWORDS_DO_NOT_MATCH": "Passwörter stimmen nicht überein",
+    "BACK": "Zurück",
+    "USERNAME_HINT": "3–50 Zeichen: Buchstaben, Ziffern, Punkt, Unterstrich oder Bindestrich. Damit melden Sie sich an.",
+    "VERIFY_EMAIL_TITLE": "E-Mail-Adresse bestätigen",
+    "VERIFICATION_CODE_SENT_MESSAGE": "Wir haben einen 6-stelligen Code an {{email}} gesendet. Geben Sie ihn unten ein, um Ihren Account zu aktivieren.",
+    "VERIFICATION_CODE_EXPIRATION_MESSAGE": "Der Code ist 30 Minuten gültig. Prüfen Sie Ihren Spam-Ordner, falls er nicht ankommt.",
+    "VERIFICATION_CODE": "Bestätigungscode",
+    "VERIFY": "Account aktivieren",
+    "RESEND_CODE": "Neuen Code senden",
+    "CODE_RESENT": "Ein neuer Code ist unterwegs.",
+    "REGISTRATION_SUCCESSFUL": "Ihr Account ist aktiv. Sie können sich jetzt anmelden."
+  }
+}

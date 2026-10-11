@@ -1,0 +1,14 @@
+{
+  "translationStringList": {
+    "NATIVE_LANGUAGE": "Muttersprache",
+    "SEARCH_NATIVE_LANGUAGE": "Muttersprachen suchen",
+    "SORT_BY": "Sortieren",
+    "FILTER_BY": "Filtern",
+    "NAME": "Name",
+    "CODE": "Code",
+    "ACTIONS": "Aktionen",
+    "ADD_NATIVE_LANGUAGE": "Hinzufügen",
+    "NATIVE_NAME": "Nativer Name",
+    "DELETE_NATIVE_LANGUAGE_MESSAGE": "Sind Sie sicher, dass Sie diese Muttersprache löschen möchten?"
+  }
+}

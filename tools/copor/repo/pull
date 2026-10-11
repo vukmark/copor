@@ -1,0 +1,67 @@
+#!/bin/bash
+
+source $COPOR_PATH/tools/helpers/printer.sh
+cd "$COPOR_PATH" || exit 1
+
+success_dirs=()
+failed_dirs=()
+uptodate_dirs=()
+
+pull_repo() {
+  local repo_name branch display_name
+  repo_name=$(basename "$PWD")
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  display_name="$repo_name [$branch]"
+
+  printf "\e[1;93mPulling in [\e[1;93m%s\e[0m: \e[1;94m%s\e[0m\e[1;93m]\e[0m\n" "$repo_name" "$branch"
+
+  output=$(git pull 2>&1)
+  exit_code=$?
+  echo "$output"
+
+  if [[ "$output" == *"Already up to date"* ]]; then
+    uptodate_dirs+=("$display_name")
+    return
+  fi
+
+  if [[ $exit_code -eq 0 ]]; then
+    success_dirs+=("$display_name")
+    return
+  fi
+
+  failed_dirs+=("$display_name")
+}
+
+
+pull_repo
+
+while IFS= read -r gitdir; do
+  repo_path="${gitdir%/.git}"
+  [ "$repo_path" = "." ] && continue
+  cd "$COPOR_PATH/$repo_path" || continue
+  pull_repo
+done < <(find . -mindepth 2 -name ".git" -type d)
+
+echo
+
+print_list() {
+  local title="$1"
+  local color="$2"
+  shift 2
+  local items=("$@")
+  if [ ${#items[@]} -gt 0 ]; then
+    printf "\e[1;%sm%s\e[0m\n" "$color" "$title"
+    for item in "${items[@]}"; do
+      repo="${item%%[*}"
+      repo="${repo% }"
+      branch="${item#*[}"
+      branch="${branch%]}"
+      printf "  \e[1;%sm%s\e[0m: \e[1;94m%s\e[0m\n" "$color" "$repo" "$branch"
+    done
+    echo
+  fi
+}
+
+print_list "FAILED TO PULL IN:" "31" "${failed_dirs[@]}"
+print_list "SUCCESSFULLY PULLED IN:" "32" "${success_dirs[@]}"
+print_list "ALREADY UP TO DATE:" "93" "${uptodate_dirs[@]}"

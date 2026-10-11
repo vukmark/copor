@@ -1,0 +1,78 @@
+#!/bin/bash
+
+source $COPOR_PATH/tools/helpers/printer.sh
+# Define the base directory for your commands
+base_dir="$(dirname "$0")"
+
+# Function to list available commands
+list_commands() {
+    print_info "Available commands:"
+    for cmd in "$base_dir"/*; do
+        if [[ -d "$cmd" ]]; then
+            print_info "  $(basename "$cmd")"
+        fi
+    done
+}
+
+# Function to list available subcommands for a given command
+list_subcommands() {
+    local command="$1"
+    local command_path="$base_dir/$command"
+    if [[ -d "$command_path" ]]; then
+        print_info "Available subcommands for '$command':"
+        for subcmd in "$command_path"/*; do
+            if [[ -x "$subcmd" ]]; then
+                print_info "  $(basename "$subcmd")"
+            elif [[ -d "$subcmd" ]]; then
+                print_info "  $(basename "$subcmd")/"
+            fi
+        done
+    fi
+}
+
+# Check if at least one argument is provided
+if [ "$#" -lt 1 ]; then
+    print_error "Usage: copor <command> [subcommand] [args...]"
+    list_commands
+    exit 1
+fi
+# Get the command and subcommand
+command="$1"
+subcommand="$2"
+args="${@:3}"  # All remaining arguments
+
+# Construct the path to the command
+command_path="$base_dir/$command"
+# Check if the command directory exists
+if [[ -d "$command_path" ]]; then
+    if [[ -n "$subcommand" ]]; then
+        # Construct the path to the subcommand
+        subcommand_path="$command_path/$subcommand"
+        if [[ -x "$subcommand_path" ]]; then
+            # Execute the subcommand if it's a file
+            "$subcommand_path" $args
+        elif [[ -d "$subcommand_path" ]]; then
+            # If it's a directory, check for a script inside it
+            script_path="$subcommand_path/${args[0]}"
+            if [[ -x "$script_path" ]]; then
+                "$script_path" "${args[@]:1}"  # Pass remaining arguments
+            else
+                print_error "Error: Command '${args[0]}' not found in '$command/$subcommand'."
+                list_subcommands "$command"
+                exit 1
+            fi
+        else
+            print_error "Error: Subcommand '$subcommand' not found in '$command'."
+            list_subcommands "$command"
+            exit 1
+        fi
+    else
+        print_error "Error: No subcommand provided."
+        list_subcommands "$command"
+        exit 1
+    fi
+else
+    print_error "Error: Command '$command' not found."
+    list_commands
+    exit 1
+fi

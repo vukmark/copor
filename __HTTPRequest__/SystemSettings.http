@@ -1,0 +1,93 @@
+import login.http
+run login.http
+
+
+### GET System Settings test
+GET {{host}}/system-settings/form/smtp
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET System Settings list
+POST {{host}}/system-settings/table
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### UPDATE SMTP System Settings
+PATCH {{host}}/system-settings/smtp
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "smtpHost": "mail.space421.de",
+  "smtpPort": 465,
+  "smtpEmail": "test@example.com",
+  "smtpPassword": "changeme",
+  "smtpConnectionSecurity": "SMTP_CONNECTION_SECURITY_SSL_TLS",
+  "smtpAuthMethod": "SMTP_AUTH_METHOD_NORMAL_PASSWORD"
+}
+
+### GET Global System Settings form
+GET {{host}}/system-settings/form/global
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### UPDATE Global System Settings (name, postal code)
+PATCH {{host}}/system-settings/global
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "name": "DiLu",
+  "postalCode": "12345"
+}
+
+### GET Time Zone System Settings form
+GET {{host}}/system-settings/form/time-zone
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### UPDATE Time Zone System Settings
+PATCH {{host}}/system-settings/time-zone
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "timeZone": "Europe/Berlin"
+}
+
+### GET Password System Settings
+GET {{host}}/system-settings/form/password
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### UPDATE Password System Settings
+PATCH {{host}}/system-settings/password
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "minPasswordLength": 8,
+  "maxPasswordLength": 128,
+  "minLowercaseLetters": 1,
+  "minUppercaseLetters": 1,
+  "minDigits": 1,
+  "minSpecialCharacters": 1,
+  "allowSpaces": true,
+  "disallowUsernameInPassword": true,
+  "disallowEmailOrNameInPassword": true,
+  "blockCommonPasswords": true,
+  "maxRepeatedCharacters": 3,
+  "passwordHistoryCount": 5,
+  "commonPasswords": ["password", "123456"]
+}
+
+

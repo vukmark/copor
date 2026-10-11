@@ -1,0 +1,18 @@
+#!/bin/sh
+# Installed via `copor setup hooks`. Runs after `git checkout <branch>` and
+# after `git clone` (initial checkout).
+prev="$1"
+new="$2"
+flag="$3"
+
+# Only care about branch checkouts, not single-file checkouts.
+[ "$flag" = "1" ] || exit 0
+
+root="$(git rev-parse --show-toplevel)"
+zero="0000000000000000000000000000000000000000"
+
+if [ "$prev" = "$zero" ]; then
+	exec "$root/scripts/git-hooks/pub-get-if-packages-changed.sh" "FORCE"
+else
+	exec "$root/scripts/git-hooks/pub-get-if-packages-changed.sh" "$prev..$new"
+fi

@@ -1,0 +1,144 @@
+#!/bin/bash
+# Description: Launch multiple Flutter emulators with specific configs
+
+# 0. Load Environment (includes all helpers)
+source "$COPOR_HELPERS_PATH/copor_env.sh"
+
+# --- 0.1 Dependency Check ---
+if ! command -v avdmanager &> /dev/null; then
+    print_error "FATAL: 'avdmanager' not found."
+    echo "Please install 'Android SDK Command-line Tools' in Android Studio SDK Manager."
+    exit 1
+fi
+
+# --- Main Script Defaults ---
+NUM_REQUESTED=0
+TERM_MODE="window"
+BOOT_MODE="quick"
+SELECTED_GPU_MODE="swiftshader_indirect"
+
+# --- Help Function ---
+show_help() {
+    print_info "Usage: copor run emulators [count] [options]"
+    echo ""
+    echo "Arguments:"
+    echo "  count         Mandatory: Number of emulators (1 to 5)"
+    echo "  stop          Stop all processes"
+    echo "  delete        Remove all emulator AVD files"
+    echo ""
+    echo "Options:"
+    echo "  --gpu         Enable Hardware Acceleration (host mode)"
+    echo "  --no-gpu      Use Software Rendering (default)"
+    echo "  --window      Launch logs in separate windows (default)"
+    echo "  --tab         Launch logs in separate tabs"
+    echo "  --quick       Use quick boot (default)"
+    echo "  --cold        Use cold boot"
+}
+
+
+# --- 1. Argument Validation & Parsing ---
+
+# Handle case with no arguments
+if [ $# -eq 0 ]; then
+    print_error "Error: Number of emulators is mandatory."
+    show_help
+    exit 1
+fi
+
+for arg in "$@"; do
+  case $arg in
+    -h|--help)
+      show_help
+      exit 0 ;;
+    --window)  TERM_MODE="window" ;;
+    --tab)     TERM_MODE="tab" ;;
+    --quick)   BOOT_MODE="quick" ;;
+    --cold)    BOOT_MODE="cold" ;;
+    --gpu)     SELECTED_GPU_MODE="host" ;;
+    --no-gpu)  SELECTED_GPU_MODE="swiftshader_indirect" ;;
+    stop)
+      print_info "SYSTEM: Stopping all processes..."
+      killall -9 qemu-system-x86_64 flutter java adb 2>/dev/null
+      exit 0 ;;
+    delete)
+      print_error "SYSTEM: Deleting emulator files..."
+      rm -rf ~/.android/avd/flutter_emulator_*
+      exit 0 ;;
+    [0-9]*)
+      NUM_REQUESTED=$arg ;;
+  esac
+done
+
+# Validate count range
+if [ "$NUM_REQUESTED" -lt 1 ] || [ "$NUM_REQUESTED" -gt 5 ]; then
+    print_error "Error: You must request between 1 and 5 emulators."
+    exit 1
+fi
+
+# --- 2. Build App ---
+cd "$COPOR_FRONTEND_PATH" || { print_error "Error: Frontend path not found at $COPOR_FRONTEND_PATH"; exit 1; }
+
+print_info "BUILD: Starting debug APK build..."
+flutter build apk --debug > /dev/null 2>&1
+
+APK_PATH="$COPOR_FRONTEND_PATH/build/app/outputs/flutter-apk/app-debug.apk"
+if [ ! -f "$APK_PATH" ]; then
+    print_error "Error: Build failed. APK not found."
+    exit 1
+fi
+
+# Robust package detection for both .gradle and .gradle.kts
+GRADLE_PATH="$COPOR_FRONTEND_PATH/android/app"
+if [ -f "$GRADLE_PATH/build.gradle.kts" ]; then
+    TARGET_FILE="$GRADLE_PATH/build.gradle.kts"
+else
+    TARGET_FILE="$GRADLE_PATH/build.gradle"
+fi
+
+PACKAGE_NAME=$(grep "namespace" "$TARGET_FILE" | sed 's/.*namespace[[:space:]=]*//' | tr -d '"' | tr -d "'" | tr -d ' ' | head -n 1)
+print_info "BUILD: Package identified as $PACKAGE_NAME"
+
+# --- 3. Launch Loop ---
+declare -a DEPLOYED_IDS=()
+
+print_info "SYSTEM: Preparing to launch $NUM_REQUESTED device(s)"
+print_info "SYSTEM: Mode: $BOOT_MODE boot | Logs: $TERM_MODE"
+
+for ((i=1; i<=NUM_REQUESTED; i++)); do
+    EMU_NAME="flutter_emulator_$i"
+    print_info "----------------------------------------------------"
+    print_info "DEVICE $i: Initializing $EMU_NAME"
+    print_info "----------------------------------------------------"
+
+    # 3a. Creation and Config
+    ensure_emulator_exists "$EMU_NAME"
+    apply_emulator_specs "$EMU_NAME" "$SELECTED_GPU_MODE"
+    start_emulator_bg "$EMU_NAME" "$BOOT_MODE"
+
+    # 3b. Identification
+    print_info "DEVICE $i: Searching for ADB assignment..."
+    TARGET_ID=$(find_new_emulator_id "${DEPLOYED_IDS[@]}")
+    DEPLOYED_IDS+=("$TARGET_ID")
+
+    # 3c. Boot and Install
+    print_info "DEVICE $i: Assigned ID $TARGET_ID. Waiting for system boot..."
+    wait_for_boot_complete "$TARGET_ID"
+
+    print_info "DEVICE $i: Installing application..."
+    deploy_app_to_device "$TARGET_ID" "$APK_PATH" "$PACKAGE_NAME"
+
+    # 3d. Open Terminal Logs
+    print_info "DEVICE $i: Launching logs in $TERM_MODE mode"
+    TERM_FLAG="--window"
+    [ "$TERM_MODE" == "tab" ] && TERM_FLAG="--tab"
+    gnome-terminal $TERM_FLAG --title="LOGS: $EMU_NAME" -- bash -c "flutter run -d $TARGET_ID --use-application-binary='$APK_PATH' | grep --line-buffered -v 'EGL_emulation'; exec bash" &
+
+    # Throttling
+    if [ "$i" -lt "$NUM_REQUESTED" ]; then
+        print_info "SYSTEM: Cooling down for 15 seconds to prevent I/O congestion..."
+        sleep 15
+    fi
+done
+
+print_info "----------------------------------------------------"
+print_info "SUCCESS: All $NUM_REQUESTED emulators are initialized and running."

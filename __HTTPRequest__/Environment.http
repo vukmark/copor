@@ -1,0 +1,15 @@
+import login.http
+run login.http
+
+### Get evn config
+GET {{host}}/envconfig
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### Get ws config
+GET {{host}}/wsconfig
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}

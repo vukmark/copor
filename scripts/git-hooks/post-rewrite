@@ -1,0 +1,7 @@
+#!/bin/sh
+# Installed via `copor setup hooks`. Runs after `git rebase` (including
+# `git pull --rebase`), which does not trigger post-merge.
+[ "$1" = "rebase" ] || exit 0
+
+root="$(git rev-parse --show-toplevel)"
+exec "$root/scripts/git-hooks/pub-get-if-packages-changed.sh" "ORIG_HEAD..HEAD"

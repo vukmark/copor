@@ -1,0 +1,56 @@
+import {ValidateGetCAMEL_CASE_NAMEDTO} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/dto/ValidateGetCAMEL_CASE_NAMEDTO';
+import {ValidateGetCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/ValidateGetCAMEL_CASE_NAME';
+import {GetCAMEL_CASE_NAMEDTO} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/dto/GetCAMEL_CASE_NAMEDTO';
+import {GetCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/GetCAMEL_CASE_NAME';
+import {LogGetCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/logger/LogGetCAMEL_CASE_NAME';
+import {CreateLogDetails} from '@copor/core/client/GlobalRepository/CreateLogDetails';
+import {GetCAMEL_CASE_NAMEViewModel} from './GetCAMEL_CASE_NAMEViewModel';
+import {PermissionValidatorRepoPicker} from '@copor/core/client/Core/PermissionValidatorRepo/PermissionValidatorRepoPicker';
+import {GetCAMEL_CASE_NAMEValidatorStorageRepoPicker} from './repo/repoPicker/GetCAMEL_CASE_NAMEValidatorStorageRepoPicker';
+import {GetCAMEL_CASE_NAMEInteractorRepoPicker} from './repo/repoPicker/GetCAMEL_CASE_NAMEInteractorRepoPicker';
+import {GetCAMEL_CASE_NAMELoggerRepoPicker} from './repo/repoPicker/GetCAMEL_CASE_NAMELoggerRepoPicker';
+import {GetCAMEL_CASE_NAMEPresenter} from './GetCAMEL_CASE_NAMEPresenter';
+import {SingleItemBaseController} from '@copor/core/client/Core/Controller/SingleItemBaseController';
+import {Presenter} from '@copor/core/client/Interface/Presenter';
+
+export class GetCAMEL_CASE_NAMEController extends SingleItemBaseController<GetCAMEL_CASE_NAMEDTO, GetCAMEL_CASE_NAMEViewModel> {
+	protected getPresenter(response: GetCAMEL_CASE_NAMEDTO): Presenter<GetCAMEL_CASE_NAMEViewModel> {
+		return this.container.getPresenter(GetCAMEL_CASE_NAMEPresenter, response);
+	}
+
+	protected getValidator(id: string) {
+		const c = this.container;
+		const validatorInput: ValidateGetCAMEL_CASE_NAMEDTO = {actorId: this.actorId, LOWER_FIRST_CAMEL_CASE_NAME: id};
+
+		return c.getValidator(
+			ValidateGetCAMEL_CASE_NAME,
+			validatorInput,
+			c.getNewRepoPicker(PermissionValidatorRepoPicker),
+			c.getNewRepoPicker(GetCAMEL_CASE_NAMEValidatorStorageRepoPicker)
+		);
+	}
+
+	protected getLogger(id: string) {
+		const loggerRepository = this.container.getNewRepoPicker(GetCAMEL_CASE_NAMELoggerRepoPicker);
+		const logData = {
+			LOWER_FIRST_CAMEL_CASE_NAMEId: id
+		};
+
+		return this.container.getLogger(
+			LogGetCAMEL_CASE_NAME,
+			loggerRepository,
+			new CreateLogDetails(this.actorId),
+			logData
+		);
+	}
+
+	protected getInteractor(id: string) {
+		const interactorRepository = this.container.getNewRepoPicker(GetCAMEL_CASE_NAMEInteractorRepoPicker);
+
+		return this.container.getInteractor(
+			GetCAMEL_CASE_NAME,
+			interactorRepository,
+			id
+		);
+	}
+}

@@ -1,0 +1,31 @@
+{
+  "translationStringList": {
+    "CONTACT": "Contact",
+    "CONTACTS": "Contacts",
+    "SEARCH_CONTACT": "Search contacts",
+    "ROLE": "Role",
+    "DESCRIPTION": "Description",
+    "ID": "ID",
+    "FULL_NAME": "Full Name",
+    "LOCATION": "Location",
+    "EMAIL": "Email",
+    "OFFICE_PHONE": "Office",
+    "MOBILE_PHONE": "Mobile Phone",
+    "HOME_PHONE": "Home Phone",
+    "PHONE": "Phone",
+    "TENANT": "Organization",
+    "SELECT_CONTACT": "Please choose a contact to see details",
+    "DOWNLOAD_CONTACT": "Download Contact Info",
+    "SHARE_VCARD": "Share Contact Info",
+    "QRCODE_VCARD": "QR Code & vCard",
+    "VCARD_DOWNLOAD_ERR": "Error downloading vCard",
+    "VCARD_SHARE_ERR": "Unable to share vCard",
+    "PHONE_MOBILE": "Mobile phone",
+    "PHONE_HOME": "Home phone",
+    "PHONE_WORK": "Work phone",
+    "PHONE_OTHER": "Other phone",
+    "NO_CONTACTS_FOUND": "No contacts found",
+    "ERROR": "Error",
+    "MISSING_CONTACT_ID": "Missing contact ID"
+  }
+}

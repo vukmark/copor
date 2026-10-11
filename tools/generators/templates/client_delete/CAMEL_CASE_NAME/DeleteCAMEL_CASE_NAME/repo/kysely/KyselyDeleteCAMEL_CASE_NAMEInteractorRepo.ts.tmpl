@@ -1,0 +1,11 @@
+import {DeleteItem} from '@copor/core/domain/Core/Repository/DeleteItem';
+import {db} from '@copor/core/client/AppDataSource';
+
+export class KyselyDeleteCAMEL_CASE_NAMEInteractorRepo implements DeleteItem {
+	async delete(itemId: string): Promise<void> {
+		await db
+			.deleteFrom('LOWER_FIRST_CAMEL_CASE_NAME')
+			.where('id', '=', itemId)
+			.execute();
+	}
+}

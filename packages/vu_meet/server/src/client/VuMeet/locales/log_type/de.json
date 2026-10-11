@@ -1,0 +1,14 @@
+{
+  "translationStringList": {
+    "getPrivateMessageList": "Privatnachrichtenliste abgerufen",
+    "getUserChatList": "Benutzer-Chatliste abgerufen",
+    "getVuMeetContactList": "VuMeet-Kontaktliste abgerufen",
+    "getChatWithUser": "Chat mit Benutzer abgerufen",
+    "searchAllMessages": "Alle Nachrichten durchsucht",
+    "searchMessagesInChat": "Nachrichten im Chat durchsucht",
+    "markChatMessagesSeen": "Chat-Nachrichten als gesehen markiert",
+    "getChatInfo": "Chat-Informationen abgerufen",
+    "getVuMeetFile": "VuMeet-Datei abgerufen",
+    "updateChat": "Chat aktualisiert"
+  }
+}

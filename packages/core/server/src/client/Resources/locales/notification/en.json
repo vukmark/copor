@@ -1,0 +1,6 @@
+{
+    "translationStringList": {
+        "ACCOUNT_DELETION_REQUESTED_NOTIFICATION_TITLE": "Account Deletion Requested",
+        "ACCOUNT_DELETION_REQUESTED_NOTIFICATION_DESCRIPTION": "{{requesterName}} requested their account to be deleted."
+    }
+}

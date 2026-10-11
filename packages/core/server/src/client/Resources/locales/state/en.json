@@ -1,0 +1,31 @@
+{
+  "translationStringList": {
+    "SORT_BY": "Sort",
+    "FILTER_BY": "Filter",
+    "ACTIONS": "Actions",
+    "NAME": "Name",
+    "STATE": "State",
+    "SEARCH_STATE": "Search states",
+    "STATE_ID": "State ID",
+    "FILTER": "Filter",
+    "ADD": "Add",
+    "STATUS": "Status",
+    "PUBLISH_STATUS": "Status",
+    "PUBLISHED": "Published",
+    "UNPUBLISHED": "Unpublished",
+    "DRAFT": "Draft",
+    "NAME_REQUIRED": "Name is required",
+    "CODE": "Code",
+    "CODE_REQUIRED": "Code is required",
+    "COUNTRY_ID": "Country ID",
+    "COUNTRY_ID_REQUIRED": "Country ID is required",
+    "COUNTRY": "Country",
+    "EDIT_STATE": "Edit State",
+    "CREATE_STATE": "Add",
+    "ID": "ID",
+    "DELETE_MESSAGE": "Do you want to delete this state?",
+    "DELETE_STATE_SUCCESS_MESSAGE": "State deleted successfully.",
+    "CREATE_STATE_SUCCESS_MESSAGE": "State created successfully.",
+    "UPDATE_STATE_SUCCESS_MESSAGE": "State updated successfully."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "translationStringList": {
+    "ai_context_item": {
+      "canCreateAiContextItem": "AI-Kontextelement erstellen",
+      "canDeleteAiContextItem": "AI-Kontextelement löschen",
+      "canGetAiContextItem": "AI-Kontextelement anzeigen",
+      "canGetAiContextItemList": "Liste der AI-Kontextelemente anzeigen",
+      "canUpdateAiContextItem": "AI-Kontextelement aktualisieren",
+      "canViewAdministrationAiContextItemFeature": "Verwaltung der AI-Kontextelemente anzeigen"
+    }
+  }
+}

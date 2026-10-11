@@ -1,0 +1,15 @@
+{
+  "name": "@copor/calendar_entry",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "description": "Copor calendar_entry module (server)",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@copor/core": "*",
+    "@copor/todo": "*",
+    "kysely": "^0.28.16"
+  }
+}

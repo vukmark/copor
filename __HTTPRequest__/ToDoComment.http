@@ -1,0 +1,48 @@
+import ../login.http
+run login.http
+
+
+### Create ToDo Comment
+POST {{host}}/todo/comment/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "toDoId": "f21b5e81-9c0d-4d12-a3b9-2f3b4c5d6e7f",
+  "content": "Test comment."
+}
+
+
+### Delete ToDo Comment
+DELETE {{host}}/todo/comment/d4e5f6a7-b8c9-0123-def0-4567890123de
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### Get Todo Comment
+GET {{host}}/todo/comment/c3d4e5f6-a7b8-9012-cdef-3456789012cd
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### Get All Comments For ToDo
+GET {{host}}/todo/comment/comment-list/e10a4d70-8f7a-4b56-b7a7-fd9a6e3e7a01
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### Update ToDo Comment
+PATCH {{host}}/todo/comment/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "id": "e5f6a7b8-c9d0-1234-ef01-5678901234ef",
+  "toDoId": "e10a4d70-8f7a-4b56-b7a7-fd9a6e3e7a01",
+  "content": "Getesten denke daran, den Bericht heute abzuschließen."
+}

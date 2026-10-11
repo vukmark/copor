@@ -1,0 +1,22 @@
+{
+  "translationStringList": {
+    "news": {
+      "canCreateNews": "Create news",
+      "canDeleteNews": "Delete news",
+      "canGetNews": "View news",
+      "canGetNewsList": "View news list",
+      "canUpdateNews": "Update news",
+      "canViewNewsFeature": "Access news feature"
+    }
+  },
+  "descriptions": {
+    "news": {
+      "canCreateNews": "Allows creating news. Found in the News area.",
+      "canDeleteNews": "Allows deleting news. Found in the News area.",
+      "canGetNews": "Allows viewing news. Found in the News area.",
+      "canGetNewsList": "Allows viewing news list. Found in the News area.",
+      "canUpdateNews": "Allows updating news. Found in the News area.",
+      "canViewNewsFeature": "Allows seeing the News section in the app's navigation."
+    }
+  }
+}

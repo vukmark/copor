@@ -1,0 +1,24 @@
+name: copor_scaffold_dev
+description: >
+  Dev-only pages for the Copor scaffold/theme system — the built-in scaffold
+  tester and the DT component showcase. Not part of the production API
+  surface; kept as a separate package so production apps never pull this
+  code (or its dependency footprint) into a release build.
+publish_to: none
+version: 0.1.0
+
+environment:
+  sdk: '>=3.8.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.0.0
+  flutter_hooks: ^0.21.3
+  copor_theme:
+    path: ../copor_theme
+  copor_scaffold:
+    path: ../copor_scaffold
+
+flutter:
+  uses-material-design: true

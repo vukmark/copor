@@ -1,0 +1,17 @@
+#!/bin/bash
+
+source $VUKMARK_PATH/tools/helpers/printer.sh
+source $VUKMARK_PATH/tools/helpers/input_validators.sh
+source $VUKMARK_PATH/tools/helpers/deploy_server.sh
+# Check if a configuration file path is provided
+if [ "$#" -ne 2 ]; then
+    print_error_how_to_set_remote_config
+    exit 1
+fi
+
+source $1
+
+build_server
+
+deploy_server
+

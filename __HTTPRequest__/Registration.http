@@ -1,0 +1,37 @@
+### Public self-registration (needs "Allow self-registration" in System settings → Global)
+
+### Is self-registration enabled?
+GET {{host}}/registration/status
+x-Version: {{x-version}}
+
+### Register (creates an inactive USER account and e-mails a 6-digit code)
+POST {{host}}/registration/
+Content-Type: application/json
+x-Version: {{x-version}}
+
+{
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "email": "jane.doe@example.com",
+  "userName": "jane.doe",
+  "password": "Str0ng!Secret"
+}
+
+### Verify the e-mailed code (activates the account)
+POST {{host}}/registration/verify
+Content-Type: application/json
+x-Version: {{x-version}}
+
+{
+  "email": "jane.doe@example.com",
+  "code": "123456"
+}
+
+### Send a new code (at most one per minute; always 200 while registration is on)
+POST {{host}}/registration/resend-code
+Content-Type: application/json
+x-Version: {{x-version}}
+
+{
+  "email": "jane.doe@example.com"
+}

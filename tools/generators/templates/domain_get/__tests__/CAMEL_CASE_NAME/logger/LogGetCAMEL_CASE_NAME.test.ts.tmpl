@@ -1,0 +1,30 @@
+import {LogRepository} from '@copor/core/domain/Core/Logger/LogRepository';
+import {LogDataForGetCAMEL_CASE_NAME, LogGetCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/logger/LogGetCAMEL_CASE_NAME';
+import {CurrentUTCDate} from '@copor/core/domain/Core/global/SimpleDateAndTime/interactor/CurrentUTCDate';
+import {LogForSave} from '@copor/core/domain/Core/Logger/LogForSave';
+import {LogDetails} from '@copor/core/domain/Core/Logger/Logger';
+
+describe('Log get Contract Type', () => {
+	const repo: jest.Mocked<LogRepository<LogDataForGetCAMEL_CASE_NAME>> = {
+		save: jest.fn()
+	};
+	const actionTime = new CurrentUTCDate();
+	const actorId = 'userId';
+	const logData: LogDataForGetCAMEL_CASE_NAME = {LOWER_FIRST_CAMEL_CASE_NAMEId: 'LOWER_FIRST_CAMEL_CASE_NAMEId'};
+	const expectedLogForSave: LogForSave<LogDataForGetCAMEL_CASE_NAME> = {
+		actionTime: actionTime,
+		actorUserId: actorId,
+		actionType: 'getCAMEL_CASE_NAME',
+		logData: logData
+	};
+
+	const logDetails = new LogDetails(actorId);
+
+	it('Should log get of a Contract Type', async () => {
+		const logger = new LogGetCAMEL_CASE_NAME(repo, logDetails, logData);
+
+		await logger.log();
+
+		expect(repo.save).toHaveBeenCalledWith(expectedLogForSave);
+	});
+});

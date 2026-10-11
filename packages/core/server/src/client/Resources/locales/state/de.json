@@ -1,0 +1,31 @@
+{
+  "translationStringList": {
+    "SORT_BY": "Sortieren",
+    "FILTER_BY": "Filtern",
+    "ACTIONS": "Aktionen",
+    "NAME": "Name",
+    "STATE": "Bundesland",
+    "SEARCH_STATE": "Bundesländer suchen",
+    "STATE_ID": "Bundesland-ID",
+    "FILTER": "Filtern",
+    "ADD": "Hinzufügen",
+    "STATUS": "Status",
+    "PUBLISH_STATUS": "Status",
+    "PUBLISHED": "Veröffentlicht",
+    "UNPUBLISHED": "Unveröffentlicht",
+    "DRAFT": "Entwurf",
+    "NAME_REQUIRED": "Name ist erforderlich",
+    "CODE": "Code",
+    "CODE_REQUIRED": "Code ist erforderlich",
+    "COUNTRY_ID": "Land-ID",
+    "COUNTRY_ID_REQUIRED": "Land-ID ist erforderlich",
+    "COUNTRY": "Land",
+    "EDIT_STATE": "Bundesland bearbeiten",
+    "CREATE_STATE": "Bundesland hinzufügen",
+    "ID": "ID",
+    "DELETE_MESSAGE": "Möchten Sie dieses Bundesland löschen?",
+    "DELETE_STATE_SUCCESS_MESSAGE": "Bundesland erfolgreich gelöscht.",
+    "CREATE_STATE_SUCCESS_MESSAGE": "Bundesland erfolgreich erstellt.",
+    "UPDATE_STATE_SUCCESS_MESSAGE": "Bundesland erfolgreich aktualisiert."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "translationStringList": {
+    "ai_context_item": {
+      "canCreateAiContextItem": "Create AI context item",
+      "canDeleteAiContextItem": "Delete AI context item",
+      "canGetAiContextItem": "View AI context item",
+      "canGetAiContextItemList": "View AI context item list",
+      "canUpdateAiContextItem": "Update AI context item",
+      "canViewAdministrationAiContextItemFeature": "Access AI context item administration"
+    }
+  },
+  "descriptions": {
+    "ai_context_item": {
+      "canCreateAiContextItem": "Allows creating an AI context item. Found in the Administration AI Context Item Feature.",
+      "canDeleteAiContextItem": "Allows deleting an AI context item. Found in the Administration AI Context Item Feature.",
+      "canGetAiContextItem": "Allows viewing an AI context item.",
+      "canGetAiContextItemList": "Allows viewing AI context item list.",
+      "canUpdateAiContextItem": "Allows updating an AI context item. Found in the Administration AI Context Item Feature.",
+      "canViewAdministrationAiContextItemFeature": "Allows seeing the Administration AI Context Item section in the app's navigation."
+    }
+  }
+}

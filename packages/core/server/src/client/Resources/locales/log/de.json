@@ -1,0 +1,14 @@
+{
+  "translationStringList": {
+    "ACTOR": "Akteur",
+    "ACTIONS": "Aktionen",
+    "ACTION_TYPE": "Aktionstyp",
+    "TIMESTAMP": "Zeitstempel",
+    "GET_LOG_LIST": "Protokollliste abrufen",
+    "SEARCH_USER": "Benutzer suchen",
+    "FILTER_BY": "Filtern",
+    "LOG_INFO": "Log-Information",
+    "GET_USER_PREFERENCES": "Get user preferences.",
+    "SEARCH_LOGS": "Protokolle suchen"
+  }
+}

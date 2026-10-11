@@ -1,0 +1,45 @@
+import login.http
+run login.http
+
+### Create Cloud category
+POST {{host}}/cloud-category
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "name": "PS test cloud",
+  "publishStatus": "PUBLISHED",
+  "categoryType": 1
+}
+
+### Get Cloud category
+GET {{host}}/cloud-category/b67142cc-c6d9-4bfa-baf1-159568b65f4b
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### Get Cloud category list
+GET {{host}}/cloud-category
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### Update Cloud category
+PATCH {{host}}/cloud-category
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "id": "5431e270-f65f-4dcc-a7d8-20195307ddf9",
+  "name": "name some new name",
+  "publishStatus": "PUBLISHED",
+  "categoryType": 1
+}
+
+### Delete cloud category
+DELETE {{host}}/cloud-category/5431e270-f65f-4dcc-a7d8-20195307ddf9
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}

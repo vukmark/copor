@@ -1,0 +1,33 @@
+#!/bin/bash
+# Example post-receive hook for a bare repo on a build host: builds the server
+# app and ships its self-contained dist/ (see tools/helpers/deploy_server.sh
+# for the full runtime layout: dist/, assets/, changelog/, settings/, .env).
+
+# Set the working directory where the repository will be checked out
+WORK_DIR="/home/git/Project/copor"
+
+# Check if the working directory exists, if not, create it
+if [ ! -d "$WORK_DIR" ]; then
+  mkdir -p "$WORK_DIR"
+fi
+
+# Change to the working directory
+cd $WORK_DIR
+
+# If the directory is empty, clone the repository; otherwise, pull the latest changes
+if [ -z "$(ls -A $WORK_DIR)" ]; then
+  git clone /home/git/copor.git .
+else
+  git pull origin master
+fi
+
+# Install (npm workspaces, at the root) and build the server app
+npm ci
+cd apps/copor/server
+npm run build
+
+# Optional: deploy the build; on the server run `npm ci --omit=dev` in dist/ and
+# start dist/apps/copor/server/src/index.js with the app folder as working directory
+rsync -avz --delete --exclude node_modules -e "ssh" "$WORK_DIR/apps/copor/server/dist/" deploy@your-server.example.com:/srv/copor/server/apps/copor/server/dist/
+
+echo "Build and deployment complete!"

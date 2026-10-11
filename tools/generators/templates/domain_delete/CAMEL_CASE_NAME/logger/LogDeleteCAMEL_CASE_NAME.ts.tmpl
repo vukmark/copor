@@ -1,0 +1,11 @@
+import {TypedLogger} from '@copor/core/domain/Core/Logger/Logger';
+
+export class LogDeleteCAMEL_CASE_NAME extends TypedLogger<LogDataForDeleteCAMEL_CASE_NAME> {
+	getType(): string {
+		return 'deleteCAMEL_CASE_NAME';
+	}
+}
+
+export interface LogDataForDeleteCAMEL_CASE_NAME {
+	LOWER_FIRST_CAMEL_CASE_NAMEId: string;
+}

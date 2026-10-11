@@ -1,0 +1,9 @@
+{
+  "translationStringList": {
+    "PROGRESS": "Progress",
+    "DUE_DATE": "Due Date",
+    "ADD_TODO": "Add To-do",
+    "EDIT_TODO": "Edit To-do",
+    "TODO": "To-do"
+  }
+}

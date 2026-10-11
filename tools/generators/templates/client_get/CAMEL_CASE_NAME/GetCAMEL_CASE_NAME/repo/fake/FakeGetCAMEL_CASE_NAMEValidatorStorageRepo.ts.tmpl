@@ -1,0 +1,7 @@
+import {ValidateGetCAMEL_CASE_NAMERepo} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/repository/ValidateGetCAMEL_CASE_NAMERepo';
+
+export class FakeGetCAMEL_CASE_NAMEValidatorStorageRepo implements ValidateGetCAMEL_CASE_NAMERepo {
+	isInvalidCAMEL_CASE_NAME(LOWER_FIRST_CAMEL_CASE_NAMEId: string | undefined): Promise<boolean> {
+		return Promise.resolve(false);
+	}
+}

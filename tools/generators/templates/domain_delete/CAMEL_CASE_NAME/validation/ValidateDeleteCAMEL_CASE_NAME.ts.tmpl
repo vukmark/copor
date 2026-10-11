@@ -1,0 +1,18 @@
+import {ValidateCanDeleteCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/validator/ValidateCanDeleteCAMEL_CASE_NAME';
+import {ValidateDeleteCAMEL_CASE_NAMEDTO} from './dto/ValidateDeleteCAMEL_CASE_NAMEDTO';
+import {ValidateDeleteCAMEL_CASE_NAMERepo} from '../repository/ValidateDeleteCAMEL_CASE_NAMERepo';
+import {ValidationWithPermissionAndRepo} from '@copor/core/domain/Core/Validations/ValidationWithPermissionAndRepo';
+import {Validator} from '@copor/core/domain/Core/Validations/Validators/Validator';
+import {ValidateCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/validator/ValidateCAMEL_CASE_NAME';
+import {ValidateEntityIsNotReferenced} from '@copor/core/domain/Core/Validations/Validators/ValidateEntityIsNotReferenced';
+
+export class ValidateDeleteCAMEL_CASE_NAME
+	extends ValidationWithPermissionAndRepo<ValidateDeleteCAMEL_CASE_NAMEDTO, ValidateDeleteCAMEL_CASE_NAMERepo> {
+	public getValidators(): Validator[] {
+		return [
+			new ValidateCanDeleteCAMEL_CASE_NAME(this.permissionRepo, this.input.actorId),
+			new ValidateCAMEL_CASE_NAME(this.storageRepo, this.input.LOWER_FIRST_CAMEL_CASE_NAMEId),
+			new ValidateEntityIsNotReferenced(this.storageRepo, this.input.LOWER_FIRST_CAMEL_CASE_NAMEId)
+		];
+	}
+}

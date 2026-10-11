@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# npm workspaces: one install at the root covers packages/*/server and apps/*/server
+cd $COPOR_PATH
+npm install
+
+# Flutter: every package and the app
+bash $COPOR_PATH/scripts/git-hooks/pub-get-if-packages-changed.sh FORCE

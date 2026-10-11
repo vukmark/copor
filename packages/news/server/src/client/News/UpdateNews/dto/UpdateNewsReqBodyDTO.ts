@@ -1,0 +1,10 @@
+import {PublishStatus} from '@copor/core/domain/Core/enum/PublishStatus';
+
+export interface UpdateNewsReqBodyDTO {
+	id: string;
+	title: string;
+	summary: string;
+	content: string;
+	roleId: string[];
+	publishStatus: PublishStatus;
+}

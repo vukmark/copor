@@ -1,0 +1,5 @@
+import {GetVuMeetFileDTO} from '@copor/vu_meet/domain/VuMeet/Message/interactor/dto/GetVuMeetFileDTO';
+
+export interface GetVuMeetFileRepo {
+	load(messageId: string, actorId: string): Promise<GetVuMeetFileDTO>;
+}

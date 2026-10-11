@@ -1,0 +1,36 @@
+default_platform(:android)
+
+platform :android do
+  desc "Build and upload an app bundle to Google Play internal testing"
+  lane :internal do
+    project_root = File.expand_path("../..", __dir__)
+    pubspec = File.read(File.join(project_root, "pubspec.yaml"))
+    pubspec_version_code = pubspec.match(/^version: .*\+(\d+)$/)[1].to_i
+
+    play_store_version_codes = google_play_track_version_codes(
+      track: "internal",
+      json_key: File.expand_path("secrets/play-store-service-account.json", __dir__),
+      package_name: "com.example.copor",
+    )
+    next_version_code = [play_store_version_codes.max || 0, pubspec_version_code].max + 1
+
+    Dir.chdir(project_root) do
+      sh("flutter", "pub", "get")
+      sh("flutter", "build", "appbundle", "--release", "--build-number=#{next_version_code}")
+    end
+
+    upload_to_play_store(
+      track: "internal",
+      release_status: "completed",
+      aab: File.expand_path(
+        "../../build/app/outputs/bundle/release/app-release.aab",
+        __dir__,
+      ),
+      json_key: File.expand_path("secrets/play-store-service-account.json", __dir__),
+      package_name: "com.example.copor",
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+    )
+  end
+end

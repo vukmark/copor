@@ -1,0 +1,54 @@
+import {
+	ValidateDeleteCAMEL_CASE_NAMEDTO
+} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/dto/ValidateDeleteCAMEL_CASE_NAMEDTO';
+import {PermissionValidatorRepoPicker} from '@copor/core/client/Core/PermissionValidatorRepo/PermissionValidatorRepoPicker';
+import {
+	DeleteCAMEL_CASE_NAMEValidatorStorageRepoPicker
+} from './repo/repoPicker/DeleteCAMEL_CASE_NAMEValidatorStorageRepoPicker';
+import {ValidateDeleteCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/ValidateDeleteCAMEL_CASE_NAME';
+import {DeleteCAMEL_CASE_NAMEInteractorRepoPicker} from './repo/repoPicker/DeleteCAMEL_CASE_NAMEInteractorRepoPicker';
+import {DeleteCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/DeleteCAMEL_CASE_NAME';
+import {LogDeleteCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/logger/LogDeleteCAMEL_CASE_NAME';
+import {DeleteCAMEL_CASE_NAMELoggerRepoPicker} from './repo/repoPicker/DeleteCAMEL_CASE_NAMELoggerRepoPicker';
+import {CreateLogDetails} from '@copor/core/client/GlobalRepository/CreateLogDetails';
+import {Validator} from '@copor/core/domain/Core/Validations/Validators/Validator';
+import {UseCase} from '@copor/core/domain/Core/Interactors/UseCase';
+import {LogAction} from '@copor/core/domain/Core/Logger/LogAction';
+import {DeleteBaseController} from '@copor/core/client/Core/Controller/DeleteBaseController';
+
+export interface DeleteCAMEL_CASE_NAMEParams {
+	id: string;
+}
+
+export class DeleteCAMEL_CASE_NAMEController extends DeleteBaseController<DeleteCAMEL_CASE_NAMEParams> {
+	protected getValidator(id: string) : Validator {
+		const c = this.container;
+		const input: ValidateDeleteCAMEL_CASE_NAMEDTO = {
+			actorId: this.actorId,
+			LOWER_FIRST_CAMEL_CASE_NAMEId: id
+		};
+
+		return c.getValidator(
+			ValidateDeleteCAMEL_CASE_NAME,
+			input,
+			c.getNewRepoPicker(PermissionValidatorRepoPicker),
+			c.getNewRepoPicker(DeleteCAMEL_CASE_NAMEValidatorStorageRepoPicker)
+		);
+	}
+
+	protected getInteractor(id: string) : UseCase<void> {
+		const c = this.container;
+		const repo = c.getNewRepoPicker(DeleteCAMEL_CASE_NAMEInteractorRepoPicker);
+
+		return c.getInteractor(DeleteCAMEL_CASE_NAME, repo, id);
+	}
+
+	protected getLogger(id: string) : LogAction {
+		return this.container.getLogger(
+			LogDeleteCAMEL_CASE_NAME,
+			this.container.getNewRepoPicker(DeleteCAMEL_CASE_NAMELoggerRepoPicker),
+			new CreateLogDetails(this.actorId),
+			{LOWER_FIRST_CAMEL_CASE_NAMEId: id}
+		);
+	}
+}

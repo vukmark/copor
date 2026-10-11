@@ -1,0 +1,31 @@
+{
+  "translationStringList": {
+    "CONTACT": "Kontakt",
+    "CONTACTS": "Kontakte",
+    "SEARCH_CONTACT": "Kontakte suchen",
+    "ROLE": "Rolle",
+    "DESCRIPTION": "Beschreibung",
+    "ID": "ID",
+    "FULL_NAME": "Vollständiger Name",
+    "LOCATION": "Standort",
+    "EMAIL": "E-Mail",
+    "OFFICE_PHONE": "Büro",
+    "MOBILE_PHONE": "Handy",
+    "HOME_PHONE": "Festnetz",
+    "PHONE": "Telefon",
+    "TENANT": "Organisation",
+    "SELECT_CONTACT": "Bitte wählen Sie einen Kontakt aus, um Details anzuzeigen",
+    "DOWNLOAD_CONTACT": "Kontaktinfo herunterladen",
+    "SHARE_VCARD": "Kontaktdaten Teilen",
+    "QRCODE_VCARD": "QR-Code & vCard",
+    "VCARD_DOWNLOAD_ERR": "Fehler beim Herunterladen der vCard",
+    "VCARD_SHARE_ERR": "Teilen der vCard fehlgeschlagen",
+    "PHONE_MOBILE": "Mobiltelefon",
+    "PHONE_HOME": "Festnetztelefon",
+    "PHONE_WORK": "Geschäftstelefon",
+    "PHONE_OTHER": "Sonstiges Telefon",
+    "NO_CONTACTS_FOUND": "Keine Kontakte gefunden",
+    "ERROR": "Fehler",
+    "MISSING_CONTACT_ID": "Fehlende Kontakt-ID"
+  }
+}

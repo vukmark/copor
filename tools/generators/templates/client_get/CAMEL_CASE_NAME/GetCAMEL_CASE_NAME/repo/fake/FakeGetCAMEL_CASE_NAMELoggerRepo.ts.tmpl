@@ -1,0 +1,11 @@
+import {LogRepository} from '@copor/core/domain/Core/Logger/LogRepository';
+import {LogDataForGetCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/logger/LogGetCAMEL_CASE_NAME';
+import {LogForSave} from '@copor/core/domain/Core/Logger/LogForSave';
+
+export class FakeGetCAMEL_CASE_NAMELoggerRepo implements LogRepository<LogDataForGetCAMEL_CASE_NAME> {
+	save(logDTO: LogForSave<LogDataForGetCAMEL_CASE_NAME>): Promise<void> {
+		return new Promise(() => {
+			return;
+		});
+	}
+}

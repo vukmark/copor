@@ -1,0 +1,16 @@
+{
+  "translationStringList": {
+    "help": {
+      "canViewHelpFeature": "Access help feature",
+      "canViewAboutFeature": "Access about feature",
+      "canViewToolsFeature": "Access tools feature"
+    }
+  },
+  "descriptions": {
+    "help": {
+      "canViewHelpFeature": "Allows seeing the Help section in the app's navigation.",
+      "canViewAboutFeature": "Allows seeing the About section in the app's navigation.",
+      "canViewToolsFeature": "Allows seeing the Tools section in the app's navigation."
+    }
+  }
+}

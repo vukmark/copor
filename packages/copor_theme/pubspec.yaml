@@ -1,0 +1,34 @@
+name: copor_theme
+description: Copor design system — theme, atoms, components, and form fields.
+publish_to: none
+version: 0.1.0
+
+environment:
+  sdk: '>=3.8.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_hooks: ^0.21.3
+  country_flags: ^4.0.1
+  intl: ^0.20.2
+  cached_network_image: ^3.4.1
+  cached_network_image_platform_interface: ^4.1.1
+
+flutter:
+  uses-material-design: true
+  # Phosphor Icons (MIT, lib/fonts/phosphor/LICENSE); constants in
+  # lib/src/utils/phosphor_icons.dart.
+  fonts:
+    - family: PhosphorThin
+      fonts:
+        - asset: lib/fonts/phosphor/Phosphor-Thin.ttf
+    - family: PhosphorLight
+      fonts:
+        - asset: lib/fonts/phosphor/Phosphor-Light.ttf
+    - family: PhosphorRegular
+      fonts:
+        - asset: lib/fonts/phosphor/Phosphor.ttf
+    - family: PhosphorFill
+      fonts:
+        - asset: lib/fonts/phosphor/Phosphor-Fill.ttf

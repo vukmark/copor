@@ -1,0 +1,73 @@
+import login.http
+run login.http
+
+### Create Ai Context Item
+POST {{host}}/ai-context-item
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "answerDe": "answerDe",
+  "answerEn": "answerEn",
+  "questionDe": "questionDe",
+  "questionEn": "questionEn"
+}
+
+### UPDATE Ai Context Item
+PATCH {{host}}/ai-context-item
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "id": "4d959d3d-3bcc-4028-ae0c-bb1d3eec6487",
+  "answerDe": "answerDee",
+  "answerEn": "answerEne",
+  "questionDe": "questionDee",
+  "questionEn": "questionEne"
+}
+
+### DELETE Ai Context Item
+DELETE {{host}}/ai-context-item/339559e9-eede-45f8-9901-c07f63056179
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Ai Context Item
+GET {{host}}/ai-context-item/bc98d79f-af58-43e0-93dc-f54655073354
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### Get Ai Context Item List
+POST {{host}}/ai-context-item/list
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [""]
+    },
+    {
+      "name": "SORT_BY_NAME",
+      "values": ["desc"]
+    }
+  ]
+}
+
+### GET Ai Context Item Form
+GET {{host}}/ai-context-item/form
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Ai Context Item Form By ID
+GET {{host}}/ai-context-item/form/4d959d3d-3bcc-4028-ae0c-bb1d3eec6487
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}

@@ -1,0 +1,66 @@
+import {PermissionRepository} from '@copor/core/domain/Core/Validations/PermissionRepository';
+import {
+	ValidateDeleteCAMEL_CASE_NAMERepo
+} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/repository/ValidateDeleteCAMEL_CASE_NAMERepo';
+import {
+	ValidateDeleteCAMEL_CASE_NAMEDTO
+} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/dto/ValidateDeleteCAMEL_CASE_NAMEDTO';
+import {ErrorList} from '@copor/core/domain/Core/Exceptions/ErrorList';
+import {ForbiddenAccessException} from '@copor/core/domain/Core/Exceptions/ForbiddenAccessException';
+import {ValidateDeleteCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/ValidateDeleteCAMEL_CASE_NAME';
+import {InvalidCAMEL_CASE_NAMEException} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/exception/InvalidCAMEL_CASE_NAMEException';
+import {DeletionNotAllowedException} from '@copor/core/domain/Core/Exceptions/DeletionNotAllowedException';
+
+describe('Validate deletion of a contract type', () => {
+	let mockPermissionRepo: jest.Mocked<PermissionRepository>;
+	let mockStorageRepo: jest.Mocked<ValidateDeleteCAMEL_CASE_NAMERepo>;
+	let input: ValidateDeleteCAMEL_CASE_NAMEDTO;
+
+	beforeEach(() => {
+		mockPermissionRepo = {
+			isAllowed: jest.fn()
+		};
+		mockStorageRepo = {
+			isInvalidCAMEL_CASE_NAME: jest.fn(),
+			entityHasReferences: jest.fn()
+		};
+		input = {
+			actorId: 'actorId',
+			LOWER_FIRST_CAMEL_CASE_NAMEId: 'LOWER_FIRST_CAMEL_CASE_NAMEId'
+		};
+		mockPermissionRepo.isAllowed.mockResolvedValue(true);
+		mockStorageRepo.isInvalidCAMEL_CASE_NAME.mockResolvedValue(false);
+		mockStorageRepo.entityHasReferences.mockResolvedValue(false);
+	});
+
+	it('Should throw if user has no permission to delete a Contract Type', async() => {
+		const errorList = new ErrorList([new ForbiddenAccessException()]);
+
+		mockPermissionRepo.isAllowed.mockResolvedValue(false);
+
+		const validator = new ValidateDeleteCAMEL_CASE_NAME(input, mockPermissionRepo, mockStorageRepo);
+		const result = await validator.validate();
+
+		expect(result).toStrictEqual(errorList);
+	});
+
+	it('Should throw error if Contract Type is invalid', async () => {
+		const errorList = new ErrorList([new InvalidCAMEL_CASE_NAMEException()]);
+		const validator = new ValidateDeleteCAMEL_CASE_NAME(input, mockPermissionRepo, mockStorageRepo);
+
+		mockStorageRepo.isInvalidCAMEL_CASE_NAME.mockResolvedValue(true);
+		const result = await validator.validate();
+
+		expect(result).toStrictEqual(errorList);
+	});
+
+	it('Should throw error if Contract Type is referenced', async() => {
+		const errorList = new ErrorList([new DeletionNotAllowedException('x')]);
+		const validator = new ValidateDeleteCAMEL_CASE_NAME(input, mockPermissionRepo, mockStorageRepo);
+
+		mockStorageRepo.entityHasReferences.mockResolvedValue({tableName: 'x'});
+		const result = await validator.validate();
+
+		expect(result).toStrictEqual(errorList);
+	});
+});

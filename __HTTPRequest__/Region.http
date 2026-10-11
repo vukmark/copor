@@ -1,0 +1,134 @@
+import login.http
+run login.http
+
+### CREATE Region
+POST {{host}}/region/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "country": "25e3a1c5-2248-4bd1-9034-78b6cd6d92a7",
+  "state": "13a31469-25f4-4290-80c2-0fc1eb10b511",
+  "postalCode": "22222"
+}
+
+### GET Region
+GET {{host}}/region/38b3c439-00a4-414c-82f8-b7790a2754c8
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Region Table
+POST {{host}}/region/table
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [
+        ""
+      ]
+    },
+    {
+      "name": "SORT_BY_NAME",
+      "values": [
+        "asc"
+      ]
+    },
+    {
+      "name": "PUBLISH_STATUS",
+      "values": [
+        "PUBLISHED",
+        "UNPUBLISHED"
+      ]
+    }
+  ],
+  "offset": "0",
+  "limit": "2"
+}
+
+### GET Region List
+POST {{host}}/region/list/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [
+        ""
+      ]
+    },
+    {
+      "name": "SORT_BY_NAME",
+      "values": [
+        "asc"
+      ]
+    },
+    {
+      "name": "PUBLISH_STATUS",
+      "values": [
+        "PUBLISHED",
+        "UNPUBLISHED"
+      ]
+    }
+  ],
+  "limit": "10",
+  "offset": "0"
+}
+
+### DELETE Region
+DELETE {{host}}/region/6d94a7f6-2181-4388-9181-a1e763b8aa39
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### UPDATE Region
+PATCH {{host}}/region
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "id": "38b3c439-00a4-414c-82f8-b7790a2754c8",
+  "country": "25e3a1c5-2248-4bd1-9034-78b6cd6d92a7",
+  "state": "13a31469-25f4-4290-80c2-0fc1eb10b511",
+  "postalCode": "11111"
+}
+
+### GET Region Form
+GET {{host}}/region/form
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET Region Form by ID
+GET {{host}}/region/form/38b3c439-00a4-414c-82f8-b7790a2754c8
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+
+### Get Region simple list
+POST {{host}}/region/simple-list
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+{
+  "filterList": [
+    {
+      "name": "SEARCH",
+      "values": [""]
+    }
+  ],
+  "limit": "5",
+  "offset": "0"
+
+}

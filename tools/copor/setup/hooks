@@ -1,0 +1,13 @@
+#!/bin/bash
+# Installs the repo's git hooks (scripts/git-hooks): after a checkout, merge or
+# rebase that changes a pubspec.{yaml,lock} they run `flutter pub get` in every
+# Flutter package and the app — path dependencies Flutter can't track by itself.
+
+source $COPOR_PATH/tools/helpers/printer.sh
+
+HOOKS_SRC="$COPOR_PATH/scripts/git-hooks"
+HOOKS_DEST="$COPOR_PATH/.git/hooks"
+
+chmod +x "$HOOKS_SRC"/pub-get-if-packages-changed.sh "$HOOKS_SRC"/post-merge "$HOOKS_SRC"/post-checkout "$HOOKS_SRC"/post-rewrite
+cp "$HOOKS_SRC"/post-merge "$HOOKS_SRC"/post-checkout "$HOOKS_SRC"/post-rewrite "$HOOKS_DEST/"
+print_info "Installed git hooks in $HOOKS_DEST"

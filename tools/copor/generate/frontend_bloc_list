@@ -1,0 +1,72 @@
+#!/bin/bash
+
+source $COPOR_HELPERS_PATH/printer.sh
+source $COPOR_HELPERS_PATH/string_helper.sh
+source $COPOR_HELPERS_PATH/templates_helper.sh
+# Source and destination directories
+SOURCE_DIR="$COPOR_TEMPLATES_PATH/frontend_bloc_list"
+
+function usage() {
+    print_info "Usage: copor generate frontend_bloc_list -m <MODULE NAME> -n <BLOC NAME>"
+    print_info "Options: "
+    print_info "{ -m <MODULE NAME> } An optional module's package folder (packages/<MODULE NAME>/flutter, like vu_meet or todo; files go to its lib/src)
+or a core feature folder (packages/core/flutter/lib/src/modules/<MODULE NAME>, like forms). It must exist."
+    print_info "{ -n <BLOC NAME>   } Name of the bloc. If have multiple words in name separate it with underscore, like: Contract_Type."
+    exit 1
+}
+
+BLOCK_NAME=""
+MODULE_NAME=""
+OPTSTRING=":n:m:"
+
+while getopts ${OPTSTRING} opt; do
+  case ${opt} in
+    n)
+      BLOCK_NAME=${OPTARG}
+      print_info "Bloc name: $BLOCK_NAME"
+      ;;
+    m)
+      MODULE_NAME=${OPTARG}
+      print_info "Module name: $MODULE_NAME"
+      ;;
+    :)
+      usage
+      ;;
+    ?)
+      print_error "Required option: -${OPTARG}"
+      usage
+      ;;
+  esac
+done
+
+if [ -z "$MODULE_NAME" ] || [ -z "$BLOCK_NAME" ]; then
+    if [ -z "$MODULE_NAME" ]; then
+        print_error "Module name cannot be empty."
+    fi
+    if [ -z "$BLOCK_NAME" ]; then
+        print_error "Bloc name cannot be empty."
+    fi
+    usage
+fi
+
+if [[ -d "$COPOR_PATH/packages/$MODULE_NAME/flutter/lib" ]]; then
+    DEST_DIR="$COPOR_PATH/packages/$MODULE_NAME/flutter/lib/src"
+    IMPORT_PREFIX="copor_$MODULE_NAME/src"
+else
+    DEST_DIR="$COPOR_PATH/packages/core/flutter/lib/src/modules/$MODULE_NAME"
+    IMPORT_PREFIX="copor_core/src/modules/$MODULE_NAME"
+fi
+
+# Check if the source directory exists
+if [[ ! -d "$SOURCE_DIR" ]]; then
+    print_error "Error: Source directory '$SOURCE_DIR' does not exist."
+    exit 1
+fi
+
+# Check if the destination directory exists
+if [[ ! -d "$DEST_DIR" ]]; then
+    print_error "Error: Destination directory '$DEST_DIR' does not exist."
+    exit 1
+fi
+
+create_frontend_from_template_and_replace_placeholders $SOURCE_DIR $DEST_DIR $BLOCK_NAME $MODULE_NAME $IMPORT_PREFIX

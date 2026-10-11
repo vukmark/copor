@@ -1,0 +1,5 @@
+import {IsInvalidCAMEL_CASE_NAMERepo} from './IsInvalidCAMEL_CASE_NAMERepo';
+import {EntityHasForeignKeyReferencesRepo} from '@copor/core/domain/Core/Validations/Validators/ValidateEntityIsNotReferenced';
+
+export interface ValidateDeleteCAMEL_CASE_NAMERepo
+	extends IsInvalidCAMEL_CASE_NAMERepo, EntityHasForeignKeyReferencesRepo {}

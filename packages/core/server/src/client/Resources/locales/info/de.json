@@ -1,0 +1,11 @@
+{
+  "translationStringList": {
+    "LOGS": "Protokolle",
+    "LOG_INFO": "Protokollinformationen",
+    "LOG_DATA": "Protokolldaten",
+    "LOG_ID": "Protokoll-ID",
+    "ACTOR": "Akteur",
+    "ACTION_TYPE": "Protokolltyp",
+    "TIME": "Zeitstempel"
+  }
+}

@@ -1,0 +1,73 @@
+name: copor_frontend
+description: "Copor app (Flutter): composition root — main.dart, modules.dart, Firebase options, platform folders, assets"
+publish_to: 'none'
+version: 8.0.10+7
+
+environment:
+  sdk: '>=3.8.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dartz: ^0.10.1
+  dio: ^5.7.0
+  firebase_core: ^4.0.0
+  firebase_messaging: ^16.0.0
+  flutter_bloc: ^9.0.0
+  flutter_web_plugins:
+    sdk: flutter
+  go_router: ^17.0.0
+  intl: ^0.20.2
+  provider: ^6.0.0
+  copor_calendar_entry:
+    path: ../packages/calendar_entry/flutter
+  copor_cloud:
+    path: ../packages/cloud/flutter
+  copor_contacts:
+    path: ../packages/contacts/flutter
+  copor_core:
+    path: ../packages/core/flutter
+  copor_help:
+    path: ../packages/help/flutter
+  copor_news:
+    path: ../packages/news/flutter
+  copor_scaffold:
+    path: ../packages/copor_scaffold
+  copor_theme:
+    path: ../packages/copor_theme
+  copor_todo:
+    path: ../packages/todo/flutter
+  copor_vu_meet:
+    path: ../packages/vu_meet/flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  build_runner: ^2.4.0
+  mockito: ^5.4.4
+  bloc_test: ^10.0.0
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/app_icon/
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/inter/Inter-Light.ttf
+          weight: 300
+        - asset: assets/fonts/inter/Inter-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/inter/Inter-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/inter/Inter-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/inter/Inter-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/inter/Inter-Italic.ttf
+          weight: 400
+          style: italic

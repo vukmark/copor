@@ -1,0 +1,60 @@
+import {BaseController} from '@copor/core/client/Core/BaseController';
+import {GetCAMEL_CASE_NAMEViewModel} from '../GetCAMEL_CASE_NAME/GetCAMEL_CASE_NAMEViewModel';
+import {
+	ValidateGetCAMEL_CASE_NAMEList
+} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/validation/ValidateGetCAMEL_CASE_NAMEList';
+import {GetCAMEL_CASE_NAMEListInteractorRepoPicker} from './repo/repoPicker/GetCAMEL_CASE_NAMEListInteractorRepoPicker';
+import {GetCAMEL_CASE_NAMEList} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/GetCAMEL_CASE_NAMEList';
+import {GetCAMEL_CASE_NAMEListLoggerRepoPicker} from './repo/repoPicker/GetCAMEL_CASE_NAMEListLoggerRepoPicker';
+import {LogGetCAMEL_CASE_NAMEList} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/logger/LogGetCAMEL_CASE_NAMEList';
+import {CreateLogDetails} from '@copor/core/client/GlobalRepository/CreateLogDetails';
+import {RunFactory} from '@copor/core/domain/Core/Factories/RunFactory';
+import {Validator} from '@copor/core/domain/Core/Validations/Validators/Validator';
+import {GetCAMEL_CASE_NAMEDTO} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/dto/GetCAMEL_CASE_NAMEDTO';
+import {ErrorList} from '@copor/core/domain/Core/Exceptions/ErrorList';
+import {PermissionValidatorRepoPicker} from '@copor/core/client/Core/PermissionValidatorRepo/PermissionValidatorRepoPicker';
+import {GetListReqBodyDTO} from '@copor/core/client/Core/dto/GetListReqBodyDTO';
+
+export class GetCAMEL_CASE_NAMEListController extends BaseController<GetListReqBodyDTO, GetCAMEL_CASE_NAMEViewModel[]> {
+	async getResponse() {
+		const container = this.container;
+		const factory = container.getFactory(
+			RunFactory<GetCAMEL_CASE_NAMEDTO[]>,
+			this.getValidator(),
+			this.getInteractor(),
+			this.getLogger()
+		);
+		const response = await factory.run();
+
+		if (response instanceof ErrorList) {
+			this.next(response);
+			return;
+		}
+		this.response.status(200);
+		this.response.send(response);
+	}
+	private getValidator(): Validator {
+		const container = this.container;
+		const validatorPermissionRepo = container.getNewRepoPicker(PermissionValidatorRepoPicker);
+		const validatorInput = this.actorId;
+
+		return container.getValidator(
+			ValidateGetCAMEL_CASE_NAMEList,
+			validatorInput,
+			validatorPermissionRepo,
+			undefined
+		);
+	}
+	private getInteractor() {
+		const container = this.container;
+		const interactorRepo = this.container.getNewRepoPicker(GetCAMEL_CASE_NAMEListInteractorRepoPicker);
+
+		return container.getInteractor(GetCAMEL_CASE_NAMEList, interactorRepo, {filters: this.request.body.filterList});
+	}
+	private getLogger() {
+		const container = this.container;
+		const loggerRepo = container.getNewRepoPicker(GetCAMEL_CASE_NAMEListLoggerRepoPicker);
+
+		return container.getLogger(LogGetCAMEL_CASE_NAMEList, loggerRepo, new CreateLogDetails(this.actorId), undefined);
+	}
+}

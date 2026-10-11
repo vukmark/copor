@@ -1,0 +1,14 @@
+import login.http
+run login.http
+
+### Get TermsAndConditions Document
+GET {{host}}/documents/TermsAndConditions/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}
+
+### Get Impressum Document
+GET {{host}}/documents/Impressum/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-version: {{x-version}}

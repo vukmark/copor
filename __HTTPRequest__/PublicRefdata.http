@@ -1,0 +1,20 @@
+
+### GET Country By ID
+GET {{host}}/refdata/country/25e3a1c5-2248-4bd1-9034-78b6cd6d92a7
+Content-Type: application/json
+x-Version: {{x-version}}
+
+### Get Country List // All countries
+GET {{host}}/refdata/country/
+Content-Type: application/json
+x-version: {{x-version}}
+
+### GET State List by country ID
+GET {{host}}/refdata/state/list/4e9932d6-5f6c-42d3-8f44-2b7683ba413d
+Content-Type: application/json
+x-Version: {{x-version}}
+
+### GET State by ID
+GET {{host}}/refdata/state/13a31469-25f4-4290-80c2-0fc1eb10b511
+Content-Type: application/json
+x-Version: {{x-version}}

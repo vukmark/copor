@@ -1,0 +1,8 @@
+{
+  "smtpHost": "",
+  "smtpPort": 465,
+  "smtpPassword": "",
+  "smtpEmail": "",
+  "smtpConnectionSecurity": "SMTP_CONNECTION_SECURITY_SSL_TLS",
+  "smtpAuthMethod": "SMTP_AUTH_METHOD_NORMAL_PASSWORD"
+}

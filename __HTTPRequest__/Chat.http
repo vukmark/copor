@@ -1,0 +1,73 @@
+import ../login.http
+run login.http
+
+### GET chat
+GET {{host}}/vu-meet/chat/74207910-ad0f-4982-b2cb-5daf9853027d
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### GET chat with user
+GET {{host}}/vu-meet/chat/user/8db0c762-f5a4-4bc3-8211-78777656f823
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### Create chat
+POST {{host}}/vu-meet/chat
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "user2": "7c37f8ef-ac02-437c-9562-603535d8c6a9"
+}
+
+
+### Send chat typing status
+POST {{host}}/vu-meet/chat/typing-status
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+    "chatId": "e706f2af-9833-4de0-9795-9d605d8a2b4b",
+	"typingStatus": "0"
+}
+
+### Create private call
+POST {{host}}/vu-meet/chat/call/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "chatId": "74207910-ad0f-4982-b2cb-5daf9853027d",
+  "action": "DECLINE_CALL",
+  "roomUrl": "url",
+  "type": "VIDEO"
+}
+
+### GET chat info
+GET {{host}}/vu-meet/chat/info/5c4e168a-8335-49fe-9a3b-a43c33ef092a
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### Mark chat messages seen
+GET {{host}}/vu-meet/chat/mark-seen/aaf6411e-5a57-42e1-89ce-a45b9d2f9e8c
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+### Update chat
+PATCH {{host}}/vu-meet/chat/
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+x-Version: {{x-version}}
+
+{
+  "id": "aaf6411e-5a57-42e1-89ce-a45b9d2f9e8c",
+  "name": "SomeName",
+  "userList": ["1b3d6d6c-1307-4650-ad7e-5202845da67f", "1a9e0b45-4249-4fbc-a108-ff640c6a364c"]
+}

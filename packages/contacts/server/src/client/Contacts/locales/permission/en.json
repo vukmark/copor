@@ -1,0 +1,18 @@
+{
+  "translationStringList": {
+    "contacts": {
+      "canViewContactsFeature": "Access contacts feature",
+      "canGetContactList": "View contact list",
+      "canGetContactById": "View contact by ID",
+      "canGetUserContactInformation": "View user contact information"
+    }
+  },
+  "descriptions": {
+    "contacts": {
+      "canViewContactsFeature": "Allows seeing the Contacts section in the app's navigation.",
+      "canGetContactList": "Allows viewing contact list. Found in the Contacts area.",
+      "canGetContactById": "Allows viewing a user's contact information. Found in the Contacts area.",
+      "canGetUserContactInformation": "Allows viewing user contact information. Found in the Contacts area."
+    }
+  }
+}

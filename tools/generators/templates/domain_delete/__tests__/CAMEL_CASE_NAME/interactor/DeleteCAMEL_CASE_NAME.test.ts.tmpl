@@ -1,0 +1,14 @@
+import {DeleteCAMEL_CASE_NAME} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/interactor/DeleteCAMEL_CASE_NAME';
+import {DeleteCAMEL_CASE_NAMERepo} from '@copor/PACKAGE_NAME/domain/CAMEL_CASE_NAME/repository/DeleteCAMEL_CASE_NAMERepo';
+
+describe('Delete Contract Type', () => {
+	const mockRepo: jest.Mocked<DeleteCAMEL_CASE_NAMERepo> = {
+		delete: jest.fn()
+	};
+	const deleteCAMEL_CASE_NAME = new DeleteCAMEL_CASE_NAME('LOWER_FIRST_CAMEL_CASE_NAME-id', mockRepo);
+
+	it('Should delete a Contract Type', async () => {
+		await deleteCAMEL_CASE_NAME.execute();
+		expect(mockRepo.delete).toHaveBeenCalledWith('LOWER_FIRST_CAMEL_CASE_NAME-id');
+	});
+});

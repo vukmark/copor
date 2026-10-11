@@ -1,0 +1,22 @@
+{
+  "translationStringList": {
+    "content_item": {
+      "canCreateContentItem": "Create content item",
+      "canDeleteContentItem": "Delete content item",
+      "canGetContentItem": "View content item",
+      "canGetContentItemList": "View content item list",
+      "canUpdateContentItem": "Update content item",
+      "canViewAdministrationContentItemFeature": "Access content item administration"
+    }
+  },
+  "descriptions": {
+    "content_item": {
+      "canCreateContentItem": "Allows creating a content item. Found in the Administration Content Item area.",
+      "canDeleteContentItem": "Allows deleting a content item. Found in the Administration Content Item area.",
+      "canGetContentItem": "Allows viewing a content item. Found in the Administration Content Item area.",
+      "canGetContentItemList": "Allows viewing content item list. Found in the Administration Content Item area.",
+      "canUpdateContentItem": "Allows updating a content item. Found in the Administration Content Item area.",
+      "canViewAdministrationContentItemFeature": "Allows seeing the Administration Content Item section in the app's navigation."
+    }
+  }
+}

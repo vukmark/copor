@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd $COPOR_PATH/frontend
+flutter run -d chrome

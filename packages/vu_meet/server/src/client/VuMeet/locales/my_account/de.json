@@ -1,0 +1,8 @@
+{
+  "translationStringList": {
+    "VU_MEET_NOTIFICATIONS": "VuMeet",
+    "VU_MEET_NOTIFICATIONS_ON": "Sie erhalten eine Push-Benachrichtigung für jede neue Chatnachricht. Eingehende Anrufe klingeln immer.",
+    "VU_MEET_NOTIFICATIONS_OFF": "Keine Push-Benachrichtigungen für Chatnachrichten. Eingehende Anrufe klingeln weiterhin.",
+    "VU_MEET_MESSAGE_PUSH": "Chatnachrichten"
+  }
+}
