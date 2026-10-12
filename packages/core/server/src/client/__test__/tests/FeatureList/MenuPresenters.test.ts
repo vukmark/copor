@@ -3,12 +3,22 @@ import {GetDashboardMenuPresenter} from '@copor/core/client/DashboardMenu/GetDas
 import {AppContext} from '@copor/core/client/Interface/AppContext';
 import {RoleType} from '@copor/core/domain/Core/enum/RoleType';
 import {Feature} from '@copor/core/domain/FeatureList/enum/Feature';
+import {DashboardCategory} from '@copor/core/domain/FeatureList/enum/DashboardCategory';
+import {registerFeatureDefinitions} from '@copor/core/domain/FeatureList/FeatureRegistry';
+
+// A module's menu and dashboard entries sort in among core's by `order`.
+// Only core's features and this sample's are unlocked, so whatever modules
+// the app registers stay out of the result.
+registerFeatureDefinitions('menu_sample', [
+	{key: '/menu-sample', menuItem: {icon: 'sample', labelKey: 'MENU_SAMPLE', order: 35}},
+	{key: '/administration/menu-sample', dashboardItem: {category: DashboardCategory.ADMINISTRATION, icon: 'sample', titleKey: 'MENU_SAMPLE', order: 15}}
+]);
 
 // Every feature that can appear in a menu, as route paths (the API contract).
 const allFeatures = [
-	'/todo', '/contacts', '/ai-assistance', '/administration-dashboard', '/tools',
+	'/menu-sample', '/ai-assistance', '/administration-dashboard',
 	'/administration/role', '/administration/user', '/administration/user-groups',
-	'/administration/contract-type', '/administration/content-item', '/administration/ai-context-item',
+	'/administration/contract-type', '/administration/menu-sample', '/administration/content-item',
 	'/administration/tag', '/administration/log', '/administration/state', '/administration/region-city',
 	'/administration/language', '/administration/native-language', '/administration/tenant',
 	'/administration/deletion-requests', '/administration/permissions', '/administration/system-settings'
@@ -20,11 +30,9 @@ describe('GetMenuPresenter', () => {
 		const result = new GetMenuPresenter({featureList: allFeatures}, context, RoleType.USER).present();
 
 		expect(result.menuList.map((item) => [item.route, item.icon])).toEqual([
-			['/todo', 'listCheck'],
-			['/contacts', 'addressBook'],
 			['/ai-assistance', 'robotAstromech'],
-			['/administration-dashboard', 'userShield'],
-			['/tools', 'tools']
+			['/menu-sample', 'sample'],
+			['/administration-dashboard', 'userShield']
 		]);
 	});
 
@@ -48,8 +56,8 @@ describe('GetDashboardMenuPresenter', () => {
 			],
 			[
 				['/administration/contract-type', 'fileLines', undefined],
-				['/administration/content-item', 'book', undefined],
-				['/administration/ai-context-item', 'robot', undefined]
+				['/administration/menu-sample', 'sample', undefined],
+				['/administration/content-item', 'book', undefined]
 			],
 			[
 				['/administration/tag', 'tag', undefined]

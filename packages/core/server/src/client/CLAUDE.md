@@ -55,7 +55,7 @@ Controllers don't `new` up their dependencies directly — they go through `this
 
 ### Permissions
 
-`Core/PermissionValidatorRepo/` holds the permission-checking repo (`FakePermissionValidatorRepo` / `KyselyPermissionValidatorRepo`, picked via `PermissionValidatorRepoPicker`). The permission definitions themselves are registered once at startup by `registerModules(enabledModules)` in `index.ts` (`Core/Module/registerModules.ts`: core's plus each listed module's `permissions` and `features`, then a check that every `dependsOn`, view permission and permission feature resolves); tests register all of them via the app's `test/client/jest.setup.ts`. The permission model itself (scopes, DENY-wins-over-ALLOW precedence, cache invalidation) is documented in the root docs vault (`../docs/dev_documentation/permission_system.md`, `../docs/workflow/permissions.md`), not in code comments — check there before changing permission behavior.
+`Core/PermissionValidatorRepo/` holds the permission-checking repo (`FakePermissionValidatorRepo` / `KyselyPermissionValidatorRepo`, picked via `PermissionValidatorRepoPicker`). The permission definitions themselves are registered once at startup by `registerModules(enabledModules)` in `index.ts` (`Core/Module/registerModules.ts`: core's plus each listed module's `permissions` and `features`, then a check that every `dependsOn`, view permission and permission feature resolves); tests register those of the app's modules via the app's `test/client/jest.setup.ts`. The permission model itself (scopes, DENY-wins-over-ALLOW precedence, cache invalidation) is documented in the root docs vault (`../docs/dev_documentation/permission_system.md`, `../docs/workflow/permissions.md`), not in code comments — check there before changing permission behavior.
 
 ### Env / config
 
@@ -63,4 +63,4 @@ Controllers don't `new` up their dependencies directly — they go through `this
 
 ### Tests
 
-A package's `src/client/__test__/tests/` mirrors its feature folders; core's `src/client/__test__/testHelper/` has `Controller.helper.ts`, `Router.helper.ts`, `App.helper.ts`, and `Mocks.ts` for building test fixtures around controllers/routers without hitting a real server or DB.
+A package's `src/client/__test__/tests/` mirrors its feature folders; core's `src/client/__test__/testHelper/` has `Controller.helper.ts`, `Router.helper.ts`, `App.helper.ts`, and `Mocks.ts` for building test fixtures around controllers/routers without hitting a real server or DB. Each package checks its module's permission and feature enums against the definitions its descriptor registers with `testModuleDefinitions` (`testHelper/ModuleDefinitions.helper.ts`), in `tests/<Feature>/<Feature>Module.test.ts` (core's three in `tests/Module/CoreModuleDefinitions.test.ts`) — call it there for a new module.

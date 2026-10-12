@@ -1,5 +1,4 @@
 import {getPermissionDefinitions, validatePermissionDependencies} from '@copor/core/domain/Core/Permission/PermissionRegistry';
-import {allModuleSets} from '../../helpers/allModuleDefinitions';
 import {PermissionType} from '@copor/core/domain/Core/Permission/PermissionType';
 import {
 	getDirectDependencies,
@@ -13,18 +12,6 @@ describe('PermissionDependencyGraph', () => {
 
 	it('every dependsOn entry references a registered permission', () => {
 		expect(() => validatePermissionDependencies()).not.toThrow();
-	});
-
-	it.each(allModuleSets)('every $moduleName permission has a definition in its own module', (set) => {
-		const definedKeys = new Set(set.definitions.map((definition) => definition.key));
-
-		for (const permissionType of Object.values(set.permissions))
-			expect(definedKeys.has(permissionType as PermissionType)).toBe(true);
-	});
-
-	it.each(allModuleSets)('$moduleName permission keys start with "$moduleName."', (set) => {
-		for (const permissionType of Object.values(set.permissions))
-			expect(permissionType.startsWith(set.moduleName + '.')).toBe(true);
 	});
 
 	it('contains no cycles', () => {

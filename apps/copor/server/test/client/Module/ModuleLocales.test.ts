@@ -83,11 +83,11 @@ describe('ModuleLocales', () => {
 		}
 		const instance = await instanceWith(resources);
 
-		expect(() => mergeModuleLocales(instance, readModuleLocales(allModules))).not.toThrow();
-		expect(instance.getResource('en', 'vu_meet', 'translationStringList')).toBeDefined();
-		expect(instance.getResource('de', 'common', 'translationStringList.CALLING')).toBeDefined();
-		expect(instance.getResource('en', 'error', 'InvalidToDoException')).toBeDefined();
-		expect(instance.getResource('en', 'permission', 'translationStringList.vu_meet')).toBeDefined();
+		const bundles = readModuleLocales(allModules);
+
+		expect(() => mergeModuleLocales(instance, bundles)).not.toThrow();
+		for (const bundle of bundles)
+			expect(instance.getResourceBundle(bundle.language, bundle.namespace)).toMatchObject(bundle.resources);
 		expect(instance.getResource('en', 'permission', 'translationStringList.core')).toBeDefined();
 	});
 });

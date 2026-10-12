@@ -1,15 +1,9 @@
 import {getFeatureDefinitions, validateFeatureReferences} from '@copor/core/domain/FeatureList/FeatureRegistry';
-import {allModuleSets} from '../helpers/allModuleDefinitions';
+import {allModules} from '../../../src/modules';
 
 describe('FeatureRegistry', () => {
 	it('every view permission and every permission\'s feature is registered', () => {
 		expect(() => validateFeatureReferences()).not.toThrow();
-	});
-
-	it.each(allModuleSets)('every $moduleName feature has a definition in its own module', (set) => {
-		const definedKeys = new Set<string>(set.features.map((definition) => definition.key));
-
-		expect(Object.values(set.featureKeys).filter((key) => !definedKeys.has(key))).toEqual([]);
 	});
 
 	it('unlocks each feature through the same view permission as before the registry', () => {
@@ -18,7 +12,10 @@ describe('FeatureRegistry', () => {
 			.map((definition) => [definition.viewPermission, definition.key])
 			.sort((a, b) => a[0]!.localeCompare(b[0]!));
 
-		expect(pairs).toEqual([
+		// The pairs of this app's modules (each permission key starts with its module's name).
+		const included = new Set(['core', ... allModules.map((module) => module.name)]);
+
+		expect(pairs).toEqual(([
 			['ai_context_item.canViewAdministrationAiContextItemFeature', '/administration/ai-context-item'],
 			['cloud.canViewCloudFeature', '/cloud'],
 			['contacts.canViewContactsFeature', '/contacts'],
@@ -50,6 +47,6 @@ describe('FeatureRegistry', () => {
 			['news.canViewNewsFeature', '/news'],
 			['todo.canViewTodoFeature', '/todo'],
 			['vu_meet.canViewVuMeetFeature', '/vu-meet']
-		]);
+		] as string[][]).filter(([permission]) => included.has(permission.split('.')[0])));
 	});
 });

@@ -1,5 +1,6 @@
 import {MainRouter} from '@copor/core/client/Core/MainRouter';
 import {IRoute, testRouter} from '@copor/core/client/__test__/testHelper/Router.helper';
+import {enabledModules} from '../../src/modules';
 
 describe('test MainRouter', () => {
 	const targetRouteList: IRoute[] = [
@@ -29,10 +30,6 @@ describe('test MainRouter', () => {
 		},
 		{
 			path: '/state',
-			method: 'nextRouter'
-		},
-		{
-			path: '/todo',
 			method: 'nextRouter'
 		},
 		{
@@ -76,10 +73,6 @@ describe('test MainRouter', () => {
 			method: 'nextRouter'
 		},
 		{
-			path: '/vu-meet',
-			method: 'nextRouter'
-		},
-		{
 			path: '/role',
 			method: 'nextRouter'
 		},
@@ -108,10 +101,6 @@ describe('test MainRouter', () => {
 			method: 'nextRouter'
 		},
 		{
-			path: '/calendar-entry',
-			method: 'nextRouter'
-		},
-		{
 			path: '/wsconfig',
 			method: 'get'
 		},
@@ -128,19 +117,11 @@ describe('test MainRouter', () => {
 			method: 'get'
 		},
 		{
-			path: '/checklist',
-			method: 'nextRouter'
-		},
-		{
 			path: '/feature-list',
 			method: 'nextRouter'
 		},
 		{
 			path: '/dashboard-menu',
-			method: 'nextRouter'
-		},
-		{
-			path: '/cloud-category',
 			method: 'nextRouter'
 		},
 		{
@@ -164,10 +145,6 @@ describe('test MainRouter', () => {
 			method: 'nextRouter'
 		},
 		{
-			path: '/cloud/',
-			method: 'nextRouter'
-		},
-		{
 			path: '/region-city/',
 			method: 'nextRouter'
 		},
@@ -184,10 +161,6 @@ describe('test MainRouter', () => {
 			method: 'get'
 		},
 		{
-			path: '/news',
-			method: 'nextRouter'
-		},
-		{
 			path: '/content-item',
 			method: 'nextRouter'
 		},
@@ -196,21 +169,11 @@ describe('test MainRouter', () => {
 			method: 'nextRouter'
 		},
 		{
-			path: '/ai-context-item',
-			method: 'nextRouter'
-		},
-		{
 			path: '/registration',
 			method: 'nextRouter'
 		},
-		{
-			path: '/contacts',
-			method: 'nextRouter'
-		},
-		{
-			path: '/help',
-			method: 'nextRouter'
-		}
+		// Every route of the optional modules this app includes.
+		... enabledModules.flatMap((module) => (module.routes ?? []).map((route): IRoute => ({path: route.path, method: 'nextRouter'})))
 	];
 
 	testRouter(MainRouter, targetRouteList);

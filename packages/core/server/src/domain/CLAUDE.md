@@ -40,4 +40,4 @@ A feature is the frontend route it unlocks (`Feature` type, e.g. `/vu-meet`). Co
 
 ### Tests
 
-A package's `src/domain/__tests__/` mirrors its feature folders (`ts-jest`, run by the app's jest project `domain`; shared setup in the app's `test/domain/jest.setup.ts`, which registers every module's permissions, features and preferences via `test/domain/helpers/allModuleDefinitions.ts` — add a new module's sets there). Tests of the composed app (all modules' definitions, the route list) live in the app's `test/`.
+A package's `src/domain/__tests__/` mirrors its feature folders (`ts-jest`, run by the app's jest project `domain`; shared setup in the app's `test/domain/jest.setup.ts`, which registers the permissions, features and preferences of the modules the app includes, read from its `src/modules.ts` by `test/domain/helpers/allModuleDefinitions.ts`). Tests of the composed app (the route list, the merged translations) live in the app's `test/` and take the module set from `src/modules.ts` too, so they still pass when the app leaves a module out; a package's own tests must not depend on another module being included.

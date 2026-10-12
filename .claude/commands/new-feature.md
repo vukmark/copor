@@ -18,7 +18,7 @@ The server skeleton can be generated: `copor generate dom_cli_crud -n <Feature_N
 - `repo/fake/Fake<FeatureName>Repo.ts`
 - `repo/kysely/Kysely<FeatureName>Repo.ts`
 - `repo/repoPicker/<FeatureName>RepoPicker.ts`
-- Optional feature: add `<FeatureName>Module.ts` (a `CoporModule` with its routes) and list it in `apps/copor/server/src/modules.ts`. Core feature: register the router in `packages/core/server/src/client/Core/MainRouter.ts`
+- Optional feature: add `<FeatureName>Module.ts` (a `CoporModule` with its routes) and list it in `apps/copor/server/src/modules.ts`, plus `src/client/__test__/tests/<FeatureName>/<FeatureName>Module.test.ts` calling `testModuleDefinitions(<module>, <Feature>Permission, <Feature>Feature)` (core's `testHelper/ModuleDefinitions.helper.ts`). Core feature: register the router in `packages/core/server/src/client/Core/MainRouter.ts`
 
 ### 3. Frontend — `packages/core/flutter/lib/src/modules/<feature_name>/`
 - `config/<feature>_route.dart` — GoRouter `StatefulShellBranch`
